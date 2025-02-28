@@ -121,11 +121,35 @@
     <Compile Include="Vista\Orina.Designer.cs">
       <DependentUpon>Orina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Quimica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Quimica.Designer.cs">
+      <DependentUpon>Quimica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistroPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\RegistroPaciente.Designer.cs">
       <DependentUpon>RegistroPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Serologia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Serologia.Designer.cs">
+      <DependentUpon>Serologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Sobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Sobre.Designer.cs">
+      <DependentUpon>Sobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Varios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Varios.Designer.cs">
+      <DependentUpon>Varios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -157,12 +181,24 @@
     <EmbeddedResource Include="Vista\Orina.resx">
       <DependentUpon>Orina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Quimica.resx">
+      <DependentUpon>Quimica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\RegistroPaciente.resx">
       <DependentUpon>RegistroPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="BDLaboratorio.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Vista\Serologia.resx">
+      <DependentUpon>Serologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Sobre.resx">
+      <DependentUpon>Sobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Varios.resx">
+      <DependentUpon>Varios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
