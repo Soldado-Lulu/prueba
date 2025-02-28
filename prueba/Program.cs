@@ -1,4 +1,5 @@
 ﻿using Laboratorio.Vista;
+using prueba.Vista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace prueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegistroPaciente());
+            Application.Run(new Orina());
         }
     }
 }

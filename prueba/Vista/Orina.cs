@@ -17,7 +17,8 @@ namespace prueba.Vista
 {
     public partial class Orina : Form
     {
-        int ultimoPacienteId = PacienteLogica.Instancia.ObtenerUltimoPacienteId();
+
+        private PacienteM pacienteActivo;
 
         public Orina()
         {
@@ -35,9 +36,9 @@ namespace prueba.Vista
         private void Orina_Load(object sender, EventArgs e)
         {
             // Obtener el último paciente registrado
-            PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-
-            if (paciente != null) // Verificar si se encontró un paciente
+            //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+            if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
                 panel1.Visible = true;
@@ -46,9 +47,9 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{paciente.Nombre} {paciente.Apellido}";
-                lblEdad.Text = paciente.Edad;
-                lblMedico.Text = paciente.Medico;
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
             }
             else
             {
@@ -60,8 +61,22 @@ namespace prueba.Vista
         {
             dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
         }
-        private void button1_Click(object sender, EventArgs e)
+     
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
+           
+        }
+
+        private void btnNuevoPaciente_Click(object sender, EventArgs e)
+        {
+
+            if (pacienteActivo == null) // Verificar si hay un paciente cargado
+            {
+                MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             OrinaM examenOrina = new OrinaM()
             {
                 Aspecto = txtAspecto.Text,
@@ -90,7 +105,8 @@ namespace prueba.Vista
                 Cilindro = txtCilindros.Text
             };
 
-            int idPaciente = PacienteActivo.IdPaciente;
+            int idPaciente = pacienteActivo.IdPaciente; // Usamos la variable global
+
             bool guardado = OrinaLogica.Instancia.GuardarExamen(examenOrina, idPaciente);
 
             if (guardado)
@@ -99,66 +115,10 @@ namespace prueba.Vista
             }
             else
             {
+                Console.WriteLine();
+
                 MessageBox.Show("Error al guardar el examen de orina. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            /*
-            int idPaciente = PacienteLogica.Instancia.ObtenerUltimoPacienteId();
-
-            if (idPaciente != -1)
-            {
-                bool resultado = OrinaLogica.Instancia.Guardar(examenOrina, idPaciente);
-                if (resultado)
-                {
-                    MessageBox.Show("Examen de orina guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Hubo un error al guardar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se encontró un paciente registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void dgvOrina_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-  
-            if (e.RowIndex >= 0) // Verifica que no sea el encabezado
-            {
-                DataGridViewRow fila = dgvOrina.Rows[e.RowIndex];
-
-                // Datos del paciente
-                txtNombre.Text = fila.Cells["Nombre"].Value?.ToString();
-              //  txtApellido.Text = fila.Cells["Apellido"].Value?.ToString();
-             //   txtApellido.Text = fila.Cells["Apellido"].Value?.ToString();
-                txtEdad.Text = fila.Cells["Edad"].Value?.ToString();
-                txtMedico.Text = fila.Cells["Medico"].Value?.ToString();
-
-                // Datos del examen de orina
-                txtAspecto.Text = fila.Cells["Aspecto"].Value?.ToString();
-                txtColor.Text = fila.Cells["Color"].Value?.ToString();
-                txtOlor.Text = fila.Cells["Olor"].Value?.ToString();
-                txtDensidad.Text = fila.Cells["Densidad"].Value?.ToString();
-                txtReaccion.Text = fila.Cells["Reaccion"].Value?.ToString();
-                txtGlucosa.Text = fila.Cells["Glucosa"].Value?.ToString();
-                txtBilirrubina.Text = fila.Cells["Bilirrubina"].Value?.ToString();
-                txtCetonas.Text = fila.Cells["Cetonas"].Value?.ToString();
-                txtSangre.Text = fila.Cells["Sangre"].Value?.ToString();
-                txtProteina.Text = fila.Cells["Proteina"].Value?.ToString();
-                txtUrobiliogeno.Text = fila.Cells["Urobiliogeno"].Value?.ToString();
-                txtNitrito.Text = fila.Cells["Nitrito"].Value?.ToString();
-                txtLeucocitos1.Text = fila.Cells["Leucocito1"].Value?.ToString();
-            }
-        }
-            */
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
         }
     }
 }

@@ -85,6 +85,30 @@
     <Compile Include="Modelo\QuimicaM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Blanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Blanco.Designer.cs">
+      <DependentUpon>Blanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Copros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Copros.Designer.cs">
+      <DependentUpon>Copros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\HCG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\HCG.Designer.cs">
+      <DependentUpon>HCG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Hemograma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Hemograma.Designer.cs">
+      <DependentUpon>Hemograma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Orina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +133,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\Blanco.resx">
+      <DependentUpon>Blanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Copros.resx">
+      <DependentUpon>Copros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\HCG.resx">
+      <DependentUpon>HCG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Hemograma.resx">
+      <DependentUpon>Hemograma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Orina.resx">
       <DependentUpon>Orina.cs</DependentUpon>
     </EmbeddedResource>

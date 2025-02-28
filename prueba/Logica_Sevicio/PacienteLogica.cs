@@ -176,6 +176,7 @@ namespace prueba.Logica
             }
             return idPaciente;
         }
+        
         public PacienteM ObtenerUltimoPaciente()
         {
             using (SQLiteConnection conexion = ConexionSQLite.ObtenerConexion())
