@@ -78,12 +78,17 @@
     <Compile Include="Logica_Sevicio\PacienteActivo.cs" />
     <Compile Include="Logica_Sevicio\PacienteLogica.cs" />
     <Compile Include="Modelo\BlancoM.cs" />
+    <Compile Include="Modelo\CoprosM.cs" />
     <Compile Include="Modelo\ExamenBase.cs" />
     <Compile Include="Modelo\ExamenM.cs" />
+    <Compile Include="Modelo\HCGM.cs" />
+    <Compile Include="Modelo\HemogramaM.cs" />
+    <Compile Include="Modelo\MicroM.cs" />
     <Compile Include="Modelo\OrinaM.cs" />
     <Compile Include="Modelo\PacienteExamen.cs" />
     <Compile Include="Modelo\PacienteM.cs" />
     <Compile Include="Modelo\QuimicaM.cs" />
+    <Compile Include="Modelo\SerologiaM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Blanco.cs">
