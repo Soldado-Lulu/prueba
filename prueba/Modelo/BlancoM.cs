@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using prueba.Modelo;
 
-namespace prueba.Modelo
+namespace Prueba.Modelo
 {
     public class BlancoM : ExamenBase
     {

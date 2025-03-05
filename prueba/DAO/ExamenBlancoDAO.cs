@@ -1,8 +1,8 @@
 ﻿using Prueba.Modelo;
-using prueba.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -22,11 +22,11 @@ namespace prueba.DAO
                 try
                 {
                     conexion.Open();
-                    string query = @"INSERT INTO Blanco (IdPaciente Muestra,Examen, Datos,Otros) VALUES (@idPaciente, @muestra, @examen, @datos, @otros)";
+                    string query = @"INSERT INTO Blanco (IdPaciente, Muestra,Examen, Datos,Otros) VALUES (@idPaciente, @muestra, @examen, @datos, @otros)";
 
                     SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                     {
-                        cmd.Parameters.Add(new SQLiteParameter("@IdPaciente", obj.IdPaciente));
+                        cmd.Parameters.Add(new SQLiteParameter("@idPaciente", obj.IdPaciente));
                     cmd.Parameters.Add(new SQLiteParameter("@muestra", obj.Muestra));
                     cmd.Parameters.Add(new SQLiteParameter("@examen", obj.Examen));
                     cmd.Parameters.Add(new SQLiteParameter("@datos", obj.Datos));
@@ -38,10 +38,12 @@ namespace prueba.DAO
                 catch (Exception ex)
                 {
                     respuesta = false;
-                    Console.WriteLine("Error al guardar el examen de Blanco: " + ex.Message);
+                    Console.WriteLine(" capa dao  Error al guardar el examen de Blanco:  "+ ex.Message);
                 }
             }
             return respuesta;
         }
+
+
     }
 }

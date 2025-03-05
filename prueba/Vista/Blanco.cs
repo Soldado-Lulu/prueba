@@ -1,11 +1,11 @@
 ﻿using prueba.Logica;
 using prueba.Logica_Sevicio;
-using prueba.Modelo;
 using Prueba.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,8 +21,13 @@ namespace prueba.Vista
         public Blanco()
         {
             InitializeComponent();
-        }
+            LlenarDataGridView();
 
+        }
+        private void LlenarDataGridView()
+        {
+            dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
+        }
         private void Blanco_Load(object sender, EventArgs e)
         {
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
@@ -47,28 +52,58 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            BlancoM objeto = new BlancoM()
+            try
             {
-                Muestra = txtMuestra.Text,
-                Examen = txtExamen.Text,
-                Datos = txtDatos.Text,
-                Otros = txtOtros.Text,
-            };
+                BlancoM objeto = new BlancoM()
+                {
+                    Muestra = txtMuestra.Text,
+                    Examen = txtExamen.Text,
+                    Datos = txtDatos.Text,
+                    Otros = txtOtros.Text,
+                };
 
-            int idPaciente = pacienteActivo.IdPaciente; // Usamos la variable global
+                int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores de null
 
-            bool guardado = BlancoLogica.Instancia.GuardarExamen(objeto, idPaciente);
+                // Mostrar los datos antes de guardar
+                string datosMensaje = $"Intentando guardar:\n" +
+                                      $"Muestra: {objeto.Muestra}\n" +
+                                      $"Examen: {objeto.Examen}\n" +
+                                      $"Datos: {objeto.Datos}\n" +
+                                      $"Otros: {objeto.Otros}\n" +
+                                      $"IdPaciente: {idPaciente}";
+                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (guardado)
-            {
-                MessageBox.Show("Examen de orina guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool guardado = false;
+
+                try
+                {
+                    guardado = BlancoLogica.Instancia.GuardarExamen(objeto, idPaciente);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error en GuardarExamen:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
+                                    "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (guardado)
+                {
+                    MessageBox.Show("Examen de Blanco guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Error al guardar el examen de Blanco. No se insertaron los datos correctamente.\n\n{datosMensaje}",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine();
-
-                MessageBox.Show("Error al guardar el examen de orina. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
+                                "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
     }
 }

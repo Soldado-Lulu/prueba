@@ -39,6 +39,7 @@
             this.btnOrina = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,6 +57,9 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblMedico = new System.Windows.Forms.Label();
+            this.lblNombreCompleto = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -69,10 +73,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblNombreCompleto = new System.Windows.Forms.Label();
-            this.lblMedico = new System.Windows.Forms.Label();
-            this.lblEdad = new System.Windows.Forms.Label();
-            this.btnNuevoPaciente = new System.Windows.Forms.Button();
+            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
@@ -82,6 +83,7 @@
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -220,6 +222,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dgvOrina);
             this.panel2.Controls.Add(this.btnNuevoPaciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -227,6 +230,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(295, 1015);
             this.panel2.TabIndex = 1;
+            // 
+            // btnNuevoPaciente
+            // 
+            this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
+            this.btnNuevoPaciente.Size = new System.Drawing.Size(295, 65);
+            this.btnNuevoPaciente.TabIndex = 194;
+            this.btnNuevoPaciente.Text = "guardar";
+            this.btnNuevoPaciente.UseVisualStyleBackColor = true;
+            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
@@ -415,6 +429,30 @@
             this.panel6.Size = new System.Drawing.Size(980, 247);
             this.panel6.TabIndex = 153;
             // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(440, 186);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(0, 16);
+            this.lblEdad.TabIndex = 168;
+            // 
+            // lblMedico
+            // 
+            this.lblMedico.AutoSize = true;
+            this.lblMedico.Location = new System.Drawing.Point(196, 182);
+            this.lblMedico.Name = "lblMedico";
+            this.lblMedico.Size = new System.Drawing.Size(0, 16);
+            this.lblMedico.TabIndex = 167;
+            // 
+            // lblNombreCompleto
+            // 
+            this.lblNombreCompleto.AutoSize = true;
+            this.lblNombreCompleto.Location = new System.Drawing.Point(129, 152);
+            this.lblNombreCompleto.Name = "lblNombreCompleto";
+            this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
+            this.lblNombreCompleto.TabIndex = 166;
+            // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(658, 96);
@@ -539,40 +577,16 @@
             this.dtpFecha.TabIndex = 155;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // lblNombreCompleto
+            // dgvOrina
             // 
-            this.lblNombreCompleto.AutoSize = true;
-            this.lblNombreCompleto.Location = new System.Drawing.Point(129, 152);
-            this.lblNombreCompleto.Name = "lblNombreCompleto";
-            this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
-            this.lblNombreCompleto.TabIndex = 166;
-            // 
-            // lblMedico
-            // 
-            this.lblMedico.AutoSize = true;
-            this.lblMedico.Location = new System.Drawing.Point(196, 182);
-            this.lblMedico.Name = "lblMedico";
-            this.lblMedico.Size = new System.Drawing.Size(0, 16);
-            this.lblMedico.TabIndex = 167;
-            // 
-            // lblEdad
-            // 
-            this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(440, 186);
-            this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(0, 16);
-            this.lblEdad.TabIndex = 168;
-            // 
-            // btnNuevoPaciente
-            // 
-            this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
-            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
-            this.btnNuevoPaciente.Size = new System.Drawing.Size(295, 65);
-            this.btnNuevoPaciente.TabIndex = 194;
-            this.btnNuevoPaciente.Text = "guardar";
-            this.btnNuevoPaciente.UseVisualStyleBackColor = true;
-            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvOrina.Location = new System.Drawing.Point(0, 242);
+            this.dgvOrina.Name = "dgvOrina";
+            this.dgvOrina.RowHeadersWidth = 51;
+            this.dgvOrina.RowTemplate.Height = 24;
+            this.dgvOrina.Size = new System.Drawing.Size(295, 230);
+            this.dgvOrina.TabIndex = 195;
             // 
             // Blanco
             // 
@@ -599,6 +613,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -650,5 +665,6 @@
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.DataGridView dgvOrina;
     }
 }

@@ -1,18 +1,16 @@
-﻿using prueba.Logica;
-using prueba.Modelo;
+﻿
 using prueba.DAO;
-using prueba.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Configuration;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Runtime.ConstrainedExecution;
 using System.Windows.Forms;
+using Prueba.Modelo;
 namespace prueba.Logica_Sevicio
 {
     public class BlancoLogica

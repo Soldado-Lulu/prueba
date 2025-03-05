@@ -130,6 +130,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.dgvOrina);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.btnNuevoPaciente);
             this.panel5.Controls.Add(this.panelRight);
@@ -561,7 +562,6 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.dgvOrina);
             this.panel3.Controls.Add(this.txtCetonas);
             this.panel3.Controls.Add(this.txtSangre);
             this.panel3.Controls.Add(this.label2);
@@ -598,11 +598,12 @@
             // dgvOrina
             // 
             this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrina.Location = new System.Drawing.Point(699, 46);
+            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvOrina.Location = new System.Drawing.Point(0, 307);
             this.dgvOrina.Name = "dgvOrina";
             this.dgvOrina.RowHeadersWidth = 51;
             this.dgvOrina.RowTemplate.Height = 24;
-            this.dgvOrina.Size = new System.Drawing.Size(477, 230);
+            this.dgvOrina.Size = new System.Drawing.Size(200, 230);
             this.dgvOrina.TabIndex = 24;
             // 
             // txtCetonas

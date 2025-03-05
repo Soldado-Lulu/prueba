@@ -160,7 +160,7 @@ namespace prueba.Logica
             }
             return listaPacientes;
         }
-        public int ObtenerUltimoPacienteId()
+       /* public int ObtenerUltimoPacienteId()
         {
             int idPaciente = -1;
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
@@ -176,7 +176,7 @@ namespace prueba.Logica
             }
             return idPaciente;
         }
-        
+        */
         public PacienteM ObtenerUltimoPaciente()
         {
             using (SQLiteConnection conexion = ConexionSQLite.ObtenerConexion())

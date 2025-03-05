@@ -1,7 +1,4 @@
-﻿using prueba.Modelo;
-using prueba.DAO;
-using prueba.Logica;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using prueba.Logica;
+using prueba.Logica_Servicio;
 using Prueba.Modelo;
-using Laboratorio.Logica;
 
 namespace prueba.Vista
 {

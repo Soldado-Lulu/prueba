@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prueba.Modelo;
-
 using System.Configuration;
 using System.Data.SQLite;
 using System.Drawing;
@@ -12,7 +11,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Windows.Forms;
 using prueba.DAO;
 using prueba.Modelo;
-namespace Laboratorio.Logica
+namespace prueba.Logica_Servicio
 {
 
     public class OrinaLogica
