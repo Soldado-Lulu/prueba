@@ -77,6 +77,7 @@
     <Compile Include="Logica_Sevicio\OrinaLogica.cs" />
     <Compile Include="Logica_Sevicio\PacienteActivo.cs" />
     <Compile Include="Logica_Sevicio\PacienteLogica.cs" />
+    <Compile Include="Modelo\BlancoM.cs" />
     <Compile Include="Modelo\ExamenBase.cs" />
     <Compile Include="Modelo\ExamenM.cs" />
     <Compile Include="Modelo\OrinaM.cs" />
