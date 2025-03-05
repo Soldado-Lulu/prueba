@@ -229,6 +229,62 @@ namespace prueba.Logica
             }
             return dt;
         }
+        public DataTable ObtenerPacientesConExamenes(string tipoExamen)
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = "";
+
+                // Dependiendo del tipo de examen, el query cambia
+                switch (tipoExamen.ToLower())
+                {
+                    case "orina":
+                        query = @"
+                    SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
+                           'Orina' AS Examen
+                    FROM Paciente p
+                    LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+                    ORDER BY p.IdPaciente DESC";
+                        break;
+                    case "quimica":
+                        query = @"
+                    SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
+                           'Quimica' AS Examen
+                    FROM Paciente p
+                    LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+                    ORDER BY p.IdPaciente DESC";
+                        break;
+                    case "hemograma":
+                        query = @"
+                    SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
+                           'Hemograma' AS Examen
+                    FROM Paciente p
+                    LEFT JOIN Hemograma h ON p.IdPaciente = h.IdPaciente
+                    ORDER BY p.IdPaciente DESC";
+                        break;
+                    case "micro":
+                        query = @"
+                    SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
+                           'Micro' AS Examen
+                    FROM Paciente p
+                    LEFT JOIN Micro m ON p.IdPaciente = m.IdPaciente
+                    ORDER BY p.IdPaciente DESC";
+                        break;
+                    default:
+                        throw new ArgumentException("Tipo de examen no válido");
+                }
+
+                // Ejecución del query con el tipo de examen seleccionado
+                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            return dt;
+        }
+
 
         // 🔹 Buscar Paciente por ID
         public PacienteM BuscarPorId(int id)

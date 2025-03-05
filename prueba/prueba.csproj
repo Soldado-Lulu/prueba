@@ -68,7 +68,14 @@
   <ItemGroup>
     <Compile Include="DAO\ConexionSQLite.cs" />
     <Compile Include="DAO\ExamenBlancoDAO.cs" />
+    <Compile Include="DAO\ExamenCoprosDAO.cs" />
+    <Compile Include="DAO\ExamenHCGDAO.cs" />
+    <Compile Include="DAO\ExamenHemogramaDAO.cs" />
+    <Compile Include="DAO\ExamenMicroDAO.cs" />
     <Compile Include="DAO\ExamenOrinaDAO.cs" />
+    <Compile Include="DAO\ExamenQuimicaDAO.cs" />
+    <Compile Include="DAO\ExamenSerologiaDAO.cs" />
+    <Compile Include="DAO\ExamenSobreDAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,9 +83,16 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica_Sevicio\BlancoLogica.cs" />
+    <Compile Include="Logica_Sevicio\CoprosLogica.cs" />
+    <Compile Include="Logica_Sevicio\HCGLogica.cs" />
+    <Compile Include="Logica_Sevicio\HemogramaLogica.cs" />
+    <Compile Include="Logica_Sevicio\MicroLogica.cs" />
     <Compile Include="Logica_Sevicio\OrinaLogica.cs" />
     <Compile Include="Logica_Sevicio\PacienteActivo.cs" />
     <Compile Include="Logica_Sevicio\PacienteLogica.cs" />
+    <Compile Include="Logica_Sevicio\QuimicaLogica.cs" />
+    <Compile Include="Logica_Sevicio\SerologiaLogica.cs" />
+    <Compile Include="Logica_Sevicio\SobreLogica.cs" />
     <Compile Include="Modelo\BlancoM.cs" />
     <Compile Include="Modelo\CoprosM.cs" />
     <Compile Include="Modelo\ExamenBase.cs" />
@@ -142,6 +156,12 @@
     <Compile Include="Vista\RegistroPaciente.Designer.cs">
       <DependentUpon>RegistroPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Serologia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +219,9 @@
     <Content Include="BDLaboratorio.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Vista\Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Serologia.resx">
       <DependentUpon>Serologia.cs</DependentUpon>
     </EmbeddedResource>

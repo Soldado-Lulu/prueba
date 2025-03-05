@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVarios = new System.Windows.Forms.Button();
+            this.btnSobre = new System.Windows.Forms.Button();
+            this.btnBlanco = new System.Windows.Forms.Button();
+            this.btnMicro = new System.Windows.Forms.Button();
+            this.btnSerologia = new System.Windows.Forms.Button();
+            this.btnHCG = new System.Windows.Forms.Button();
+            this.btnCopros = new System.Windows.Forms.Button();
+            this.btnOrina = new System.Windows.Forms.Button();
+            this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNuevoPaciente = new System.Windows.Forms.Button();
+            this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textIsi = new System.Windows.Forms.TextBox();
@@ -105,20 +116,20 @@
             this.label30 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.textReticulocitos = new System.Windows.Forms.TextBox();
+            this.txtReticulocitos = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textPlaquetas = new System.Windows.Forms.TextBox();
+            this.txtPlaquetas = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textHematocritos = new System.Windows.Forms.TextBox();
+            this.txtHematocritos = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textHemoglobina = new System.Windows.Forms.TextBox();
+            this.txtHemoglobina = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -126,12 +137,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textLeucocitos = new System.Windows.Forms.TextBox();
+            this.txtLeucocitos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textEritrocitos = new System.Windows.Forms.TextBox();
+            this.txtEritrocitos = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -141,32 +152,22 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblMedico = new System.Windows.Forms.Label();
+            this.lblNombreCompleto = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.txtEdad = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
-            this.txtMedico = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label81 = new System.Windows.Forms.Label();
-            this.textNombre = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.btnVarios = new System.Windows.Forms.Button();
-            this.btnSobre = new System.Windows.Forms.Button();
-            this.btnBlanco = new System.Windows.Forms.Button();
-            this.btnMicro = new System.Windows.Forms.Button();
-            this.btnSerologia = new System.Windows.Forms.Button();
-            this.btnHCG = new System.Windows.Forms.Button();
-            this.btnCopros = new System.Windows.Forms.Button();
-            this.btnOrina = new System.Windows.Forms.Button();
-            this.btnHemograma = new System.Windows.Forms.Button();
-            this.panelRight = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
@@ -195,14 +196,161 @@
             this.panel1.Size = new System.Drawing.Size(200, 1179);
             this.panel1.TabIndex = 0;
             // 
+            // btnVarios
+            // 
+            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVarios.FlatAppearance.BorderSize = 0;
+            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVarios.Location = new System.Drawing.Point(0, 520);
+            this.btnVarios.Name = "btnVarios";
+            this.btnVarios.Size = new System.Drawing.Size(200, 65);
+            this.btnVarios.TabIndex = 19;
+            this.btnVarios.Text = "VARIOS";
+            this.btnVarios.UseVisualStyleBackColor = false;
+            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
+            // 
+            // btnSobre
+            // 
+            this.btnSobre.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSobre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSobre.FlatAppearance.BorderSize = 0;
+            this.btnSobre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSobre.Location = new System.Drawing.Point(0, 455);
+            this.btnSobre.Name = "btnSobre";
+            this.btnSobre.Size = new System.Drawing.Size(200, 65);
+            this.btnSobre.TabIndex = 18;
+            this.btnSobre.Text = "SOBRE";
+            this.btnSobre.UseVisualStyleBackColor = false;
+            this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
+            // 
+            // btnBlanco
+            // 
+            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBlanco.FlatAppearance.BorderSize = 0;
+            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlanco.Location = new System.Drawing.Point(0, 390);
+            this.btnBlanco.Name = "btnBlanco";
+            this.btnBlanco.Size = new System.Drawing.Size(200, 65);
+            this.btnBlanco.TabIndex = 17;
+            this.btnBlanco.Text = "BLANCO";
+            this.btnBlanco.UseVisualStyleBackColor = false;
+            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
+            // 
+            // btnMicro
+            // 
+            this.btnMicro.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnMicro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMicro.FlatAppearance.BorderSize = 0;
+            this.btnMicro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMicro.Location = new System.Drawing.Point(0, 325);
+            this.btnMicro.Name = "btnMicro";
+            this.btnMicro.Size = new System.Drawing.Size(200, 65);
+            this.btnMicro.TabIndex = 16;
+            this.btnMicro.Text = "MICRO";
+            this.btnMicro.UseVisualStyleBackColor = false;
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
+            // 
+            // btnSerologia
+            // 
+            this.btnSerologia.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSerologia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSerologia.FlatAppearance.BorderSize = 0;
+            this.btnSerologia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSerologia.Location = new System.Drawing.Point(0, 260);
+            this.btnSerologia.Name = "btnSerologia";
+            this.btnSerologia.Size = new System.Drawing.Size(200, 65);
+            this.btnSerologia.TabIndex = 15;
+            this.btnSerologia.Text = "SEROLOGIA";
+            this.btnSerologia.UseVisualStyleBackColor = false;
+            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
+            // 
+            // btnHCG
+            // 
+            this.btnHCG.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnHCG.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHCG.FlatAppearance.BorderSize = 0;
+            this.btnHCG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHCG.Location = new System.Drawing.Point(0, 195);
+            this.btnHCG.Name = "btnHCG";
+            this.btnHCG.Size = new System.Drawing.Size(200, 65);
+            this.btnHCG.TabIndex = 14;
+            this.btnHCG.Text = "HCG";
+            this.btnHCG.UseVisualStyleBackColor = false;
+            this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click);
+            // 
+            // btnCopros
+            // 
+            this.btnCopros.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnCopros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCopros.FlatAppearance.BorderSize = 0;
+            this.btnCopros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopros.Location = new System.Drawing.Point(0, 130);
+            this.btnCopros.Name = "btnCopros";
+            this.btnCopros.Size = new System.Drawing.Size(200, 65);
+            this.btnCopros.TabIndex = 13;
+            this.btnCopros.Text = "COPROS";
+            this.btnCopros.UseVisualStyleBackColor = false;
+            this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click);
+            // 
+            // btnOrina
+            // 
+            this.btnOrina.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnOrina.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrina.FlatAppearance.BorderSize = 0;
+            this.btnOrina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrina.Location = new System.Drawing.Point(0, 65);
+            this.btnOrina.Name = "btnOrina";
+            this.btnOrina.Size = new System.Drawing.Size(200, 65);
+            this.btnOrina.TabIndex = 12;
+            this.btnOrina.Text = "ORINAS";
+            this.btnOrina.UseVisualStyleBackColor = false;
+            this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click);
+            // 
+            // btnHemograma
+            // 
+            this.btnHemograma.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnHemograma.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHemograma.FlatAppearance.BorderSize = 0;
+            this.btnHemograma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHemograma.Location = new System.Drawing.Point(0, 0);
+            this.btnHemograma.Name = "btnHemograma";
+            this.btnHemograma.Size = new System.Drawing.Size(200, 65);
+            this.btnHemograma.TabIndex = 11;
+            this.btnHemograma.Text = "QUIMICA";
+            this.btnHemograma.UseVisualStyleBackColor = false;
+            this.btnHemograma.Click += new System.EventHandler(this.btnHemograma_Click);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnNuevoPaciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1303, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(345, 1179);
             this.panel2.TabIndex = 1;
+            // 
+            // btnNuevoPaciente
+            // 
+            this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
+            this.btnNuevoPaciente.Size = new System.Drawing.Size(345, 65);
+            this.btnNuevoPaciente.TabIndex = 195;
+            this.btnNuevoPaciente.Text = "guardar";
+            this.btnNuevoPaciente.UseVisualStyleBackColor = true;
+            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            // 
+            // panelRight
+            // 
+            this.panelRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelRight.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelRight.Location = new System.Drawing.Point(0, 0);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(345, 177);
+            this.panelRight.TabIndex = 1;
             // 
             // PanelCap
             // 
@@ -987,20 +1135,20 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.textReticulocitos);
+            this.panel6.Controls.Add(this.txtReticulocitos);
             this.panel6.Controls.Add(this.label29);
             this.panel6.Controls.Add(this.label15);
-            this.panel6.Controls.Add(this.textPlaquetas);
+            this.panel6.Controls.Add(this.txtPlaquetas);
             this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.label14);
-            this.panel6.Controls.Add(this.textHematocritos);
+            this.panel6.Controls.Add(this.txtHematocritos);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.textHemoglobina);
+            this.panel6.Controls.Add(this.txtHemoglobina);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label23);
@@ -1008,12 +1156,12 @@
             this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.label21);
             this.panel6.Controls.Add(this.label22);
-            this.panel6.Controls.Add(this.textLeucocitos);
+            this.panel6.Controls.Add(this.txtLeucocitos);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label20);
-            this.panel6.Controls.Add(this.textEritrocitos);
+            this.panel6.Controls.Add(this.txtEritrocitos);
             this.panel6.Controls.Add(this.label19);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label2);
@@ -1036,14 +1184,14 @@
             this.label16.TabIndex = 119;
             this.label16.Text = "Reticulocitos";
             // 
-            // textReticulocitos
+            // txtReticulocitos
             // 
-            this.textReticulocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textReticulocitos.Location = new System.Drawing.Point(589, 185);
-            this.textReticulocitos.Name = "textReticulocitos";
-            this.textReticulocitos.Size = new System.Drawing.Size(82, 30);
-            this.textReticulocitos.TabIndex = 120;
-            this.textReticulocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtReticulocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReticulocitos.Location = new System.Drawing.Point(589, 185);
+            this.txtReticulocitos.Name = "txtReticulocitos";
+            this.txtReticulocitos.Size = new System.Drawing.Size(82, 30);
+            this.txtReticulocitos.TabIndex = 120;
+            this.txtReticulocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label29
             // 
@@ -1065,14 +1213,14 @@
             this.label15.TabIndex = 116;
             this.label15.Text = "Plaquetas";
             // 
-            // textPlaquetas
+            // txtPlaquetas
             // 
-            this.textPlaquetas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPlaquetas.Location = new System.Drawing.Point(147, 195);
-            this.textPlaquetas.Name = "textPlaquetas";
-            this.textPlaquetas.Size = new System.Drawing.Size(102, 30);
-            this.textPlaquetas.TabIndex = 117;
-            this.textPlaquetas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPlaquetas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaquetas.Location = new System.Drawing.Point(147, 195);
+            this.txtPlaquetas.Name = "txtPlaquetas";
+            this.txtPlaquetas.Size = new System.Drawing.Size(102, 30);
+            this.txtPlaquetas.TabIndex = 117;
+            this.txtPlaquetas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label28
             // 
@@ -1094,14 +1242,14 @@
             this.label14.TabIndex = 110;
             this.label14.Text = "Hematocrito";
             // 
-            // textHematocritos
+            // txtHematocritos
             // 
-            this.textHematocritos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textHematocritos.Location = new System.Drawing.Point(577, 134);
-            this.textHematocritos.Name = "textHematocritos";
-            this.textHematocritos.Size = new System.Drawing.Size(82, 30);
-            this.textHematocritos.TabIndex = 113;
-            this.textHematocritos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHematocritos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHematocritos.Location = new System.Drawing.Point(577, 134);
+            this.txtHematocritos.Name = "txtHematocritos";
+            this.txtHematocritos.Size = new System.Drawing.Size(82, 30);
+            this.txtHematocritos.TabIndex = 113;
+            this.txtHematocritos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -1163,14 +1311,14 @@
             this.label11.TabIndex = 106;
             this.label11.Text = "Mujer";
             // 
-            // textHemoglobina
+            // txtHemoglobina
             // 
-            this.textHemoglobina.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textHemoglobina.Location = new System.Drawing.Point(147, 134);
-            this.textHemoglobina.Name = "textHemoglobina";
-            this.textHemoglobina.Size = new System.Drawing.Size(102, 30);
-            this.textHemoglobina.TabIndex = 105;
-            this.textHemoglobina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHemoglobina.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHemoglobina.Location = new System.Drawing.Point(147, 134);
+            this.txtHemoglobina.Name = "txtHemoglobina";
+            this.txtHemoglobina.Size = new System.Drawing.Size(102, 30);
+            this.txtHemoglobina.TabIndex = 105;
+            this.txtHemoglobina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -1242,14 +1390,14 @@
             this.label22.TabIndex = 101;
             this.label22.Text = "6.200 - 17.000mm3";
             // 
-            // textLeucocitos
+            // txtLeucocitos
             // 
-            this.textLeucocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLeucocitos.Location = new System.Drawing.Point(120, 89);
-            this.textLeucocitos.Name = "textLeucocitos";
-            this.textLeucocitos.Size = new System.Drawing.Size(161, 30);
-            this.textLeucocitos.TabIndex = 99;
-            this.textLeucocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtLeucocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLeucocitos.Location = new System.Drawing.Point(120, 89);
+            this.txtLeucocitos.Name = "txtLeucocitos";
+            this.txtLeucocitos.Size = new System.Drawing.Size(161, 30);
+            this.txtLeucocitos.TabIndex = 99;
+            this.txtLeucocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -1291,14 +1439,14 @@
             this.label20.TabIndex = 25;
             this.label20.Text = "4.000.000 - 5.000.000mm3";
             // 
-            // textEritrocitos
+            // txtEritrocitos
             // 
-            this.textEritrocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEritrocitos.Location = new System.Drawing.Point(120, 41);
-            this.textEritrocitos.Name = "textEritrocitos";
-            this.textEritrocitos.Size = new System.Drawing.Size(161, 30);
-            this.textEritrocitos.TabIndex = 4;
-            this.textEritrocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEritrocitos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEritrocitos.Location = new System.Drawing.Point(120, 41);
+            this.txtEritrocitos.Name = "txtEritrocitos";
+            this.txtEritrocitos.Size = new System.Drawing.Size(161, 30);
+            this.txtEritrocitos.TabIndex = 4;
+            this.txtEritrocitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
             // 
@@ -1383,18 +1531,18 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblEdad);
+            this.panel7.Controls.Add(this.lblMedico);
+            this.panel7.Controls.Add(this.lblNombreCompleto);
             this.panel7.Controls.Add(this.label85);
             this.panel7.Controls.Add(this.txtCodigo);
             this.panel7.Controls.Add(this.label74);
             this.panel7.Controls.Add(this.label57);
-            this.panel7.Controls.Add(this.txtEdad);
             this.panel7.Controls.Add(this.label65);
             this.panel7.Controls.Add(this.label83);
-            this.panel7.Controls.Add(this.txtMedico);
             this.panel7.Controls.Add(this.label71);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Controls.Add(this.label81);
-            this.panel7.Controls.Add(this.textNombre);
             this.panel7.Controls.Add(this.label72);
             this.panel7.Controls.Add(this.label77);
             this.panel7.Controls.Add(this.label86);
@@ -1404,6 +1552,30 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1103, 199);
             this.panel7.TabIndex = 172;
+            // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(448, 177);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(0, 16);
+            this.lblEdad.TabIndex = 182;
+            // 
+            // lblMedico
+            // 
+            this.lblMedico.AutoSize = true;
+            this.lblMedico.Location = new System.Drawing.Point(198, 170);
+            this.lblMedico.Name = "lblMedico";
+            this.lblMedico.Size = new System.Drawing.Size(0, 16);
+            this.lblMedico.TabIndex = 181;
+            // 
+            // lblNombreCompleto
+            // 
+            this.lblNombreCompleto.AutoSize = true;
+            this.lblNombreCompleto.Location = new System.Drawing.Point(135, 143);
+            this.lblNombreCompleto.Name = "lblNombreCompleto";
+            this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
+            this.lblNombreCompleto.TabIndex = 180;
             // 
             // label85
             // 
@@ -1440,13 +1612,6 @@
             this.label57.TabIndex = 166;
             this.label57.Text = "Nombre";
             // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(445, 170);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(123, 22);
-            this.txtEdad.TabIndex = 173;
-            // 
             // label65
             // 
             this.label65.AutoSize = true;
@@ -1464,13 +1629,6 @@
             this.label83.Size = new System.Drawing.Size(140, 16);
             this.label83.TabIndex = 176;
             this.label83.Text = "Cochabamba - Bolivia";
-            // 
-            // txtMedico
-            // 
-            this.txtMedico.Location = new System.Drawing.Point(201, 167);
-            this.txtMedico.Name = "txtMedico";
-            this.txtMedico.Size = new System.Drawing.Size(181, 22);
-            this.txtMedico.TabIndex = 172;
             // 
             // label71
             // 
@@ -1498,13 +1656,6 @@
             this.label81.Size = new System.Drawing.Size(173, 16);
             this.label81.TabIndex = 175;
             this.label81.Text = "Telf. 4252475  Cel: 70374276";
-            // 
-            // textNombre
-            // 
-            this.textNombre.Location = new System.Drawing.Point(132, 137);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(229, 22);
-            this.textNombre.TabIndex = 167;
             // 
             // label72
             // 
@@ -1542,132 +1693,6 @@
             this.dtpFecha.TabIndex = 171;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // btnVarios
-            // 
-            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVarios.FlatAppearance.BorderSize = 0;
-            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVarios.Location = new System.Drawing.Point(0, 520);
-            this.btnVarios.Name = "btnVarios";
-            this.btnVarios.Size = new System.Drawing.Size(200, 65);
-            this.btnVarios.TabIndex = 19;
-            this.btnVarios.Text = "VARIOS";
-            this.btnVarios.UseVisualStyleBackColor = false;
-            // 
-            // btnSobre
-            // 
-            this.btnSobre.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnSobre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSobre.FlatAppearance.BorderSize = 0;
-            this.btnSobre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSobre.Location = new System.Drawing.Point(0, 455);
-            this.btnSobre.Name = "btnSobre";
-            this.btnSobre.Size = new System.Drawing.Size(200, 65);
-            this.btnSobre.TabIndex = 18;
-            this.btnSobre.Text = "SOBRE";
-            this.btnSobre.UseVisualStyleBackColor = false;
-            // 
-            // btnBlanco
-            // 
-            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBlanco.FlatAppearance.BorderSize = 0;
-            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlanco.Location = new System.Drawing.Point(0, 390);
-            this.btnBlanco.Name = "btnBlanco";
-            this.btnBlanco.Size = new System.Drawing.Size(200, 65);
-            this.btnBlanco.TabIndex = 17;
-            this.btnBlanco.Text = "BLANCO";
-            this.btnBlanco.UseVisualStyleBackColor = false;
-            // 
-            // btnMicro
-            // 
-            this.btnMicro.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnMicro.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMicro.FlatAppearance.BorderSize = 0;
-            this.btnMicro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMicro.Location = new System.Drawing.Point(0, 325);
-            this.btnMicro.Name = "btnMicro";
-            this.btnMicro.Size = new System.Drawing.Size(200, 65);
-            this.btnMicro.TabIndex = 16;
-            this.btnMicro.Text = "MICRO";
-            this.btnMicro.UseVisualStyleBackColor = false;
-            // 
-            // btnSerologia
-            // 
-            this.btnSerologia.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnSerologia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSerologia.FlatAppearance.BorderSize = 0;
-            this.btnSerologia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSerologia.Location = new System.Drawing.Point(0, 260);
-            this.btnSerologia.Name = "btnSerologia";
-            this.btnSerologia.Size = new System.Drawing.Size(200, 65);
-            this.btnSerologia.TabIndex = 15;
-            this.btnSerologia.Text = "SEROLOGIA";
-            this.btnSerologia.UseVisualStyleBackColor = false;
-            // 
-            // btnHCG
-            // 
-            this.btnHCG.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnHCG.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHCG.FlatAppearance.BorderSize = 0;
-            this.btnHCG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHCG.Location = new System.Drawing.Point(0, 195);
-            this.btnHCG.Name = "btnHCG";
-            this.btnHCG.Size = new System.Drawing.Size(200, 65);
-            this.btnHCG.TabIndex = 14;
-            this.btnHCG.Text = "HCG";
-            this.btnHCG.UseVisualStyleBackColor = false;
-            // 
-            // btnCopros
-            // 
-            this.btnCopros.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnCopros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCopros.FlatAppearance.BorderSize = 0;
-            this.btnCopros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopros.Location = new System.Drawing.Point(0, 130);
-            this.btnCopros.Name = "btnCopros";
-            this.btnCopros.Size = new System.Drawing.Size(200, 65);
-            this.btnCopros.TabIndex = 13;
-            this.btnCopros.Text = "COPROS";
-            this.btnCopros.UseVisualStyleBackColor = false;
-            // 
-            // btnOrina
-            // 
-            this.btnOrina.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnOrina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrina.FlatAppearance.BorderSize = 0;
-            this.btnOrina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrina.Location = new System.Drawing.Point(0, 65);
-            this.btnOrina.Name = "btnOrina";
-            this.btnOrina.Size = new System.Drawing.Size(200, 65);
-            this.btnOrina.TabIndex = 12;
-            this.btnOrina.Text = "ORINAS";
-            this.btnOrina.UseVisualStyleBackColor = false;
-            // 
-            // btnHemograma
-            // 
-            this.btnHemograma.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnHemograma.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHemograma.FlatAppearance.BorderSize = 0;
-            this.btnHemograma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHemograma.Location = new System.Drawing.Point(0, 0);
-            this.btnHemograma.Name = "btnHemograma";
-            this.btnHemograma.Size = new System.Drawing.Size(200, 65);
-            this.btnHemograma.TabIndex = 11;
-            this.btnHemograma.Text = "QUIMICA";
-            this.btnHemograma.UseVisualStyleBackColor = false;
-            // 
-            // panelRight
-            // 
-            this.panelRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRight.Location = new System.Drawing.Point(0, 0);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(345, 177);
-            this.panelRight.TabIndex = 1;
-            // 
             // Hemograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1678,6 +1703,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Hemograma";
             this.Text = "Hemograma";
+            this.Load += new System.EventHandler(this.Hemograma_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.PanelCap.ResumeLayout(false);
@@ -1785,20 +1811,20 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textReticulocitos;
+        private System.Windows.Forms.TextBox txtReticulocitos;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textPlaquetas;
+        private System.Windows.Forms.TextBox txtPlaquetas;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textHematocritos;
+        private System.Windows.Forms.TextBox txtHematocritos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textHemoglobina;
+        private System.Windows.Forms.TextBox txtHemoglobina;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label23;
@@ -1806,12 +1832,12 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textLeucocitos;
+        private System.Windows.Forms.TextBox txtLeucocitos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textEritrocitos;
+        private System.Windows.Forms.TextBox txtEritrocitos;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -1825,17 +1851,18 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.TextBox txtMedico;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.Label lblEdad;
+        private System.Windows.Forms.Label lblMedico;
+        private System.Windows.Forms.Label lblNombreCompleto;
     }
 }

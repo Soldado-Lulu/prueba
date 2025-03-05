@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prueba.Modelo
 {
-    public class QuimicaM
+    public class QuimicaM: ExamenBase
     {
 
         public int IdQuimica { get; set; }

@@ -39,6 +39,7 @@
             this.btnOrina = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
@@ -73,9 +74,9 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.PanelCap.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -83,7 +84,6 @@
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,6 +115,7 @@
             this.btnVarios.TabIndex = 19;
             this.btnVarios.Text = "VARIOS";
             this.btnVarios.UseVisualStyleBackColor = false;
+            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
             // 
             // btnSobre
             // 
@@ -128,6 +129,7 @@
             this.btnSobre.TabIndex = 18;
             this.btnSobre.Text = "SOBRE";
             this.btnSobre.UseVisualStyleBackColor = false;
+            this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
             // 
             // btnBlanco
             // 
@@ -141,6 +143,7 @@
             this.btnBlanco.TabIndex = 17;
             this.btnBlanco.Text = "QUIMICA";
             this.btnBlanco.UseVisualStyleBackColor = false;
+            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
             // 
             // btnMicro
             // 
@@ -154,6 +157,7 @@
             this.btnMicro.TabIndex = 16;
             this.btnMicro.Text = "MICRO";
             this.btnMicro.UseVisualStyleBackColor = false;
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
             // btnSerologia
             // 
@@ -167,6 +171,7 @@
             this.btnSerologia.TabIndex = 15;
             this.btnSerologia.Text = "SEROLOGIA";
             this.btnSerologia.UseVisualStyleBackColor = false;
+            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
             // 
             // btnHCG
             // 
@@ -180,6 +185,7 @@
             this.btnHCG.TabIndex = 14;
             this.btnHCG.Text = "HCG";
             this.btnHCG.UseVisualStyleBackColor = false;
+            this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click);
             // 
             // btnCopros
             // 
@@ -193,6 +199,7 @@
             this.btnCopros.TabIndex = 13;
             this.btnCopros.Text = "COPROS";
             this.btnCopros.UseVisualStyleBackColor = false;
+            this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click);
             // 
             // btnOrina
             // 
@@ -206,6 +213,7 @@
             this.btnOrina.TabIndex = 12;
             this.btnOrina.Text = "ORINAS";
             this.btnOrina.UseVisualStyleBackColor = false;
+            this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click);
             // 
             // btnHemograma
             // 
@@ -219,6 +227,7 @@
             this.btnHemograma.TabIndex = 11;
             this.btnHemograma.Text = "HEMORGRAMA";
             this.btnHemograma.UseVisualStyleBackColor = false;
+            this.btnHemograma.Click += new System.EventHandler(this.btnHemograma_Click);
             // 
             // panel2
             // 
@@ -230,6 +239,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(295, 1015);
             this.panel2.TabIndex = 1;
+            // 
+            // dgvOrina
+            // 
+            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvOrina.Location = new System.Drawing.Point(0, 242);
+            this.dgvOrina.Name = "dgvOrina";
+            this.dgvOrina.RowHeadersWidth = 51;
+            this.dgvOrina.RowTemplate.Height = 24;
+            this.dgvOrina.Size = new System.Drawing.Size(295, 230);
+            this.dgvOrina.TabIndex = 195;
             // 
             // btnNuevoPaciente
             // 
@@ -440,7 +460,7 @@
             // lblMedico
             // 
             this.lblMedico.AutoSize = true;
-            this.lblMedico.Location = new System.Drawing.Point(196, 182);
+            this.lblMedico.Location = new System.Drawing.Point(193, 183);
             this.lblMedico.Name = "lblMedico";
             this.lblMedico.Size = new System.Drawing.Size(0, 16);
             this.lblMedico.TabIndex = 167;
@@ -448,7 +468,7 @@
             // lblNombreCompleto
             // 
             this.lblNombreCompleto.AutoSize = true;
-            this.lblNombreCompleto.Location = new System.Drawing.Point(129, 152);
+            this.lblNombreCompleto.Location = new System.Drawing.Point(130, 152);
             this.lblNombreCompleto.Name = "lblNombreCompleto";
             this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
             this.lblNombreCompleto.TabIndex = 166;
@@ -493,7 +513,7 @@
             // 
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(44, 179);
+            this.label65.Location = new System.Drawing.Point(41, 179);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(146, 20);
             this.label65.TabIndex = 152;
@@ -577,17 +597,6 @@
             this.dtpFecha.TabIndex = 155;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // dgvOrina
-            // 
-            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvOrina.Location = new System.Drawing.Point(0, 242);
-            this.dgvOrina.Name = "dgvOrina";
-            this.dgvOrina.RowHeadersWidth = 51;
-            this.dgvOrina.RowTemplate.Height = 24;
-            this.dgvOrina.Size = new System.Drawing.Size(295, 230);
-            this.dgvOrina.TabIndex = 195;
-            // 
             // Blanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -601,6 +610,7 @@
             this.Load += new System.EventHandler(this.Blanco_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.PanelCap.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -613,7 +623,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.ResumeLayout(false);
 
         }

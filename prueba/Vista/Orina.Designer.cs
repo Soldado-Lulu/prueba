@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
@@ -68,7 +69,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.txtCetonas = new System.Windows.Forms.TextBox();
             this.txtSangre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -118,11 +118,11 @@
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.panel4.SuspendLayout();
             this.PanelCap.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -139,6 +139,18 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 1055);
             this.panel5.TabIndex = 138;
+            // 
+            // dgvOrina
+            // 
+            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvOrina.Location = new System.Drawing.Point(0, 307);
+            this.dgvOrina.Name = "dgvOrina";
+            this.dgvOrina.RowHeadersWidth = 51;
+            this.dgvOrina.RowTemplate.Height = 24;
+            this.dgvOrina.Size = new System.Drawing.Size(200, 230);
+            this.dgvOrina.TabIndex = 24;
+            this.dgvOrina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrina_CellContentClick);
             // 
             // button1
             // 
@@ -199,6 +211,7 @@
             this.btnVarios.TabIndex = 19;
             this.btnVarios.Text = "VARIOS";
             this.btnVarios.UseVisualStyleBackColor = false;
+            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
             // 
             // btnSobre
             // 
@@ -212,6 +225,7 @@
             this.btnSobre.TabIndex = 18;
             this.btnSobre.Text = "SOBRE";
             this.btnSobre.UseVisualStyleBackColor = false;
+            this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
             // 
             // btnBlanco
             // 
@@ -239,6 +253,7 @@
             this.btnMicro.TabIndex = 16;
             this.btnMicro.Text = "MICRO";
             this.btnMicro.UseVisualStyleBackColor = false;
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
             // btnSerologia
             // 
@@ -252,6 +267,7 @@
             this.btnSerologia.TabIndex = 15;
             this.btnSerologia.Text = "SEROLOGIA";
             this.btnSerologia.UseVisualStyleBackColor = false;
+            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
             // 
             // btnHCG
             // 
@@ -265,6 +281,7 @@
             this.btnHCG.TabIndex = 14;
             this.btnHCG.Text = "HCG";
             this.btnHCG.UseVisualStyleBackColor = false;
+            this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click);
             // 
             // btnCopros
             // 
@@ -278,6 +295,7 @@
             this.btnCopros.TabIndex = 13;
             this.btnCopros.Text = "COPROS";
             this.btnCopros.UseVisualStyleBackColor = false;
+            this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click);
             // 
             // btnOrina
             // 
@@ -291,6 +309,7 @@
             this.btnOrina.TabIndex = 12;
             this.btnOrina.Text = "HEMOGRAMA";
             this.btnOrina.UseVisualStyleBackColor = false;
+            this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click);
             // 
             // btnHemograma
             // 
@@ -304,6 +323,7 @@
             this.btnHemograma.TabIndex = 11;
             this.btnHemograma.Text = "QUIMICA";
             this.btnHemograma.UseVisualStyleBackColor = false;
+            this.btnHemograma.Click += new System.EventHandler(this.btnHemograma_Click);
             // 
             // PanelCap
             // 
@@ -594,17 +614,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(949, 334);
             this.panel3.TabIndex = 152;
-            // 
-            // dgvOrina
-            // 
-            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvOrina.Location = new System.Drawing.Point(0, 307);
-            this.dgvOrina.Name = "dgvOrina";
-            this.dgvOrina.RowHeadersWidth = 51;
-            this.dgvOrina.RowTemplate.Height = 24;
-            this.dgvOrina.Size = new System.Drawing.Size(200, 230);
-            this.dgvOrina.TabIndex = 24;
             // 
             // txtCetonas
             // 
@@ -1074,13 +1083,13 @@
             this.Text = "Orina";
             this.Load += new System.EventHandler(this.Orina_Load);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.panel4.ResumeLayout(false);
             this.PanelCap.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel1.ResumeLayout(false);

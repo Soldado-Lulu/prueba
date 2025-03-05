@@ -10,6 +10,7 @@ namespace prueba.Modelo
     {
         public int IdSobre { get; set; }
         public int IdPaciente { get; set; }
+        public string Presente { get; set; }
 
     }
 }
