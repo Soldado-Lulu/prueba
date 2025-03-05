@@ -2,9 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Laboratorio.Modelo; // Asegúrate de que la clase PacienteM está en este namespace
+using prueba.Modelo; // Asegúrate de que la clase PacienteM está en este namespace
 using prueba.Logica;
 using prueba.Vista;
+using Prueba.Modelo;
 namespace Laboratorio.Vista
 {
     public partial class RegistroPaciente : Form

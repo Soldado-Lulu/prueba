@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using Laboratorio.Modelo;
+using Prueba.Modelo;
 using System.Data.SQLite;
 using System.Data;
 using prueba.DAO;

@@ -1,5 +1,4 @@
-﻿using Laboratorio.Logica;
-using Laboratorio.Modelo;
+﻿using prueba.Modelo;
 using prueba.DAO;
 using prueba.Logica;
 using System;
@@ -12,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Prueba.Modelo;
+using Laboratorio.Logica;
 
 namespace prueba.Vista
 {
@@ -119,6 +120,13 @@ namespace prueba.Vista
 
                 MessageBox.Show("Error al guardar el examen de orina. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBlanco_Click(object sender, EventArgs e)
+        {
+            Blanco formQuimica = new Blanco();
+            formQuimica.Show();
+            this.Hide();
         }
     }
 }

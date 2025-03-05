@@ -1,4 +1,4 @@
-﻿using Laboratorio.Modelo;
+﻿using Prueba.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;

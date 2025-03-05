@@ -1,41 +1,44 @@
-﻿using System;
+﻿using prueba.Logica;
+using prueba.Modelo;
+using prueba.DAO;
+using prueba.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prueba.Modelo;
 
 using System.Configuration;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Runtime.ConstrainedExecution;
 using System.Windows.Forms;
-using prueba.DAO;
-using prueba.Modelo;
-namespace Laboratorio.Logica
+namespace prueba.Logica_Sevicio
 {
-
-    public class OrinaLogica
+    public class BlancoLogica
     {
-        private static OrinaLogica _instancia = null;
-        private ExamenOrinaDAO _orinaDAO = new ExamenOrinaDAO();
-        public static OrinaLogica Instancia
+        private static BlancoLogica _instancia = null;
+        private ExamenBlancoDAO _blancoDAO = new ExamenBlancoDAO();
+
+        public static BlancoLogica Instancia
         {
             get
             {
                 if (_instancia == null)
                 {
-                    _instancia = new OrinaLogica();
+                    _instancia = new BlancoLogica();
                 }
                 return _instancia;
             }
         }
-        private OrinaLogica() { }
-        public bool GuardarExamen(OrinaM examen, int idPaciente)
+
+        private BlancoLogica() { }
+
+        public bool GuardarExamen(BlancoM examen, int idPaciente)
         {
             if (idPaciente <= 0)
                 return false; // No se puede guardar sin un paciente
-            return _orinaDAO.Guardar(examen, idPaciente);
+            return _blancoDAO.Guardar(examen, idPaciente);
         }
     }
 }

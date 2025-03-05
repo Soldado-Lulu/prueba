@@ -224,6 +224,7 @@
             this.btnBlanco.TabIndex = 17;
             this.btnBlanco.Text = "BLANCO";
             this.btnBlanco.UseVisualStyleBackColor = false;
+            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
             // 
             // btnMicro
             // 
