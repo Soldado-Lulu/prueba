@@ -193,7 +193,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 1179);
+            this.panel1.Size = new System.Drawing.Size(200, 1055);
             this.panel1.TabIndex = 0;
             // 
             // btnVarios
@@ -329,7 +329,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1303, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(345, 1179);
+            this.panel2.Size = new System.Drawing.Size(345, 1055);
             this.panel2.TabIndex = 1;
             // 
             // btnNuevoPaciente
@@ -362,7 +362,7 @@
             this.PanelCap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelCap.Location = new System.Drawing.Point(200, 0);
             this.PanelCap.Name = "PanelCap";
-            this.PanelCap.Size = new System.Drawing.Size(1103, 1179);
+            this.PanelCap.Size = new System.Drawing.Size(1103, 1055);
             this.PanelCap.TabIndex = 2;
             // 
             // panel4
@@ -1697,7 +1697,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1648, 1179);
+            this.ClientSize = new System.Drawing.Size(1648, 1055);
             this.Controls.Add(this.PanelCap);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
