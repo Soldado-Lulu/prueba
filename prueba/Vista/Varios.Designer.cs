@@ -41,7 +41,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtOtros = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,6 +57,9 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblMedico = new System.Windows.Forms.Label();
+            this.lblNombreCompleto = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -70,12 +73,9 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblNombreCompleto = new System.Windows.Forms.Label();
-            this.lblMedico = new System.Windows.Forms.Label();
-            this.lblEdad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.PanelCap.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -246,6 +246,7 @@
             this.btnNuevoPaciente.TabIndex = 198;
             this.btnNuevoPaciente.Text = "guardar";
             this.btnNuevoPaciente.UseVisualStyleBackColor = true;
+            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
@@ -256,18 +257,18 @@
             this.panelRight.Size = new System.Drawing.Size(200, 177);
             this.panelRight.TabIndex = 189;
             // 
-            // panel3
+            // PanelCap
             // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.panel7);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1097, 1055);
-            this.panel3.TabIndex = 2;
+            this.PanelCap.Controls.Add(this.panel4);
+            this.PanelCap.Controls.Add(this.panel5);
+            this.PanelCap.Controls.Add(this.panel6);
+            this.PanelCap.Controls.Add(this.panel8);
+            this.PanelCap.Controls.Add(this.panel7);
+            this.PanelCap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCap.Location = new System.Drawing.Point(200, 0);
+            this.PanelCap.Name = "PanelCap";
+            this.PanelCap.Size = new System.Drawing.Size(1097, 1055);
+            this.PanelCap.TabIndex = 2;
             // 
             // panel4
             // 
@@ -434,6 +435,30 @@
             this.panel7.Size = new System.Drawing.Size(1097, 194);
             this.panel7.TabIndex = 153;
             // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(421, 163);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(0, 16);
+            this.lblEdad.TabIndex = 168;
+            // 
+            // lblMedico
+            // 
+            this.lblMedico.AutoSize = true;
+            this.lblMedico.Location = new System.Drawing.Point(187, 157);
+            this.lblMedico.Name = "lblMedico";
+            this.lblMedico.Size = new System.Drawing.Size(0, 16);
+            this.lblMedico.TabIndex = 167;
+            // 
+            // lblNombreCompleto
+            // 
+            this.lblNombreCompleto.AutoSize = true;
+            this.lblNombreCompleto.Location = new System.Drawing.Point(112, 130);
+            this.lblNombreCompleto.Name = "lblNombreCompleto";
+            this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
+            this.lblNombreCompleto.TabIndex = 166;
+            // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(639, 74);
@@ -558,36 +583,12 @@
             this.dtpFecha.TabIndex = 155;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // lblNombreCompleto
-            // 
-            this.lblNombreCompleto.AutoSize = true;
-            this.lblNombreCompleto.Location = new System.Drawing.Point(112, 130);
-            this.lblNombreCompleto.Name = "lblNombreCompleto";
-            this.lblNombreCompleto.Size = new System.Drawing.Size(0, 16);
-            this.lblNombreCompleto.TabIndex = 166;
-            // 
-            // lblMedico
-            // 
-            this.lblMedico.AutoSize = true;
-            this.lblMedico.Location = new System.Drawing.Point(187, 157);
-            this.lblMedico.Name = "lblMedico";
-            this.lblMedico.Size = new System.Drawing.Size(0, 16);
-            this.lblMedico.TabIndex = 167;
-            // 
-            // lblEdad
-            // 
-            this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(421, 163);
-            this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(0, 16);
-            this.lblEdad.TabIndex = 168;
-            // 
             // Varios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1497, 1055);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.PanelCap);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Varios";
@@ -595,7 +596,7 @@
             this.Load += new System.EventHandler(this.Varios_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.PanelCap.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -625,7 +626,7 @@
         private System.Windows.Forms.Button btnHemograma;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PanelCap;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtOtros;
         private System.Windows.Forms.Label label2;

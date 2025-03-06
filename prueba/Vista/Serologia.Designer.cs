@@ -41,7 +41,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -97,7 +97,7 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.PanelCap.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -279,17 +279,17 @@
             this.panelRight.Size = new System.Drawing.Size(200, 177);
             this.panelRight.TabIndex = 1;
             // 
-            // panel3
+            // PanelCap
             // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.panel7);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1116, 1055);
-            this.panel3.TabIndex = 2;
+            this.PanelCap.Controls.Add(this.panel4);
+            this.PanelCap.Controls.Add(this.panel5);
+            this.PanelCap.Controls.Add(this.panel8);
+            this.PanelCap.Controls.Add(this.panel7);
+            this.PanelCap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCap.Location = new System.Drawing.Point(200, 0);
+            this.PanelCap.Name = "PanelCap";
+            this.PanelCap.Size = new System.Drawing.Size(1116, 1055);
+            this.PanelCap.TabIndex = 2;
             // 
             // panel4
             // 
@@ -789,7 +789,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1516, 1055);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.PanelCap);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Serologia";
@@ -797,7 +797,7 @@
             this.Load += new System.EventHandler(this.Serologia_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.PanelCap.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -827,7 +827,7 @@
         private System.Windows.Forms.Button btnOrina;
         private System.Windows.Forms.Button btnHemograma;
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PanelCap;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Panel panel5;
