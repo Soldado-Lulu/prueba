@@ -11,5 +11,6 @@ namespace prueba.Modelo
         public int IdHCG { get; set; }
         public int IdPaciente { get; set; }
         public string Resultado { get; set; }
+        public string Muestra { get; set; }
     }
 }

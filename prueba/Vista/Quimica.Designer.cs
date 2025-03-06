@@ -366,15 +366,14 @@
             this.panel4.Controls.Add(this.txtSodio);
             this.panel4.Controls.Add(this.label63);
             this.panel4.Controls.Add(this.label37);
+            this.panel4.Controls.Add(this.txtTotal);
+            this.panel4.Controls.Add(this.label46);
             this.panel4.Controls.Add(this.label73);
             this.panel4.Controls.Add(this.label69);
             this.panel4.Controls.Add(this.label76);
             this.panel4.Controls.Add(this.label75);
-            this.panel4.Controls.Add(this.txtHemoglobina);
             this.panel4.Controls.Add(this.txtCPK);
-            this.panel4.Controls.Add(this.label56);
             this.panel4.Controls.Add(this.txtCKMB);
-            this.panel4.Controls.Add(this.label79);
             this.panel4.Controls.Add(this.label82);
             this.panel4.Controls.Add(this.label25);
             this.panel4.Controls.Add(this.label84);
@@ -387,7 +386,8 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(303, 274);
+            this.label43.Enabled = false;
+            this.label43.Location = new System.Drawing.Point(303, 233);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(96, 16);
             this.label43.TabIndex = 61;
@@ -395,21 +395,24 @@
             // 
             // txtCalcio
             // 
-            this.txtCalcio.Location = new System.Drawing.Point(167, 271);
+            this.txtCalcio.Enabled = false;
+            this.txtCalcio.Location = new System.Drawing.Point(167, 230);
             this.txtCalcio.Name = "txtCalcio";
             this.txtCalcio.Size = new System.Drawing.Size(103, 22);
             this.txtCalcio.TabIndex = 128;
             // 
             // txtCloro
             // 
-            this.txtCloro.Location = new System.Drawing.Point(168, 235);
+            this.txtCloro.Enabled = false;
+            this.txtCloro.Location = new System.Drawing.Point(168, 194);
             this.txtCloro.Name = "txtCloro";
             this.txtCloro.Size = new System.Drawing.Size(103, 22);
             this.txtCloro.TabIndex = 127;
             // 
             // txtPotasio
             // 
-            this.txtPotasio.Location = new System.Drawing.Point(168, 198);
+            this.txtPotasio.Enabled = false;
+            this.txtPotasio.Location = new System.Drawing.Point(168, 157);
             this.txtPotasio.Name = "txtPotasio";
             this.txtPotasio.Size = new System.Drawing.Size(103, 22);
             this.txtPotasio.TabIndex = 126;
@@ -417,7 +420,8 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(97, 274);
+            this.label33.Enabled = false;
+            this.label33.Location = new System.Drawing.Point(97, 233);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(51, 16);
             this.label33.TabIndex = 53;
@@ -426,7 +430,8 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(300, 241);
+            this.label41.Enabled = false;
+            this.label41.Location = new System.Drawing.Point(300, 200);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(90, 16);
             this.label41.TabIndex = 60;
@@ -434,7 +439,7 @@
             // 
             // txtSodio
             // 
-            this.txtSodio.Location = new System.Drawing.Point(165, 165);
+            this.txtSodio.Location = new System.Drawing.Point(544, 50);
             this.txtSodio.Name = "txtSodio";
             this.txtSodio.Size = new System.Drawing.Size(103, 22);
             this.txtSodio.TabIndex = 125;
@@ -442,7 +447,8 @@
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(103, 238);
+            this.label63.Enabled = false;
+            this.label63.Location = new System.Drawing.Point(103, 197);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(45, 16);
             this.label63.TabIndex = 53;
@@ -451,7 +457,8 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(298, 204);
+            this.label37.Enabled = false;
+            this.label37.Location = new System.Drawing.Point(298, 163);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(89, 16);
             this.label37.TabIndex = 59;
@@ -460,25 +467,26 @@
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(101, 165);
+            this.label73.Location = new System.Drawing.Point(468, 22);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(49, 16);
+            this.label73.Size = new System.Drawing.Size(31, 16);
             this.label73.TabIndex = 47;
-            this.label73.Text = "Sodio :";
+            this.label73.Text = "LDL";
             // 
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(102, 201);
+            this.label69.Location = new System.Drawing.Point(468, 53);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(59, 16);
+            this.label69.Size = new System.Drawing.Size(65, 16);
             this.label69.TabIndex = 50;
-            this.label69.Text = "Potasio :";
+            this.label69.Text = "VLDL - C :";
             // 
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(79, 135);
+            this.label76.Enabled = false;
+            this.label76.Location = new System.Drawing.Point(76, 160);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(57, 16);
             this.label76.TabIndex = 44;
@@ -487,17 +495,17 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(300, 171);
+            this.label75.Location = new System.Drawing.Point(672, 56);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(97, 16);
+            this.label75.Size = new System.Drawing.Size(79, 16);
             this.label75.TabIndex = 58;
-            this.label75.Text = "135 - 155 mEq/l";
+            this.label75.Text = "5 - 35 mg/dL";
             // 
             // txtHemoglobina
             // 
-            this.txtHemoglobina.Location = new System.Drawing.Point(262, 95);
+            this.txtHemoglobina.Location = new System.Drawing.Point(117, 63);
             this.txtHemoglobina.Name = "txtHemoglobina";
-            this.txtHemoglobina.Size = new System.Drawing.Size(77, 22);
+            this.txtHemoglobina.Size = new System.Drawing.Size(120, 22);
             this.txtHemoglobina.TabIndex = 123;
             // 
             // txtCPK
@@ -510,7 +518,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(357, 98);
+            this.label56.Location = new System.Drawing.Point(256, 66);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(66, 16);
             this.label56.TabIndex = 43;
@@ -526,11 +534,11 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(79, 101);
+            this.label79.Location = new System.Drawing.Point(12, 69);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(160, 16);
+            this.label79.Size = new System.Drawing.Size(96, 16);
             this.label79.TabIndex = 41;
-            this.label79.Text = "Hemoglobina Glicosilada";
+            this.label79.Text = "Hb Glicosilada";
             // 
             // label82
             // 
@@ -570,12 +578,15 @@
             this.panel5.Controls.Add(this.txtglobulina);
             this.panel5.Controls.Add(this.label24);
             this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.txtUrico);
             this.panel5.Controls.Add(this.txtAlbumina);
             this.panel5.Controls.Add(this.label19);
             this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.txtProteina);
+            this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.txtAmilasa);
+            this.panel5.Controls.Add(this.label28);
             this.panel5.Controls.Add(this.label64);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.txtFosfatasaAlcalina);
@@ -592,8 +603,6 @@
             this.panel5.Controls.Add(this.label40);
             this.panel5.Controls.Add(this.label42);
             this.panel5.Controls.Add(this.label50);
-            this.panel5.Controls.Add(this.txtTotal);
-            this.panel5.Controls.Add(this.label46);
             this.panel5.Controls.Add(this.txtIndirecta);
             this.panel5.Controls.Add(this.label48);
             this.panel5.Controls.Add(this.label36);
@@ -603,9 +612,6 @@
             this.panel5.Controls.Add(this.label38);
             this.panel5.Controls.Add(this.label34);
             this.panel5.Controls.Add(this.label47);
-            this.panel5.Controls.Add(this.txtTrigliceridos);
-            this.panel5.Controls.Add(this.label31);
-            this.panel5.Controls.Add(this.label32);
             this.panel5.Controls.Add(this.label30);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 441);
@@ -615,14 +621,14 @@
             // 
             // txtFosfatasaAcidaProstatica
             // 
-            this.txtFosfatasaAcidaProstatica.Location = new System.Drawing.Point(572, 270);
+            this.txtFosfatasaAcidaProstatica.Location = new System.Drawing.Point(643, 274);
             this.txtFosfatasaAcidaProstatica.Name = "txtFosfatasaAcidaProstatica";
             this.txtFosfatasaAcidaProstatica.Size = new System.Drawing.Size(103, 22);
             this.txtFosfatasaAcidaProstatica.TabIndex = 120;
             // 
             // txtFosfatasaAcida
             // 
-            this.txtFosfatasaAcida.Location = new System.Drawing.Point(572, 242);
+            this.txtFosfatasaAcida.Location = new System.Drawing.Point(643, 245);
             this.txtFosfatasaAcida.Name = "txtFosfatasaAcida";
             this.txtFosfatasaAcida.Size = new System.Drawing.Size(103, 22);
             this.txtFosfatasaAcida.TabIndex = 119;
@@ -630,7 +636,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(400, 277);
+            this.label27.Location = new System.Drawing.Point(463, 277);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(174, 16);
             this.label27.TabIndex = 74;
@@ -638,14 +644,14 @@
             // 
             // txtRelacion
             // 
-            this.txtRelacion.Location = new System.Drawing.Point(550, 208);
+            this.txtRelacion.Location = new System.Drawing.Point(592, 208);
             this.txtRelacion.Name = "txtRelacion";
             this.txtRelacion.Size = new System.Drawing.Size(103, 22);
             this.txtRelacion.TabIndex = 118;
             // 
             // txtglobulina
             // 
-            this.txtglobulina.Location = new System.Drawing.Point(547, 176);
+            this.txtglobulina.Location = new System.Drawing.Point(589, 167);
             this.txtglobulina.Name = "txtglobulina";
             this.txtglobulina.Size = new System.Drawing.Size(106, 22);
             this.txtglobulina.TabIndex = 117;
@@ -653,7 +659,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(400, 248);
+            this.label24.Location = new System.Drawing.Point(463, 248);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(148, 16);
             this.label24.TabIndex = 74;
@@ -662,7 +668,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(673, 214);
+            this.label21.Location = new System.Drawing.Point(705, 214);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 16);
             this.label21.TabIndex = 84;
@@ -670,7 +676,7 @@
             // 
             // txtAlbumina
             // 
-            this.txtAlbumina.Location = new System.Drawing.Point(547, 142);
+            this.txtAlbumina.Location = new System.Drawing.Point(589, 130);
             this.txtAlbumina.Name = "txtAlbumina";
             this.txtAlbumina.Size = new System.Drawing.Size(106, 22);
             this.txtAlbumina.TabIndex = 116;
@@ -678,7 +684,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(411, 214);
+            this.label19.Location = new System.Drawing.Point(463, 211);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(93, 16);
             this.label19.TabIndex = 74;
@@ -687,7 +693,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(411, 179);
+            this.label20.Location = new System.Drawing.Point(462, 173);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(73, 16);
             this.label20.TabIndex = 74;
@@ -695,7 +701,7 @@
             // 
             // txtProteina
             // 
-            this.txtProteina.Location = new System.Drawing.Point(547, 114);
+            this.txtProteina.Location = new System.Drawing.Point(589, 95);
             this.txtProteina.Name = "txtProteina";
             this.txtProteina.Size = new System.Drawing.Size(106, 22);
             this.txtProteina.TabIndex = 115;
@@ -703,15 +709,15 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(669, 144);
+            this.label13.Location = new System.Drawing.Point(705, 136);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 16);
+            this.label13.Size = new System.Drawing.Size(81, 16);
             this.label13.TabIndex = 83;
-            this.label13.Text = "3,5 - 4,8 g/dl";
+            this.label13.Text = "3,5 - 4,8 g/dL";
             // 
             // txtAmilasa
             // 
-            this.txtAmilasa.Location = new System.Drawing.Point(547, 79);
+            this.txtAmilasa.Location = new System.Drawing.Point(589, 62);
             this.txtAmilasa.Name = "txtAmilasa";
             this.txtAmilasa.Size = new System.Drawing.Size(106, 22);
             this.txtAmilasa.TabIndex = 114;
@@ -719,7 +725,7 @@
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(411, 144);
+            this.label64.Location = new System.Drawing.Point(462, 133);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(66, 16);
             this.label64.TabIndex = 74;
@@ -728,15 +734,15 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(669, 116);
+            this.label12.Location = new System.Drawing.Point(705, 98);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 16);
+            this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 82;
-            this.label12.Text = "6,1 - 7,9 g/dl";
+            this.label12.Text = "6,1 - 7,9 g/dL";
             // 
             // txtFosfatasaAlcalina
             // 
-            this.txtFosfatasaAlcalina.Location = new System.Drawing.Point(547, 44);
+            this.txtFosfatasaAlcalina.Location = new System.Drawing.Point(589, 28);
             this.txtFosfatasaAlcalina.Name = "txtFosfatasaAlcalina";
             this.txtFosfatasaAlcalina.Size = new System.Drawing.Size(106, 22);
             this.txtFosfatasaAlcalina.TabIndex = 113;
@@ -744,7 +750,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(411, 107);
+            this.label66.Location = new System.Drawing.Point(462, 95);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(119, 16);
             this.label66.TabIndex = 71;
@@ -753,7 +759,7 @@
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(411, 76);
+            this.label68.Location = new System.Drawing.Point(462, 62);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(62, 16);
             this.label68.TabIndex = 68;
@@ -762,7 +768,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(669, 85);
+            this.label58.Location = new System.Drawing.Point(705, 65);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(89, 16);
             this.label58.TabIndex = 81;
@@ -770,7 +776,7 @@
             // 
             // txtGPT
             // 
-            this.txtGPT.Location = new System.Drawing.Point(165, 277);
+            this.txtGPT.Location = new System.Drawing.Point(140, 230);
             this.txtGPT.Name = "txtGPT";
             this.txtGPT.Size = new System.Drawing.Size(106, 22);
             this.txtGPT.TabIndex = 112;
@@ -778,7 +784,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(669, 50);
+            this.label11.Location = new System.Drawing.Point(705, 34);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 16);
             this.label11.TabIndex = 66;
@@ -786,7 +792,7 @@
             // 
             // txtGOT
             // 
-            this.txtGOT.Location = new System.Drawing.Point(165, 242);
+            this.txtGOT.Location = new System.Drawing.Point(140, 195);
             this.txtGOT.Name = "txtGOT";
             this.txtGOT.Size = new System.Drawing.Size(106, 22);
             this.txtGOT.TabIndex = 111;
@@ -794,7 +800,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(409, 47);
+            this.label70.Location = new System.Drawing.Point(462, 31);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(121, 16);
             this.label70.TabIndex = 65;
@@ -803,7 +809,7 @@
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(669, 34);
+            this.label59.Location = new System.Drawing.Point(705, 13);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(97, 16);
             this.label59.TabIndex = 63;
@@ -812,7 +818,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(298, 277);
+            this.label8.Location = new System.Drawing.Point(283, 233);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 16);
             this.label8.TabIndex = 61;
@@ -821,7 +827,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(82, 214);
+            this.label44.Location = new System.Drawing.Point(20, 167);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(104, 16);
             this.label44.TabIndex = 50;
@@ -830,7 +836,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(93, 277);
+            this.label40.Location = new System.Drawing.Point(68, 230);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(38, 16);
             this.label40.TabIndex = 56;
@@ -839,7 +845,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(91, 242);
+            this.label42.Location = new System.Drawing.Point(66, 195);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(39, 16);
             this.label42.TabIndex = 53;
@@ -848,7 +854,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(300, 245);
+            this.label50.Location = new System.Drawing.Point(285, 201);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(80, 16);
             this.label50.TabIndex = 60;
@@ -856,7 +862,8 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(165, 173);
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(505, 178);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(106, 22);
             this.txtTotal.TabIndex = 110;
@@ -864,7 +871,8 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(79, 176);
+            this.label46.Enabled = false;
+            this.label46.Location = new System.Drawing.Point(455, 178);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(44, 16);
             this.label46.TabIndex = 47;
@@ -872,24 +880,24 @@
             // 
             // txtIndirecta
             // 
-            this.txtIndirecta.Location = new System.Drawing.Point(165, 138);
+            this.txtIndirecta.Location = new System.Drawing.Point(137, 127);
             this.txtIndirecta.Name = "txtIndirecta";
-            this.txtIndirecta.Size = new System.Drawing.Size(106, 22);
+            this.txtIndirecta.Size = new System.Drawing.Size(131, 22);
             this.txtIndirecta.TabIndex = 109;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(285, 179);
+            this.label48.Location = new System.Drawing.Point(285, 62);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(100, 16);
+            this.label48.Size = new System.Drawing.Size(104, 16);
             this.label48.TabIndex = 58;
-            this.label48.Text = "Hasta 1,0 mg/dl";
+            this.label48.Text = "Hasta 1,0 mg/dL";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(78, 148);
+            this.label36.Location = new System.Drawing.Point(43, 127);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(61, 16);
             this.label36.TabIndex = 44;
@@ -897,31 +905,31 @@
             // 
             // txtDirecta
             // 
-            this.txtDirecta.Location = new System.Drawing.Point(165, 110);
+            this.txtDirecta.Location = new System.Drawing.Point(136, 95);
             this.txtDirecta.Name = "txtDirecta";
-            this.txtDirecta.Size = new System.Drawing.Size(106, 22);
+            this.txtDirecta.Size = new System.Drawing.Size(132, 22);
             this.txtDirecta.TabIndex = 108;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(285, 144);
+            this.label39.Location = new System.Drawing.Point(285, 133);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(100, 16);
+            this.label39.Size = new System.Drawing.Size(104, 16);
             this.label39.TabIndex = 35;
-            this.label39.Text = "Hasta 0,7 mg/dl";
+            this.label39.Text = "Hasta 0,7 mg/dL";
             // 
             // txtBilirrubina
             // 
-            this.txtBilirrubina.Location = new System.Drawing.Point(165, 79);
+            this.txtBilirrubina.Location = new System.Drawing.Point(136, 59);
             this.txtBilirrubina.Name = "txtBilirrubina";
-            this.txtBilirrubina.Size = new System.Drawing.Size(106, 22);
+            this.txtBilirrubina.Size = new System.Drawing.Size(135, 22);
             this.txtBilirrubina.TabIndex = 107;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(79, 117);
+            this.label38.Location = new System.Drawing.Point(45, 95);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(53, 16);
             this.label38.TabIndex = 41;
@@ -930,32 +938,32 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(77, 76);
+            this.label34.Location = new System.Drawing.Point(40, 62);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(69, 16);
+            this.label34.Size = new System.Drawing.Size(81, 16);
             this.label34.TabIndex = 38;
-            this.label34.Text = "Bilirrubina:";
+            this.label34.Text = "Bilirrubina T:";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(285, 113);
+            this.label47.Location = new System.Drawing.Point(285, 98);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(100, 16);
+            this.label47.Size = new System.Drawing.Size(104, 16);
             this.label47.TabIndex = 57;
-            this.label47.Text = "Hasta 0,2 mg/dl";
+            this.label47.Text = "Hasta 0,2 mg/dL";
             // 
             // txtTrigliceridos
             // 
-            this.txtTrigliceridos.Location = new System.Drawing.Point(165, 44);
+            this.txtTrigliceridos.Location = new System.Drawing.Point(562, 146);
             this.txtTrigliceridos.Name = "txtTrigliceridos";
-            this.txtTrigliceridos.Size = new System.Drawing.Size(106, 22);
+            this.txtTrigliceridos.Size = new System.Drawing.Size(135, 22);
             this.txtTrigliceridos.TabIndex = 106;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(74, 42);
+            this.label31.Location = new System.Drawing.Point(447, 149);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(85, 16);
             this.label31.TabIndex = 35;
@@ -964,11 +972,11 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(285, 42);
+            this.label32.Location = new System.Drawing.Point(713, 149);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(86, 16);
+            this.label32.Size = new System.Drawing.Size(90, 16);
             this.label32.TabIndex = 36;
-            this.label32.Text = "30- 150 mg/dl";
+            this.label32.Text = "30- 150 mg/dL";
             // 
             // label30
             // 
@@ -991,25 +999,28 @@
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.txtColesterol);
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.txtUrico);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.label29);
-            this.panel6.Controls.Add(this.label14);
             this.panel6.Controls.Add(this.txtBUN);
-            this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.txtHemoglobina);
             this.panel6.Controls.Add(this.label15);
+            this.panel6.Controls.Add(this.label56);
             this.panel6.Controls.Add(this.txtCreatinina);
             this.panel6.Controls.Add(this.label22);
             this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.label79);
             this.panel6.Controls.Add(this.txtUrea);
             this.panel6.Controls.Add(this.txtGlucosa);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.txtTrigliceridos);
+            this.panel6.Controls.Add(this.label32);
+            this.panel6.Controls.Add(this.label31);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 255);
             this.panel6.Name = "panel6";
@@ -1020,7 +1031,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(622, 9);
+            this.label35.Location = new System.Drawing.Point(563, 12);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(171, 19);
             this.label35.TabIndex = 106;
@@ -1028,14 +1039,14 @@
             // 
             // txtLDL
             // 
-            this.txtLDL.Location = new System.Drawing.Point(477, 135);
+            this.txtLDL.Location = new System.Drawing.Point(562, 107);
             this.txtLDL.Name = "txtLDL";
             this.txtLDL.Size = new System.Drawing.Size(135, 22);
             this.txtLDL.TabIndex = 105;
             // 
             // txtHDL
             // 
-            this.txtHDL.Location = new System.Drawing.Point(477, 101);
+            this.txtHDL.Location = new System.Drawing.Point(562, 73);
             this.txtHDL.Name = "txtHDL";
             this.txtHDL.Size = new System.Drawing.Size(135, 22);
             this.txtHDL.TabIndex = 104;
@@ -1043,7 +1054,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(389, 129);
+            this.label5.Location = new System.Drawing.Point(474, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 20;
@@ -1052,15 +1063,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(628, 141);
+            this.label6.Location = new System.Drawing.Point(713, 113);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 16);
+            this.label6.Size = new System.Drawing.Size(93, 16);
             this.label6.TabIndex = 34;
-            this.label6.Text = "30 - 150 mg/dl";
+            this.label6.Text = "50 - 140 mg/dL";
             // 
             // txtColesterol
             // 
-            this.txtColesterol.Location = new System.Drawing.Point(477, 64);
+            this.txtColesterol.Location = new System.Drawing.Point(562, 36);
             this.txtColesterol.Name = "txtColesterol";
             this.txtColesterol.Size = new System.Drawing.Size(135, 22);
             this.txtColesterol.TabIndex = 103;
@@ -1068,7 +1079,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(389, 101);
+            this.label1.Location = new System.Drawing.Point(474, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 20;
@@ -1076,7 +1087,7 @@
             // 
             // txtUrico
             // 
-            this.txtUrico.Location = new System.Drawing.Point(473, 32);
+            this.txtUrico.Location = new System.Drawing.Point(136, 28);
             this.txtUrico.Name = "txtUrico";
             this.txtUrico.Size = new System.Drawing.Size(139, 22);
             this.txtUrico.TabIndex = 102;
@@ -1084,16 +1095,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(628, 107);
+            this.label4.Location = new System.Drawing.Point(713, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 16);
+            this.label4.Size = new System.Drawing.Size(89, 16);
             this.label4.TabIndex = 34;
-            this.label4.Text = "30 - 70  mg/dl";
+            this.label4.Text = "30 - 70  mg/dL";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(357, 70);
+            this.label16.Location = new System.Drawing.Point(442, 42);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 16);
             this.label16.TabIndex = 20;
@@ -1102,25 +1113,25 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(245, 132);
+            this.label26.Location = new System.Drawing.Point(256, 155);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(75, 16);
+            this.label26.Size = new System.Drawing.Size(79, 16);
             this.label26.TabIndex = 31;
-            this.label26.Text = "6 - 22 mg/dl";
+            this.label26.Text = "6 - 22 mg/dL";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(628, 67);
+            this.label29.Location = new System.Drawing.Point(713, 36);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 16);
+            this.label29.Size = new System.Drawing.Size(100, 16);
             this.label29.TabIndex = 34;
-            this.label29.Text = "150 - 200 mg/dl";
+            this.label29.Text = "150 - 200 mg/dL";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(378, 38);
+            this.label14.Location = new System.Drawing.Point(40, 31);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 16);
             this.label14.TabIndex = 14;
@@ -1128,7 +1139,7 @@
             // 
             // txtBUN
             // 
-            this.txtBUN.Location = new System.Drawing.Point(106, 126);
+            this.txtBUN.Location = new System.Drawing.Point(115, 152);
             this.txtBUN.Name = "txtBUN";
             this.txtBUN.Size = new System.Drawing.Size(119, 22);
             this.txtBUN.TabIndex = 101;
@@ -1136,25 +1147,25 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(628, 35);
+            this.label28.Location = new System.Drawing.Point(285, 31);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(171, 16);
+            this.label28.Size = new System.Drawing.Size(175, 16);
             this.label28.TabIndex = 33;
-            this.label28.Text = "H : 3,4 - 7 / M : 2,4 - 5,7 mg/dl";
+            this.label28.Text = "H : 3,4 - 7 / M : 2,4 - 5,7 mg/dL";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(238, 101);
+            this.label9.Location = new System.Drawing.Point(255, 124);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.Size = new System.Drawing.Size(92, 16);
             this.label9.TabIndex = 10;
-            this.label9.Text = "0,8 - 1,4 mg/dl";
+            this.label9.Text = "0,6 - 1,3 mg/dL";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 132);
+            this.label15.Location = new System.Drawing.Point(41, 155);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(42, 16);
             this.label15.TabIndex = 18;
@@ -1162,7 +1173,7 @@
             // 
             // txtCreatinina
             // 
-            this.txtCreatinina.Location = new System.Drawing.Point(106, 95);
+            this.txtCreatinina.Location = new System.Drawing.Point(117, 121);
             this.txtCreatinina.Name = "txtCreatinina";
             this.txtCreatinina.Size = new System.Drawing.Size(119, 22);
             this.txtCreatinina.TabIndex = 100;
@@ -1170,16 +1181,16 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(238, 70);
+            this.label22.Location = new System.Drawing.Point(256, 94);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 16);
+            this.label22.Size = new System.Drawing.Size(86, 16);
             this.label22.TabIndex = 27;
-            this.label22.Text = "20 - 45 mg/dl";
+            this.label22.Text = "20 - 45 mg/dL";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 98);
+            this.label10.Location = new System.Drawing.Point(26, 124);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 16);
             this.label10.TabIndex = 9;
@@ -1187,14 +1198,14 @@
             // 
             // txtUrea
             // 
-            this.txtUrea.Location = new System.Drawing.Point(105, 64);
+            this.txtUrea.Location = new System.Drawing.Point(117, 91);
             this.txtUrea.Name = "txtUrea";
             this.txtUrea.Size = new System.Drawing.Size(120, 22);
             this.txtUrea.TabIndex = 99;
             // 
             // txtGlucosa
             // 
-            this.txtGlucosa.Location = new System.Drawing.Point(105, 32);
+            this.txtGlucosa.Location = new System.Drawing.Point(116, 30);
             this.txtGlucosa.Name = "txtGlucosa";
             this.txtGlucosa.Size = new System.Drawing.Size(120, 22);
             this.txtGlucosa.TabIndex = 98;
@@ -1202,7 +1213,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 67);
+            this.label7.Location = new System.Drawing.Point(40, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 16);
             this.label7.TabIndex = 5;
@@ -1211,7 +1222,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Location = new System.Drawing.Point(33, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 1;
@@ -1220,11 +1231,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(238, 38);
+            this.label3.Location = new System.Drawing.Point(255, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 16);
+            this.label3.Size = new System.Drawing.Size(93, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "75 - 115 mg/dl";
+            this.label3.Text = "75 - 115 mg/dL";
             // 
             // label17
             // 

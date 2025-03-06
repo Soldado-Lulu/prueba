@@ -67,6 +67,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
@@ -289,6 +290,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtResultado);
             this.panel3.Controls.Add(this.label3);
@@ -325,9 +327,9 @@
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(249, 23);
+            this.label3.Size = new System.Drawing.Size(173, 23);
             this.label3.TabIndex = 94;
-            this.label3.Text = "Exámen :  HCG en Sangre ";
+            this.label3.Text = "Exámen : B - HCG";
             // 
             // label17
             // 
@@ -335,9 +337,9 @@
             this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(15, 18);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(175, 23);
+            this.label17.Size = new System.Drawing.Size(100, 23);
             this.label17.TabIndex = 22;
-            this.label17.Text = "Muestra :  Sangre ";
+            this.label17.Text = "Muestra : ";
             // 
             // panel8
             // 
@@ -526,6 +528,13 @@
             this.dtpFecha.TabIndex = 149;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(111, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 22);
+            this.textBox1.TabIndex = 96;
+            // 
             // HCG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -595,5 +604,6 @@
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblMedico;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
