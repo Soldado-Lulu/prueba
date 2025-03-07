@@ -1,4 +1,5 @@
-﻿using prueba.Logica;
+﻿using Laboratorio.Vista;
+using prueba.Logica;
 using prueba.Logica_Sevicio;
 using prueba.Modelo;
 using Prueba.Modelo;
@@ -23,9 +24,21 @@ namespace prueba.Vista
         {
             InitializeComponent();
         }
-
+        private int idPaciente;
+        public Sobre(int id)
+        {
+            InitializeComponent();
+            idPaciente = id;
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+        }
         private void Sobre_Load(object sender, EventArgs e)
         {
+
+           
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
@@ -188,6 +201,20 @@ namespace prueba.Vista
             formQuimica.Show();
             this.Hide();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
         }
     }
 }

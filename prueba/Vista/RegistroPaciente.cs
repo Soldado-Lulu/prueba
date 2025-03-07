@@ -20,24 +20,27 @@ namespace Laboratorio.Vista
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Verificar que los campos obligatorios no estén vacíos
+            // Verificar solo los campos realmente obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtEdad.Text))
+                string.IsNullOrWhiteSpace(txtApellido.Text))
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete al menos el Nombre y Apellido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Crear el objeto PacienteM
+            // Capturar la fecha del DateTimePicker
+
+            string fechaRegistro = dtpFecha.Value.ToString("yyyy-MM-dd");
+
+            // Crear el objeto PacienteM con campos opcionales
             PacienteM nuevoPaciente = new PacienteM()
             {
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,
-                Telefono = txtTelefono.Text,
-                Edad = txtEdad.Text,
-                Medico = txtMedico.Text
+                Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? null : txtTelefono.Text,
+                Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? null : txtEdad.Text,
+                Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? null : txtMedico.Text,
+                Fecha = fechaRegistro // Nueva propiedad en la clase
             };
 
             bool guardado = logica.Guardar(nuevoPaciente);
@@ -59,6 +62,7 @@ namespace Laboratorio.Vista
                 MessageBox.Show("Error al registrar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void CargarPacientes()
         {
             List<PacienteM> listaPacientes = logica.ObtenerTodos();
@@ -71,6 +75,12 @@ namespace Laboratorio.Vista
             txtTelefono.Clear();
             txtEdad.Clear();
             txtMedico.Clear();
+        }
+
+        private void RegistroPaciente_Load(object sender, EventArgs e)
+        {
+            dtpFecha.Value = DateTime.Now;
+
         }
     }
 }

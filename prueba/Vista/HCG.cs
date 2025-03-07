@@ -1,4 +1,5 @@
-﻿using prueba.Logica;
+﻿using Laboratorio.Vista;
+using prueba.Logica;
 using prueba.Logica_Sevicio;
 using prueba.Modelo;
 using Prueba.Modelo;
@@ -22,7 +23,9 @@ namespace prueba.Vista
         {
             InitializeComponent();
             LlenarDataGridView();
+           
         }
+        
         private void LlenarDataGridView()
         {
             dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
@@ -114,9 +117,21 @@ namespace prueba.Vista
         {
 
         }
-
+        private int idPaciente;
+        public HCG(int id)
+        {
+            InitializeComponent();
+            idPaciente = id;
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+        }
         private void HCG_Load(object sender, EventArgs e)
         {
+            dtpFecha.Value = DateTime.Now;
+
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
@@ -199,5 +214,34 @@ namespace prueba.Vista
             formQuimica.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtResultado.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+            
+        }
+
+    }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
     }
 }
+

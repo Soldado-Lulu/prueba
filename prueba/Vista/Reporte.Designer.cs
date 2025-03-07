@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvOrina = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvOrina
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(186, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1114, 535);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrina.Location = new System.Drawing.Point(186, 67);
+            this.dgvOrina.Name = "dgvOrina";
+            this.dgvOrina.RowHeadersWidth = 51;
+            this.dgvOrina.RowTemplate.Height = 24;
+            this.dgvOrina.Size = new System.Drawing.Size(1114, 535);
+            this.dgvOrina.TabIndex = 0;
+            this.dgvOrina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrina_CellContentClick);
             // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1454, 896);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvOrina);
             this.Name = "Reporte";
             this.Text = "Reporte";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Reporte_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOrina;
     }
 }

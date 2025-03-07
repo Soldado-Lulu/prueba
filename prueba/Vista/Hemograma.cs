@@ -1,4 +1,5 @@
-﻿using prueba.Logica;
+﻿using Laboratorio.Vista;
+using prueba.Logica;
 using prueba.Logica_Sevicio;
 using prueba.Modelo;
 using Prueba.Modelo;
@@ -18,6 +19,56 @@ namespace prueba.Vista
     public partial class Hemograma : Form
     {
         private PacienteM pacienteActivo;
+
+        private int idPaciente;
+        public Hemograma(int id)
+        {
+            InitializeComponent();
+            idPaciente = id;
+            LlenarCampos(idPaciente);
+        }
+        public void LlenarCampos(int idPaciente)
+        {
+            // Llamar al método que obtiene los datos del examen Hemograma
+            HemogramaM examen = HemogramaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+
+            // Verificar si se encontraron datos
+            if (examen != null)
+            {
+                // Llenar los TextBoxes con los datos del examen
+                txtEritrocitos.Text = examen.Eritrocitos;
+                txtLeucocitos.Text = examen.Leucocitos;
+                txtHemoglobina.Text = examen.Hemoglobina;
+                txtHematocritos.Text = examen.Hematocrito;
+                txtPlaquetas.Text = examen.Plaquetas;
+                textMielocitos.Text = examen.Mielocitos;
+                textMetamielocitos.Text = examen.Melamielocitos;
+                textCayados.Text = examen.Cayados;
+                textSegmentados.Text = examen.Segmentados;
+                textLinfocitos.Text = examen.Linfocitos;
+                textMonocitos.Text = examen.Monocitos;
+                textEosinofilos.Text = examen.Eosinofilos;
+                textBasofilos.Text = examen.Basofilos;
+                textVES1.Text = examen.VES1;
+                textVES2.Text = examen.VES2;
+                textIK.Text = examen.Ik;
+                textGrupoSanguineo.Text = examen.GrupoSanguineo;
+                textFactorRh.Text = examen.Factor;
+                txtTiempoSangria.Text = examen.TiempoSangria;
+                txtTiempoCoagulacion.Text = examen.TiempoCoagulacion;
+                txtTiempoProtrombina.Text = examen.TiempoProtrombina;
+                txtPorcentajeActividad.Text = examen.PorcentajeActividad;
+                txtAPTT.Text = examen.Aptt;
+                txtSerieRoja.Text = examen.SerieRoja;
+                txtSerieBlanca.Text = examen.SerieBlanca;
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos para el examen de hemograma.",
+                                "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         public Hemograma()
         {
             InitializeComponent();
@@ -152,6 +203,8 @@ namespace prueba.Vista
         }
         private void Hemograma_Load(object sender, EventArgs e)
         {
+            dtpFecha.Value = DateTime.Now;
+
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
@@ -235,6 +288,25 @@ namespace prueba.Vista
             Varios formQuimica = new Varios();
             formQuimica.Show();
             this.Hide();
+        }
+
+        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

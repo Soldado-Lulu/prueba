@@ -40,6 +40,7 @@
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
+            this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -52,15 +53,14 @@
             this.txtSodio = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
-            this.txtHemoglobina = new System.Windows.Forms.TextBox();
             this.txtCPK = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
             this.txtCKMB = new System.Windows.Forms.TextBox();
-            this.label79 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
@@ -72,12 +72,15 @@
             this.txtglobulina = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtUrico = new System.Windows.Forms.TextBox();
             this.txtAlbumina = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtProteina = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtAmilasa = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFosfatasaAlcalina = new System.Windows.Forms.TextBox();
@@ -94,8 +97,6 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
             this.txtIndirecta = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -105,9 +106,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.txtTrigliceridos = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
@@ -117,25 +115,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtColesterol = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUrico = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtBUN = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtHemoglobina = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
             this.txtCreatinina = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
             this.txtUrea = new System.Windows.Forms.TextBox();
             this.txtGlucosa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtTrigliceridos = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -155,6 +156,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
@@ -168,6 +170,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
             this.panel1.Controls.Add(this.btnBlanco);
@@ -312,6 +315,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnNuevoPaciente);
+            this.panel2.Controls.Add(this.btnGuardarPaciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1203, 0);
@@ -322,13 +326,24 @@
             // btnNuevoPaciente
             // 
             this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 242);
             this.btnNuevoPaciente.Name = "btnNuevoPaciente";
             this.btnNuevoPaciente.Size = new System.Drawing.Size(292, 65);
-            this.btnNuevoPaciente.TabIndex = 196;
-            this.btnNuevoPaciente.Text = "guardar";
+            this.btnNuevoPaciente.TabIndex = 197;
+            this.btnNuevoPaciente.Text = "Nuevo Paciente";
             this.btnNuevoPaciente.UseVisualStyleBackColor = true;
-            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click_1);
+            // 
+            // btnGuardarPaciente
+            // 
+            this.btnGuardarPaciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardarPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnGuardarPaciente.Name = "btnGuardarPaciente";
+            this.btnGuardarPaciente.Size = new System.Drawing.Size(292, 65);
+            this.btnGuardarPaciente.TabIndex = 196;
+            this.btnGuardarPaciente.Text = "Guardar Paciente";
+            this.btnGuardarPaciente.UseVisualStyleBackColor = true;
+            this.btnGuardarPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
@@ -464,6 +479,24 @@
             this.label37.TabIndex = 59;
             this.label37.Text = "3,5 - 5,5 mEq/l";
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(505, 178);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(106, 22);
+            this.txtTotal.TabIndex = 110;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Enabled = false;
+            this.label46.Location = new System.Drawing.Point(455, 178);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(44, 16);
+            this.label46.TabIndex = 47;
+            this.label46.Text = "Total: ";
+            // 
             // label73
             // 
             this.label73.AutoSize = true;
@@ -501,13 +534,6 @@
             this.label75.TabIndex = 58;
             this.label75.Text = "5 - 35 mg/dL";
             // 
-            // txtHemoglobina
-            // 
-            this.txtHemoglobina.Location = new System.Drawing.Point(117, 63);
-            this.txtHemoglobina.Name = "txtHemoglobina";
-            this.txtHemoglobina.Size = new System.Drawing.Size(120, 22);
-            this.txtHemoglobina.TabIndex = 123;
-            // 
             // txtCPK
             // 
             this.txtCPK.Location = new System.Drawing.Point(165, 53);
@@ -515,30 +541,12 @@
             this.txtCPK.Size = new System.Drawing.Size(103, 22);
             this.txtCPK.TabIndex = 122;
             // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(256, 66);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(66, 16);
-            this.label56.TabIndex = 43;
-            this.label56.Text = "6,2 - 8,2 %";
-            // 
             // txtCKMB
             // 
             this.txtCKMB.Location = new System.Drawing.Point(165, 19);
             this.txtCKMB.Name = "txtCKMB";
             this.txtCKMB.Size = new System.Drawing.Size(103, 22);
             this.txtCKMB.TabIndex = 121;
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(12, 69);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(96, 16);
-            this.label79.TabIndex = 41;
-            this.label79.Text = "Hb Glicosilada";
             // 
             // label82
             // 
@@ -674,6 +682,13 @@
             this.label21.TabIndex = 84;
             this.label21.Text = "1,2 - 2,2";
             // 
+            // txtUrico
+            // 
+            this.txtUrico.Location = new System.Drawing.Point(136, 28);
+            this.txtUrico.Name = "txtUrico";
+            this.txtUrico.Size = new System.Drawing.Size(139, 22);
+            this.txtUrico.TabIndex = 102;
+            // 
             // txtAlbumina
             // 
             this.txtAlbumina.Location = new System.Drawing.Point(589, 130);
@@ -706,6 +721,15 @@
             this.txtProteina.Size = new System.Drawing.Size(106, 22);
             this.txtProteina.TabIndex = 115;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 16);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Ac. Urico:";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -721,6 +745,15 @@
             this.txtAmilasa.Name = "txtAmilasa";
             this.txtAmilasa.Size = new System.Drawing.Size(106, 22);
             this.txtAmilasa.TabIndex = 114;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(285, 31);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(175, 16);
+            this.label28.TabIndex = 33;
+            this.label28.Text = "H : 3,4 - 7 / M : 2,4 - 5,7 mg/dL";
             // 
             // label64
             // 
@@ -860,24 +893,6 @@
             this.label50.TabIndex = 60;
             this.label50.Text = "Hasta 12 U/I";
             // 
-            // txtTotal
-            // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(505, 178);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(106, 22);
-            this.txtTotal.TabIndex = 110;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Enabled = false;
-            this.label46.Location = new System.Drawing.Point(455, 178);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(44, 16);
-            this.label46.TabIndex = 47;
-            this.label46.Text = "Total: ";
-            // 
             // txtIndirecta
             // 
             this.txtIndirecta.Location = new System.Drawing.Point(137, 127);
@@ -952,31 +967,6 @@
             this.label47.Size = new System.Drawing.Size(104, 16);
             this.label47.TabIndex = 57;
             this.label47.Text = "Hasta 0,2 mg/dL";
-            // 
-            // txtTrigliceridos
-            // 
-            this.txtTrigliceridos.Location = new System.Drawing.Point(562, 146);
-            this.txtTrigliceridos.Name = "txtTrigliceridos";
-            this.txtTrigliceridos.Size = new System.Drawing.Size(135, 22);
-            this.txtTrigliceridos.TabIndex = 106;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(447, 149);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(85, 16);
-            this.label31.TabIndex = 35;
-            this.label31.Text = "Trigliceridos:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(713, 149);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(90, 16);
-            this.label32.TabIndex = 36;
-            this.label32.Text = "30- 150 mg/dL";
             // 
             // label30
             // 
@@ -1085,13 +1075,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "HDL:  ";
             // 
-            // txtUrico
-            // 
-            this.txtUrico.Location = new System.Drawing.Point(136, 28);
-            this.txtUrico.Name = "txtUrico";
-            this.txtUrico.Size = new System.Drawing.Size(139, 22);
-            this.txtUrico.TabIndex = 102;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -1128,30 +1111,12 @@
             this.label29.TabIndex = 34;
             this.label29.Text = "150 - 200 mg/dL";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(40, 31);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 16);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Ac. Urico:";
-            // 
             // txtBUN
             // 
             this.txtBUN.Location = new System.Drawing.Point(115, 152);
             this.txtBUN.Name = "txtBUN";
             this.txtBUN.Size = new System.Drawing.Size(119, 22);
             this.txtBUN.TabIndex = 101;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(285, 31);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(175, 16);
-            this.label28.TabIndex = 33;
-            this.label28.Text = "H : 3,4 - 7 / M : 2,4 - 5,7 mg/dL";
             // 
             // label9
             // 
@@ -1162,6 +1127,13 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "0,6 - 1,3 mg/dL";
             // 
+            // txtHemoglobina
+            // 
+            this.txtHemoglobina.Location = new System.Drawing.Point(117, 63);
+            this.txtHemoglobina.Name = "txtHemoglobina";
+            this.txtHemoglobina.Size = new System.Drawing.Size(120, 22);
+            this.txtHemoglobina.TabIndex = 123;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1170,6 +1142,15 @@
             this.label15.Size = new System.Drawing.Size(42, 16);
             this.label15.TabIndex = 18;
             this.label15.Text = "BUN :";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(256, 66);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(66, 16);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "6,2 - 8,2 %";
             // 
             // txtCreatinina
             // 
@@ -1195,6 +1176,15 @@
             this.label10.Size = new System.Drawing.Size(73, 16);
             this.label10.TabIndex = 9;
             this.label10.Text = "Creatinina :";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(12, 69);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(96, 16);
+            this.label79.TabIndex = 41;
+            this.label79.Text = "Hb Glicosilada";
             // 
             // txtUrea
             // 
@@ -1246,6 +1236,31 @@
             this.label17.Size = new System.Drawing.Size(171, 19);
             this.label17.TabIndex = 22;
             this.label17.Text = "Valores de Referencia";
+            // 
+            // txtTrigliceridos
+            // 
+            this.txtTrigliceridos.Location = new System.Drawing.Point(562, 146);
+            this.txtTrigliceridos.Name = "txtTrigliceridos";
+            this.txtTrigliceridos.Size = new System.Drawing.Size(135, 22);
+            this.txtTrigliceridos.TabIndex = 106;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(713, 149);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(90, 16);
+            this.label32.TabIndex = 36;
+            this.label32.Text = "30- 150 mg/dL";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(447, 149);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(85, 16);
+            this.label31.TabIndex = 35;
+            this.label31.Text = "Trigliceridos:";
             // 
             // panel8
             // 
@@ -1433,6 +1448,20 @@
             this.dtpFecha.TabIndex = 157;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 585);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 65);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "REPORTE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Quimica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1443,6 +1472,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Quimica";
             this.Text = "Quimica";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Quimica_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1587,9 +1617,11 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.Button btnGuardarPaciente;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblNombreCompleto;
+        private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.Button button1;
     }
 }

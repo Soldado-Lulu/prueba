@@ -38,14 +38,15 @@ namespace prueba.Logica
                 using (SQLiteConnection conexion = new SQLiteConnection(cadena))
                 {
                     conexion.Open();
-                    string query = "INSERT INTO Paciente (Nombre, Apellido, Telefono, Edad,Medico) VALUES (@nombre, @apellido, @telefono, @edad,@medico)";
+                    string query = "INSERT INTO Paciente (Nombre, Apellido, Telefono, Edad,Medico,Fecha) VALUES (@nombre, @apellido, @telefono, @edad,@medico,@fecha)";
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
                         cmd.Parameters.AddWithValue("@apellido", obj.Apellido);
                         cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
                         cmd.Parameters.AddWithValue("@edad", obj.Edad);
-                    cmd.Parameters.AddWithValue("@medico", obj.Medico);
+                        cmd.Parameters.AddWithValue("@medico", obj.Medico);
+                        cmd.Parameters.AddWithValue("@fecha", obj.Fecha);
 
 
                     if (cmd.ExecuteNonQuery() < 1)
@@ -213,22 +214,46 @@ namespace prueba.Logica
             {
                 conexion.Open();
                 string query = @"
-            SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
-                   o.Aspecto, o.Color, o.Olor, o.Densidad, o.Reaccion, o.Glucosa, 
-                   o.Bilirrubina, o.Cetonas, o.Sangre, o.Proteina, o.Urobiliogeno, 
-                   o.Nitrito, o.Leucocito1, o.Eritrocito, o.Leucocito2, o.CED, 
-                   o.Redonda, o.Embarazo, o.Otros, o.Observaciones, o.Flora, 
-                   o.Piocito, o.Cristale, o.Cilindro
-            FROM Paciente p
-            LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
-            ORDER BY p.IdPaciente DESC";
+        SELECT 
+            p.IdPaciente AS 'ID Paciente', 
+            p.Nombre, 
+            p.Apellido, 
+            p.CI, 
+            p.Telefono, 
+            p.Fecha,
+            CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
+            CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
+            CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
+            CASE WHEN s.IdPaciente IS NOT NULL THEN 'Serologia' ELSE '' END AS 'Serologia',
+            CASE WHEN hc.IdPaciente IS NOT NULL THEN 'HCG' ELSE '' END AS 'HCG',
+            CASE WHEN c.IdPaciente IS NOT NULL THEN 'Coproparasitologia' ELSE '' END AS 'Coproparasitologia',
+            CASE WHEN m.IdPaciente IS NOT NULL THEN 'Microbiologia' ELSE '' END AS 'Microbiologia',
+            CASE WHEN v.IdPaciente IS NOT NULL THEN 'Varios' ELSE '' END AS 'Varios',
+            CASE WHEN b.IdPaciente IS NOT NULL THEN 'Blanco' ELSE '' END AS 'Blanco'
+        FROM Paciente p
+        LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+        LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+        LEFT JOIN Hematologia h ON p.IdPaciente = h.IdPaciente
+        LEFT JOIN Serologia s ON p.IdPaciente = s.IdPaciente
+        LEFT JOIN HCG hc ON p.IdPaciente = hc.IdPaciente
+        LEFT JOIN Copros c ON p.IdPaciente = c.IdPaciente
+        LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
+        LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
+        LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
+        ORDER BY p.IdPaciente DESC;";
 
-                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-                adapter.Fill(dt);
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
             }
             return dt;
         }
+
+
         public DataTable ObtenerPacientesConExamenes(string tipoExamen)
         {
             DataTable dt = new DataTable();
@@ -257,7 +282,7 @@ namespace prueba.Logica
                     LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
                     ORDER BY p.IdPaciente DESC";
                         break;
-                    case "hemograma":
+                    case "Hemograma":
                         query = @"
                     SELECT p.IdPaciente AS 'ID Paciente', p.Nombre, p.Apellido, p.CI, p.Telefono, 
                            'Hemograma' AS Examen

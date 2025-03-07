@@ -1,4 +1,5 @@
-﻿using prueba.Logica;
+﻿using Laboratorio.Vista;
+using prueba.Logica;
 using Prueba.Modelo;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace prueba.Vista
 {
@@ -21,9 +23,21 @@ namespace prueba.Vista
         {
             InitializeComponent();
         }
-
+        private int idPaciente;
+        public Varios(int id)
+        {
+            InitializeComponent();
+            idPaciente = id;
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+           
+        }
         private void Varios_Load(object sender, EventArgs e)
         {
+
+            dtpFecha.Value = DateTime.Now;
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
@@ -143,6 +157,20 @@ namespace prueba.Vista
             {
                 e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
             }
+        }
+
+        private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
         }
     }
 }

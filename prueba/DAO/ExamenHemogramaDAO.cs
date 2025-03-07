@@ -74,6 +74,67 @@ namespace prueba.DAO
             }
             return respuesta;
         }
+        // Método para obtener los datos del hemograma por idPaciente
+        public HemogramaM ObtenerHemogramaPorPaciente(int idPaciente)
+        {
+            HemogramaM hemograma = null;
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = @"SELECT * FROM Hematologia WHERE IdPaciente = @idPaciente";
 
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                        SQLiteDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            reader.Read(); // Lee la primera fila
+
+                            // Crear el objeto HemogramaM con los datos obtenidos
+                            hemograma = new HemogramaM
+                            {
+                                IdPaciente = idPaciente,
+                                Eritrocitos = reader["Eritrocitos"].ToString(),
+                                Leucocitos = reader["Leucocitos"].ToString(),
+                                Hemoglobina = reader["Hemoglobina"].ToString(),
+                                Hematocrito = reader["Hematocrito"].ToString(),
+                                Plaquetas = reader["Plaquetas"].ToString(),
+                                Mielocitos = reader["Mielocitos"].ToString(),
+                                Melamielocitos = reader["Melamielocitos"].ToString(),
+                                Cayados = reader["Cayados"].ToString(),
+                                Segmentados = reader["Segmentados"].ToString(),
+                                Linfocitos = reader["Linfocitos"].ToString(),
+                                Monocitos = reader["Monocitos"].ToString(),
+                                Eosinofilos = reader["Eosinofilos"].ToString(),
+                                Basofilos = reader["Basofilos"].ToString(),
+                                VES1 = reader["VES1"].ToString(),
+                                VES2 = reader["VES2"].ToString(),
+                                Ik = reader["Ik"].ToString(),
+                                GrupoSanguineo = reader["GrupoSanguineo"].ToString(),
+                                Factor = reader["Factor"].ToString(),
+                                TiempoSangria = reader["TiempoSangria"].ToString(),
+                                TiempoCoagulacion = reader["TiempoCoagulacion"].ToString(),
+                                TiempoProtrombina = reader["TiempoProtrombina"].ToString(),
+                                PorcentajeActividad = reader["PorcentajeActividad"].ToString(),
+                                Aptt = reader["Aptt"].ToString(),
+                                SerieRoja = reader["SerieRoja"].ToString(),
+                                SerieBlanca = reader["SerieBlanca"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show($"Error al obtener el hemograma:\n{ex.Message}",
+                                                         "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                                                         System.Windows.Forms.MessageBoxIcon.Error);
+                }
+            }
+            return hemograma;
+        }
     }
 }

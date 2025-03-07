@@ -40,11 +40,14 @@
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvOrina = new System.Windows.Forms.DataGridView();
-            this.btnNuevoPaciente = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtResultado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,7 +70,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
@@ -81,6 +84,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
             this.panel1.Controls.Add(this.btnBlanco);
@@ -225,7 +229,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvOrina);
-            this.panel2.Controls.Add(this.btnNuevoPaciente);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnGuardarPaciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1139, 0);
@@ -237,24 +242,34 @@
             // 
             this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvOrina.Location = new System.Drawing.Point(0, 242);
+            this.dgvOrina.Location = new System.Drawing.Point(0, 307);
             this.dgvOrina.Name = "dgvOrina";
             this.dgvOrina.RowHeadersWidth = 51;
             this.dgvOrina.RowTemplate.Height = 24;
             this.dgvOrina.Size = new System.Drawing.Size(443, 230);
-            this.dgvOrina.TabIndex = 198;
-            this.dgvOrina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrina_CellContentClick);
+            this.dgvOrina.TabIndex = 200;
             // 
-            // btnNuevoPaciente
+            // button2
             // 
-            this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
-            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
-            this.btnNuevoPaciente.Size = new System.Drawing.Size(443, 65);
-            this.btnNuevoPaciente.TabIndex = 197;
-            this.btnNuevoPaciente.Text = "guardar";
-            this.btnNuevoPaciente.UseVisualStyleBackColor = true;
-            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 242);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(443, 65);
+            this.button2.TabIndex = 199;
+            this.button2.Text = "Nuevo Paciente";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnGuardarPaciente
+            // 
+            this.btnGuardarPaciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardarPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnGuardarPaciente.Name = "btnGuardarPaciente";
+            this.btnGuardarPaciente.Size = new System.Drawing.Size(443, 65);
+            this.btnGuardarPaciente.TabIndex = 197;
+            this.btnGuardarPaciente.Text = "Guardar Paciente";
+            this.btnGuardarPaciente.UseVisualStyleBackColor = true;
+            this.btnGuardarPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
@@ -290,6 +305,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtResultado);
@@ -300,6 +316,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(939, 293);
             this.panel3.TabIndex = 140;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(704, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 23);
+            this.button1.TabIndex = 97;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(111, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 22);
+            this.textBox1.TabIndex = 96;
             // 
             // label1
             // 
@@ -325,11 +358,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 55);
+            this.label3.Location = new System.Drawing.Point(16, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 23);
+            this.label3.Size = new System.Drawing.Size(402, 23);
             this.label3.TabIndex = 94;
-            this.label3.Text = "Exámen : B - HCG";
+            this.label3.Text = "Diagnostico de Embarazo exámen : B - HCG";
             // 
             // label17
             // 
@@ -528,12 +561,19 @@
             this.dtpFecha.TabIndex = 149;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // textBox1
+            // button3
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 22);
-            this.textBox1.TabIndex = 96;
+            this.button3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(0, 585);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 65);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "REPORTE";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // HCG
             // 
@@ -599,11 +639,14 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.DataGridView dgvOrina;
-        private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.Button btnGuardarPaciente;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvOrina;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -1,4 +1,5 @@
-﻿using prueba.Logica;
+﻿using Laboratorio.Vista;
+using prueba.Logica;
 using prueba.Logica_Sevicio;
 using prueba.Modelo;
 using Prueba.Modelo;
@@ -20,13 +21,25 @@ namespace prueba.Vista
         private PacienteM pacienteActivo;
         public Copros()
         {
+
             InitializeComponent();
             LlenarDataGridView();
         }
-
+        private int idPaciente;
+        public Copros(int id)
+        {
+            InitializeComponent();
+            idPaciente = id;
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+        }
         private void Copros_Load(object sender, EventArgs e)
         {
-     
+            dtpFecha.Value = DateTime.Now;
+
 
             pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
@@ -193,6 +206,26 @@ namespace prueba.Vista
         private void btnVarios_Click(object sender, EventArgs e)
         {
             Varios formQuimica = new Varios();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Reporte formQuimica = new Reporte();
             formQuimica.Show();
             this.Hide();
         }

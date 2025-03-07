@@ -39,10 +39,13 @@
             this.btnOrina = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnNuevoPaciente = new System.Windows.Forms.Button();
+            this.btnNuevopaciente = new System.Windows.Forms.Button();
+            this.btnGuardarPAciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtNota = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtResistentes = new System.Windows.Forms.TextBox();
             this.txtSensibles = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -86,8 +89,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtNota = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
@@ -101,6 +103,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
             this.panel1.Controls.Add(this.btnBlanco);
@@ -244,7 +247,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnNuevoPaciente);
+            this.panel2.Controls.Add(this.btnNuevopaciente);
+            this.panel2.Controls.Add(this.btnGuardarPAciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1146, 0);
@@ -252,16 +256,27 @@
             this.panel2.Size = new System.Drawing.Size(436, 1055);
             this.panel2.TabIndex = 1;
             // 
-            // btnNuevoPaciente
+            // btnNuevopaciente
             // 
-            this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 177);
-            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
-            this.btnNuevoPaciente.Size = new System.Drawing.Size(436, 65);
-            this.btnNuevoPaciente.TabIndex = 195;
-            this.btnNuevoPaciente.Text = "guardar";
-            this.btnNuevoPaciente.UseVisualStyleBackColor = true;
-            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            this.btnNuevopaciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNuevopaciente.Location = new System.Drawing.Point(0, 242);
+            this.btnNuevopaciente.Name = "btnNuevopaciente";
+            this.btnNuevopaciente.Size = new System.Drawing.Size(436, 65);
+            this.btnNuevopaciente.TabIndex = 196;
+            this.btnNuevopaciente.Text = "Nuevo Paciente";
+            this.btnNuevopaciente.UseVisualStyleBackColor = true;
+            this.btnNuevopaciente.Click += new System.EventHandler(this.btnNuevopaciente_Click_1);
+            // 
+            // btnGuardarPAciente
+            // 
+            this.btnGuardarPAciente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardarPAciente.Location = new System.Drawing.Point(0, 177);
+            this.btnGuardarPAciente.Name = "btnGuardarPAciente";
+            this.btnGuardarPAciente.Size = new System.Drawing.Size(436, 65);
+            this.btnGuardarPAciente.TabIndex = 195;
+            this.btnGuardarPAciente.Text = "Guardar Paciente";
+            this.btnGuardarPAciente.UseVisualStyleBackColor = true;
+            this.btnGuardarPAciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
@@ -301,6 +316,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(876, 293);
             this.panel4.TabIndex = 156;
+            // 
+            // txtNota
+            // 
+            this.txtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNota.Location = new System.Drawing.Point(105, 201);
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(589, 27);
+            this.txtNota.TabIndex = 117;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(43, 205);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 19);
+            this.label8.TabIndex = 104;
+            this.label8.Text = "Nota :";
             // 
             // txtResistentes
             // 
@@ -737,23 +770,19 @@
             this.dtpFecha.TabIndex = 152;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // label8
+            // button1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 205);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 19);
-            this.label8.TabIndex = 104;
-            this.label8.Text = "Nota :";
-            // 
-            // txtNota
-            // 
-            this.txtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNota.Location = new System.Drawing.Point(105, 201);
-            this.txtNota.Name = "txtNota";
-            this.txtNota.Size = new System.Drawing.Size(589, 27);
-            this.txtNota.TabIndex = 117;
+            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 585);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(270, 65);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "REPORTE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Micro
             // 
@@ -765,6 +794,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Micro";
             this.Text = "Micro";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Micro_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -840,11 +870,13 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.Button btnGuardarPAciente;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnNuevopaciente;
+        private System.Windows.Forms.Button button1;
     }
 }

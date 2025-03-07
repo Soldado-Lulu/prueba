@@ -15,5 +15,6 @@ namespace Prueba.Modelo
         public string Medico { get; set; }
         public string Edad { get; set; }
         public string Telefono { get; set; }
+        public string Fecha { get; set; }
     }
 }

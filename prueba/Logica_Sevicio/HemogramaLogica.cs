@@ -34,5 +34,15 @@ namespace prueba.Logica_Sevicio
                 return false; // No se puede guardar sin un paciente
             return _hemogramaDAO.Guardar(examen, idPaciente);
         }
+    
+
+    public HemogramaM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            if (idPaciente <= 0)
+                return null; // Retorna null si el idPaciente no es válido
+
+            return _hemogramaDAO.ObtenerHemogramaPorPaciente(idPaciente);
+        }
+
     }
 }
