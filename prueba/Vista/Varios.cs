@@ -172,5 +172,20 @@ namespace prueba.Vista
             formQuimica.Show();
             this.Hide();
         }
+
+        private void lblNombreCompleto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label65_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

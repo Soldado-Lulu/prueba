@@ -231,5 +231,10 @@ namespace prueba.Vista
             formQuimica.Show();
             this.Hide();
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

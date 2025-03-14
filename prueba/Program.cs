@@ -18,7 +18,7 @@ namespace prueba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reporte());
+            Application.Run(new RegistroPaciente());
         }
     }
 }

@@ -18,7 +18,29 @@ namespace Laboratorio.Vista
             CargarPacientes();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+
+        private void CargarPacientes()
+        {
+            List<PacienteM> listaPacientes = logica.ObtenerTodos();
+            dgvPaciente.DataSource = listaPacientes; // Mostrar en el DataGridView
+        }
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtTelefono.Clear();
+            txtEdad.Clear();
+            txtMedico.Clear();
+        }
+
+        private void RegistroPaciente_Load(object sender, EventArgs e)
+        {
+            dtpFecha.Value = DateTime.Now;
+
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             // Verificar solo los campos realmente obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
@@ -61,26 +83,6 @@ namespace Laboratorio.Vista
             {
                 MessageBox.Show("Error al registrar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CargarPacientes()
-        {
-            List<PacienteM> listaPacientes = logica.ObtenerTodos();
-            dgvPaciente.DataSource = listaPacientes; // Mostrar en el DataGridView
-        }
-        private void LimpiarCampos()
-        {
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtTelefono.Clear();
-            txtEdad.Clear();
-            txtMedico.Clear();
-        }
-
-        private void RegistroPaciente_Load(object sender, EventArgs e)
-        {
-            dtpFecha.Value = DateTime.Now;
-
         }
     }
 }
