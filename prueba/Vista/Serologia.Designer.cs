@@ -82,6 +82,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblMedico = new System.Windows.Forms.Label();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblNombreCompleto = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
@@ -336,7 +336,7 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(72, 43);
+            this.txtObservaciones.Location = new System.Drawing.Point(72, 29);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(589, 204);
@@ -361,31 +361,31 @@
             this.panel6.Controls.Add(this.c41);
             this.panel6.Controls.Add(this.c31);
             this.panel6.Controls.Add(this.c35);
-            this.panel6.Controls.Add(this.c21);
+            this.panel6.Controls.Add(this.c43);
             this.panel6.Controls.Add(this.c25);
-            this.panel6.Controls.Add(this.c22);
-            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.c14);
             this.panel6.Controls.Add(this.c15);
-            this.panel6.Controls.Add(this.c32);
-            this.panel6.Controls.Add(this.c12);
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.c44);
+            this.panel6.Controls.Add(this.c21);
+            this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.c34);
-            this.panel6.Controls.Add(this.c42);
+            this.panel6.Controls.Add(this.c24);
+            this.panel6.Controls.Add(this.c33);
+            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.txtCampo11);
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.c24);
-            this.panel6.Controls.Add(this.c13);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.c44);
             this.panel6.Controls.Add(this.c23);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Controls.Add(this.c22);
+            this.panel6.Controls.Add(this.c13);
+            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.c14);
-            this.panel6.Controls.Add(this.c33);
+            this.panel6.Controls.Add(this.c42);
+            this.panel6.Controls.Add(this.c32);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.c43);
+            this.panel6.Controls.Add(this.c12);
             this.panel6.Location = new System.Drawing.Point(46, 80);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(643, 223);
@@ -393,49 +393,49 @@
             // 
             // c45
             // 
-            this.c45.Location = new System.Drawing.Point(539, 182);
+            this.c45.Location = new System.Drawing.Point(527, 182);
             this.c45.Name = "c45";
             this.c45.Size = new System.Drawing.Size(70, 22);
             this.c45.TabIndex = 40;
             // 
             // c41
             // 
-            this.c41.Location = new System.Drawing.Point(154, 182);
+            this.c41.Location = new System.Drawing.Point(429, 63);
             this.c41.Name = "c41";
             this.c41.Size = new System.Drawing.Size(70, 22);
             this.c41.TabIndex = 25;
             // 
             // c31
             // 
-            this.c31.Location = new System.Drawing.Point(154, 142);
+            this.c31.Location = new System.Drawing.Point(339, 60);
             this.c31.Name = "c31";
             this.c31.Size = new System.Drawing.Size(70, 22);
             this.c31.TabIndex = 24;
             // 
             // c35
             // 
-            this.c35.Location = new System.Drawing.Point(539, 142);
+            this.c35.Location = new System.Drawing.Point(429, 182);
             this.c35.Name = "c35";
             this.c35.Size = new System.Drawing.Size(70, 22);
             this.c35.TabIndex = 39;
             // 
             // c21
             // 
-            this.c21.Location = new System.Drawing.Point(154, 103);
+            this.c21.Location = new System.Drawing.Point(239, 63);
             this.c21.Name = "c21";
             this.c21.Size = new System.Drawing.Size(70, 22);
             this.c21.TabIndex = 23;
             // 
             // c25
             // 
-            this.c25.Location = new System.Drawing.Point(540, 103);
+            this.c25.Location = new System.Drawing.Point(339, 182);
             this.c25.Name = "c25";
             this.c25.Size = new System.Drawing.Size(70, 22);
             this.c25.TabIndex = 38;
             // 
             // c22
             // 
-            this.c22.Location = new System.Drawing.Point(248, 103);
+            this.c22.Location = new System.Drawing.Point(154, 103);
             this.c22.Name = "c22";
             this.c22.Size = new System.Drawing.Size(70, 22);
             this.c22.TabIndex = 27;
@@ -451,21 +451,21 @@
             // 
             // c15
             // 
-            this.c15.Location = new System.Drawing.Point(539, 63);
+            this.c15.Location = new System.Drawing.Point(239, 182);
             this.c15.Name = "c15";
             this.c15.Size = new System.Drawing.Size(70, 22);
             this.c15.TabIndex = 37;
             // 
             // c32
             // 
-            this.c32.Location = new System.Drawing.Point(248, 142);
+            this.c32.Location = new System.Drawing.Point(239, 103);
             this.c32.Name = "c32";
             this.c32.Size = new System.Drawing.Size(70, 22);
             this.c32.TabIndex = 28;
             // 
             // c12
             // 
-            this.c12.Location = new System.Drawing.Point(248, 63);
+            this.c12.Location = new System.Drawing.Point(527, 60);
             this.c12.Name = "c12";
             this.c12.Size = new System.Drawing.Size(70, 22);
             this.c12.TabIndex = 26;
@@ -481,14 +481,14 @@
             // 
             // c34
             // 
-            this.c34.Location = new System.Drawing.Point(444, 139);
+            this.c34.Location = new System.Drawing.Point(527, 147);
             this.c34.Name = "c34";
             this.c34.Size = new System.Drawing.Size(70, 22);
             this.c34.TabIndex = 36;
             // 
             // c42
             // 
-            this.c42.Location = new System.Drawing.Point(248, 182);
+            this.c42.Location = new System.Drawing.Point(339, 103);
             this.c42.Name = "c42";
             this.c42.Size = new System.Drawing.Size(70, 22);
             this.c42.TabIndex = 29;
@@ -511,14 +511,14 @@
             // 
             // c24
             // 
-            this.c24.Location = new System.Drawing.Point(444, 103);
+            this.c24.Location = new System.Drawing.Point(429, 147);
             this.c24.Name = "c24";
             this.c24.Size = new System.Drawing.Size(70, 22);
             this.c24.TabIndex = 35;
             // 
             // c13
             // 
-            this.c13.Location = new System.Drawing.Point(345, 63);
+            this.c13.Location = new System.Drawing.Point(429, 103);
             this.c13.Name = "c13";
             this.c13.Size = new System.Drawing.Size(70, 22);
             this.c13.TabIndex = 30;
@@ -543,14 +543,14 @@
             // 
             // c44
             // 
-            this.c44.Location = new System.Drawing.Point(444, 182);
+            this.c44.Location = new System.Drawing.Point(154, 179);
             this.c44.Name = "c44";
             this.c44.Size = new System.Drawing.Size(70, 22);
             this.c44.TabIndex = 35;
             // 
             // c23
             // 
-            this.c23.Location = new System.Drawing.Point(345, 103);
+            this.c23.Location = new System.Drawing.Point(527, 97);
             this.c23.Name = "c23";
             this.c23.Size = new System.Drawing.Size(70, 22);
             this.c23.TabIndex = 31;
@@ -575,14 +575,14 @@
             // 
             // c14
             // 
-            this.c14.Location = new System.Drawing.Point(444, 63);
+            this.c14.Location = new System.Drawing.Point(339, 147);
             this.c14.Name = "c14";
             this.c14.Size = new System.Drawing.Size(70, 22);
             this.c14.TabIndex = 34;
             // 
             // c33
             // 
-            this.c33.Location = new System.Drawing.Point(345, 142);
+            this.c33.Location = new System.Drawing.Point(154, 142);
             this.c33.Name = "c33";
             this.c33.Size = new System.Drawing.Size(70, 22);
             this.c33.TabIndex = 32;
@@ -607,7 +607,7 @@
             // 
             // c43
             // 
-            this.c43.Location = new System.Drawing.Point(345, 182);
+            this.c43.Location = new System.Drawing.Point(239, 142);
             this.c43.Name = "c43";
             this.c43.Size = new System.Drawing.Size(70, 22);
             this.c43.TabIndex = 33;
@@ -676,6 +676,16 @@
             this.panel7.Size = new System.Drawing.Size(982, 222);
             this.panel7.TabIndex = 149;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(29, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(309, 30);
+            this.label9.TabIndex = 163;
+            this.label9.Text = "LABORATORIO CLINICO ";
             // 
             // lblMedico
             // 
@@ -823,16 +833,6 @@
             this.dtpFecha.Size = new System.Drawing.Size(257, 30);
             this.dtpFecha.TabIndex = 151;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(29, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(309, 30);
-            this.label9.TabIndex = 163;
-            this.label9.Text = "LABORATORIO CLINICO ";
             // 
             // Serologia
             // 
