@@ -184,9 +184,9 @@ namespace prueba.Vista
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
+            Hemograma formHemograma = new Hemograma(PacienteActivo.IdPaciente);
+            formHemograma.Show();
+
         }
 
         private void btnCopros_Click(object sender, EventArgs e)

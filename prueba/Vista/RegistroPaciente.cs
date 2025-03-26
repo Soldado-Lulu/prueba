@@ -22,8 +22,8 @@ namespace Laboratorio.Vista
 
         private void CargarPacientes()
         {
-            List<PacienteM> listaPacientes = logica.ObtenerTodos();
-            dgvPaciente.DataSource = listaPacientes; // Mostrar en el DataGridView
+            PacienteLogica.Instancia.ListarPacientes(dgvPaciente);
+
         }
         private void LimpiarCampos()
         {
@@ -51,10 +51,23 @@ namespace Laboratorio.Vista
             }
 
             // Capturar la fecha del DateTimePicker
-
             string fechaRegistro = dtpFecha.Value.ToString("yyyy-MM-dd");
 
-            // Crear el objeto PacienteM con campos opcionales
+            // Convertir Cuenta y Porcentaje a valores numéricos (opcional)
+            decimal? cuenta = null;
+            decimal? porcentaje = null;
+
+            if (decimal.TryParse(txtCuenta.Text, out decimal cuentaValor))
+            {
+                cuenta = cuentaValor;
+            }
+
+            if (decimal.TryParse(txtPorcentajeMedico.Text, out decimal porcentajeValor))
+            {
+                porcentaje = porcentajeValor;
+            }
+
+            // Crear el objeto PacienteM con todos los campos opcionales
             PacienteM nuevoPaciente = new PacienteM()
             {
                 Nombre = txtNombre.Text,
@@ -62,27 +75,38 @@ namespace Laboratorio.Vista
                 Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? null : txtTelefono.Text,
                 Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? null : txtEdad.Text,
                 Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? null : txtMedico.Text,
-                Fecha = fechaRegistro // Nueva propiedad en la clase
+                Fecha = fechaRegistro,
+                Cuenta = cuenta,
+                Porcentaje = porcentaje
             };
 
-            bool guardado = logica.Guardar(nuevoPaciente);
+            // Calcular los saldos antes de guardar
+            logica.CalcularSaldo(nuevoPaciente);
 
-            if (guardado)
+            int nuevoId = PacienteLogica.Instancia.GuardarYObtenerId(nuevoPaciente);
+
+            if (nuevoId > 0)
             {
+                nuevoPaciente.IdPaciente = nuevoId; // asigna el ID al objeto
                 MessageBox.Show("Paciente registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Asignar los datos del paciente a la clase PacienteActivo
                 PacienteActivo.EstablecerPaciente(nuevoPaciente);
 
-                // Abrir la interfaz de examen
-                Orina formOrina = new Orina();
-                formOrina.Show();
-                this.Hide(); // Ocultar la ventana actual
+                Hemograma formHemograma = new Hemograma(nuevoId); // 👈 Aquí puedes abrir Hemograma directamente
+                formHemograma.Show();
+                this.Close(); // en lugar de this.Hide();
             }
             else
             {
                 MessageBox.Show("Error al registrar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
         }
     }
 }

@@ -43,6 +43,28 @@ namespace prueba.Logica_Sevicio
 
             return _hemogramaDAO.ObtenerHemogramaPorPaciente(idPaciente);
         }
+        public bool GuardarNuevoPaciente(HemogramaM hemograma, PacienteM paciente)
+        {
+            bool respuesta = false;
+
+            try
+            {
+                // Llamar al método GuardarNuevoPacienteYHemograma para guardar el paciente y el hemograma
+                respuesta = _hemogramaDAO.GuardarNuevoPacienteYHemograma(hemograma, paciente);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show($"Error al guardar el nuevo paciente y hemograma:\n{ex.Message}",
+                                                     "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                                                     System.Windows.Forms.MessageBoxIcon.Error);
+            }
+
+            return respuesta;
+        }
+        public bool ActualizarExamen(HemogramaM examen, int idPaciente)
+        {
+            return _hemogramaDAO.Actualizar(examen, idPaciente);
+        }
 
     }
 }

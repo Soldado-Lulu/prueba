@@ -16,5 +16,11 @@ namespace Prueba.Modelo
         public string Edad { get; set; }
         public string Telefono { get; set; }
         public string Fecha { get; set; }
+        public decimal? Cuenta { get; set; }
+        public decimal? Porcentaje { get; set; }
+
+        public decimal SaldoMedico { get; set; }
+        public decimal SaldoLab { get; set; }
+
     }
 }

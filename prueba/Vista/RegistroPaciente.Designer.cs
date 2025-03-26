@@ -36,6 +36,10 @@
             this.label81 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPorcentajeMedico = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvPaciente = new System.Windows.Forms.DataGridView();
@@ -52,6 +56,7 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -135,6 +140,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.txtPorcentajeMedico);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txtCuenta);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.dtpFecha);
@@ -155,6 +165,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1286, 743);
             this.panel1.TabIndex = 5;
+            // 
+            // txtPorcentajeMedico
+            // 
+            this.txtPorcentajeMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentajeMedico.Location = new System.Drawing.Point(660, 258);
+            this.txtPorcentajeMedico.Name = "txtPorcentajeMedico";
+            this.txtPorcentajeMedico.Size = new System.Drawing.Size(100, 30);
+            this.txtPorcentajeMedico.TabIndex = 28;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(455, 261);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(199, 25);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Porcentaje al medico:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(458, 210);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 25);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Cuenta Bs:";
+            // 
+            // txtCuenta
+            // 
+            this.txtCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuenta.Location = new System.Drawing.Point(575, 205);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(180, 30);
+            this.txtCuenta.TabIndex = 25;
             // 
             // label8
             // 
@@ -307,6 +353,18 @@
             this.txtNombre.Size = new System.Drawing.Size(160, 30);
             this.txtNombre.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(381, 371);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 45);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Reportes ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistroPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,5 +414,10 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.TextBox txtPorcentajeMedico;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCuenta;
+        private System.Windows.Forms.Button button1;
     }
 }

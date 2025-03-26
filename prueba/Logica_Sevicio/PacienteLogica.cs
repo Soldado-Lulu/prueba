@@ -8,88 +8,114 @@ using Prueba.Modelo;
 using System.Data.SQLite;
 using System.Data;
 using prueba.DAO;
+using System.Windows.Forms;
 
 namespace prueba.Logica
 {
     public class PacienteLogica
     {
-     
-            private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
-            private static PacienteLogica _instancia = null;
+        private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
+        private static PacienteLogica _instancia = null;
 
-            public PacienteLogica() { }
+        public PacienteLogica() { }
 
-            public static PacienteLogica Instancia
-            {
-                get
-                {
-                    if (_instancia == null)
-                    {
-                        _instancia = new PacienteLogica();
-                    }
-                    return _instancia;
-                }
-            }
-
-            // 🔹 Guardar Paciente
-            public bool Guardar(PacienteM obj)
-            {
-                bool respuesta = true;
-                using (SQLiteConnection conexion = new SQLiteConnection(cadena))
-                {
-                    conexion.Open();
-                    string query = "INSERT INTO Paciente (Nombre, Apellido, Telefono, Edad,Medico,Fecha) VALUES (@nombre, @apellido, @telefono, @edad,@medico,@fecha)";
-                    using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
-                    {
-                        cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
-                        cmd.Parameters.AddWithValue("@apellido", obj.Apellido);
-                        cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
-                        cmd.Parameters.AddWithValue("@edad", obj.Edad);
-                        cmd.Parameters.AddWithValue("@medico", obj.Medico);
-                        cmd.Parameters.AddWithValue("@fecha", obj.Fecha);
-
-
-                    if (cmd.ExecuteNonQuery() < 1)
-                        {
-                            respuesta = false;
-                        }
-                    }
-                }
-                return respuesta;
-            }
-        /*
-        public List<PacienteM> Listar()
+        public static PacienteLogica Instancia
         {
-            List<PacienteM> lista = new List<PacienteM>();
+            get
+            {
+                if (_instancia == null)
+                {
+                    _instancia = new PacienteLogica();
+                }
+                return _instancia;
+            }
+        }
+
+        // 🔹 Guardar Paciente y retornar el ID insertado
+        public int GuardarYObtenerId(PacienteM obj)
+        {
+            int nuevoId = -1;
+
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = "SELECT * FROM Paciente";
+                string query = @"INSERT INTO Paciente (Nombre, Apellido, Telefono, Edad, Medico, Fecha, Cuenta, Porcentaje, SaldoMedico, SaldoLab) 
+                                 VALUES (@nombre, @apellido, @telefono, @edad, @medico, @fecha, @cuenta, @porcentaje, @saldoMedico, @saldoLab);
+                                 SELECT last_insert_rowid();";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
-                    using (SQLiteDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new PacienteM()
-                            {
-                                IdPaciente = Convert.ToInt32(dr["Id"]),
-                                Nombre = dr["Nombre"].ToString(),
-                                Apellido = dr["Apellido"].ToString(),
-                                Telefono = dr["Telefono"].ToString(),
-                                Medico = dr["Medico"].ToString(),
-                                Edad = dr["Edad"].ToString(),
+                    cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
+                    cmd.Parameters.AddWithValue("@apellido", obj.Apellido);
+                    cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("@edad", obj.Edad);
+                    cmd.Parameters.AddWithValue("@medico", obj.Medico);
+                    cmd.Parameters.AddWithValue("@fecha", obj.Fecha);
+                    cmd.Parameters.AddWithValue("@cuenta", obj.Cuenta);
+                    cmd.Parameters.AddWithValue("@porcentaje", obj.Porcentaje);
+                    cmd.Parameters.AddWithValue("@saldoMedico", obj.SaldoMedico);
+                    cmd.Parameters.AddWithValue("@saldoLab", obj.SaldoLab);
 
-                            });
-                        }
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        nuevoId = Convert.ToInt32(result);
                     }
                 }
             }
-            return lista;
+            return nuevoId;
         }
-        -*/
-        // 🔹 Editar Paciente
+
+        public void CalcularSaldo(PacienteM obj)
+        {
+            decimal cuenta = obj.Cuenta ?? 0m;
+            decimal porcentaje = obj.Porcentaje ?? 0m;
+            obj.SaldoMedico = (cuenta * porcentaje) / 100m;
+            obj.SaldoLab = cuenta - obj.SaldoMedico;
+        }
+        public bool ActualizarCuentaYPagos(int idPaciente, float cuenta, float porcentaje)
+        {
+            float saldoMedico = (cuenta * porcentaje) / 100;
+            float saldoLab = cuenta - saldoMedico;
+
+            bool respuesta = true;
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "UPDATE Paciente SET Cuenta = @cuenta, Porcentaje = @porcentaje, SaldoMedico = @saldoMedico, SaldoLab = @saldoLab WHERE IdPaciente = @id";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", idPaciente);
+                    cmd.Parameters.AddWithValue("@cuenta", cuenta);
+                    cmd.Parameters.AddWithValue("@porcentaje", porcentaje);
+                    cmd.Parameters.AddWithValue("@saldoMedico", saldoMedico);
+                    cmd.Parameters.AddWithValue("@saldoLab", saldoLab);
+
+                    if (cmd.ExecuteNonQuery() < 1)
+                    {
+                        respuesta = false;
+                    }
+                }
+            }
+            return respuesta;
+        }
+        public void ListarPacientes(DataGridView dgv)
+        {
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT IdPaciente, Nombre, Apellido, Telefono, Edad, Medico, Fecha, Cuenta, Porcentaje, SaldoMedico, SaldoLab FROM Paciente";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+        }
         public bool Editar(PacienteM obj)
             {
                 bool respuesta = true;
@@ -136,48 +162,7 @@ namespace prueba.Logica
                 return respuesta;
             }
 
-        public List<PacienteM> ObtenerTodos()
-        {
-            List<PacienteM> listaPacientes = new List<PacienteM>();
 
-            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
-            {
-                conexion.Open();
-                string query = "SELECT IdPaciente, Nombre, Apellido FROM Paciente";
-                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
-
-                using (SQLiteDataReader dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
-                    {
-                        listaPacientes.Add(new PacienteM()
-                        {
-                            IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
-                            Nombre = dr["Nombre"].ToString(),
-                            Apellido = dr["Apellido"].ToString()
-                        });
-                    }
-                }
-            }
-            return listaPacientes;
-        }
-       /* public int ObtenerUltimoPacienteId()
-        {
-            int idPaciente = -1;
-            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
-            {
-                conexion.Open();
-                string query = "SELECT IdPaciente FROM Paciente ORDER BY IdPaciente DESC LIMIT 1";
-                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    idPaciente = Convert.ToInt32(result);
-                }
-            }
-            return idPaciente;
-        }
-        */
         public PacienteM ObtenerUltimoPaciente()
         {
             using (SQLiteConnection conexion = ConexionSQLite.ObtenerConexion())
@@ -326,17 +311,18 @@ namespace prueba.Logica
                         {
                             if (dr.Read())
                             {
-                                paciente = new PacienteM()
-                                {
-                                    IdPaciente = Convert.ToInt32(dr["Id"]),
-                                    Nombre = dr["Nombre"].ToString(),
-                                    Apellido = dr["Apellido"].ToString(),
-                                    Telefono = dr["Telefono"].ToString(),
-                                    Edad = dr["Edad"].ToString(),
-                                    Medico = dr["Medico"].ToString()
-                                };
-                            }
+                            paciente = new PacienteM()
+                            {
+                                IdPaciente = Convert.ToInt32(dr["IdPaciente"]), // 👈 Este era el campo mal escrito
+                                Nombre = dr["Nombre"].ToString(),
+                                Apellido = dr["Apellido"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Edad = dr["Edad"].ToString(),
+                                Medico = dr["Medico"].ToString()
+                            };
+
                         }
+                    }
                     }
                 }
                 return paciente;
