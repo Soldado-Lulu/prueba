@@ -1,17 +1,10 @@
 ﻿using prueba.DAO;
 using prueba.Modelo;
-using Prueba.Modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace prueba.Logica_Sevicio
 {
     public class MicroLogica
     {
-
         private static MicroLogica _instancia = null;
         private ExamenMicroDAO _microDAO = new ExamenMicroDAO();
 
@@ -31,10 +24,17 @@ namespace prueba.Logica_Sevicio
 
         public bool GuardarExamen(MicroM examen, int idPaciente)
         {
-            if (idPaciente <= 0)
-                return false; // No se puede guardar sin un paciente
             return _microDAO.GuardarMicro(examen, idPaciente);
+        }
+
+        public bool ActualizarExamen(MicroM examen, int idPaciente)
+        {
+            return _microDAO.ActualizarMicro(examen, idPaciente);
+        }
+
+        public MicroM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _microDAO.ObtenerPorPaciente(idPaciente);
         }
     }
 }
-

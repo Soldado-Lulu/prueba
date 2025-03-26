@@ -60,8 +60,7 @@ namespace prueba.DAO
                         cmd.Parameters.AddWithValue("@serieRoja", obj.SerieRoja);
                         cmd.Parameters.AddWithValue("@serieBlanca", obj.SerieBlanca);
 
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        respuesta = filasAfectadas > 0;
+                        respuesta = cmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
@@ -75,66 +74,119 @@ namespace prueba.DAO
             return respuesta;
         }
         // Método para obtener los datos del hemograma por idPaciente
-        public HemogramaM ObtenerHemogramaPorPaciente(int idPaciente)
+        public HemogramaM ObtenerPorIdPaciente(int idPaciente)
         {
             HemogramaM hemograma = null;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                  conexion.Open();
+                string query = "SELECT * FROM Hematologia WHERE IdPaciente = @idPaciente LIMIT 1";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                    {
+                    cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+
+                   
+                        if (dr.Read())
+                    {
+                        // Crear el objeto HemogramaM con los datos obtenidos
+                        hemograma = new HemogramaM
+                            {
+                                IdPaciente = idPaciente,
+                                Eritrocitos = dr["Eritrocitos"].ToString(),
+                                Leucocitos = dr["Leucocitos"].ToString(),
+                                Hemoglobina = dr["Hemoglobina"].ToString(),
+                                Hematocrito = dr["Hematocrito"].ToString(),
+                                Plaquetas = dr["Plaquetas"].ToString(),
+                                Mielocitos = dr["Mielocitos"].ToString(),
+                                Melamielocitos = dr["Melamielocitos"].ToString(),
+                                Cayados = dr["Cayados"].ToString(),
+                                Segmentados = dr["Segmentados"].ToString(),
+                                Linfocitos = dr["Linfocitos"].ToString(),
+                                Monocitos = dr["Monocitos"].ToString(),
+                                Eosinofilos = dr["Eosinofilos"].ToString(),
+                                Basofilos = dr["Basofilos"].ToString(),
+                                VES1 = dr["VES1"].ToString(),
+                                VES2 = dr["VES2"].ToString(),
+                                Ik = dr["Ik"].ToString(),
+                                GrupoSanguineo = dr["GrupoSanguineo"].ToString(),
+                                Factor = dr["Factor"].ToString(),
+                                TiempoSangria = dr["TiempoSangria"].ToString(),
+                                TiempoCoagulacion = dr["TiempoCoagulacion"].ToString(),
+                                TiempoProtrombina = dr["TiempoProtrombina"].ToString(),
+                                PorcentajeActividad = dr["PorcentajeActividad"].ToString(),
+                                Aptt = dr["Aptt"].ToString(),
+                                SerieRoja = dr["SerieRoja"].ToString(),
+                                SerieBlanca = dr["SerieBlanca"].ToString()
+                            };
+                        }
+                    }
+                }
+
+            }
+            return hemograma;
+        }
+        public bool Actualizar(HemogramaM obj, int idPaciente)
+        {
+            bool respuesta = false;
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 try
                 {
                     conexion.Open();
-                    string query = @"SELECT * FROM Hematologia WHERE IdPaciente = @idPaciente";
+                    string query = @"UPDATE Hematologia SET 
+                Eritrocitos = @eritrocitos, Leucocitos = @leucocitos, Hemoglobina = @hemoglobina, Hematocrito = @hematocrito,
+                Plaquetas = @plaquetas, Mielocitos = @mielocitos, Melamielocitos = @melamielocitos, Cayados = @cayados,
+                Segmentados = @segmentados, Linfocitos = @linfocitos, Monocitos = @monocitos, Eosinofilos = @eosinofilos,
+                Basofilos = @basofilos, VES1 = @ves1, VES2 = @ves2, Ik = @ik, GrupoSanguineo = @grupoSanguineo,
+                Factor = @factor, TiempoSangria = @tiempoSangria, TiempoCoagulacion = @tiempoCoagulacion,
+                TiempoProtrombina = @tiempoProtrombina, PorcentajeActividad = @porcentajeActividad, Aptt = @aptt,
+                SerieRoja = @serieRoja, SerieBlanca = @serieBlanca
+                WHERE IdPaciente = @idPaciente";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
-                        SQLiteDataReader reader = cmd.ExecuteReader();
+                        cmd.Parameters.AddWithValue("@eritrocitos", obj.Eritrocitos);
+                        cmd.Parameters.AddWithValue("@leucocitos", obj.Leucocitos);
+                        cmd.Parameters.AddWithValue("@hemoglobina", obj.Hemoglobina);
+                        cmd.Parameters.AddWithValue("@hematocrito", obj.Hematocrito);
+                        cmd.Parameters.AddWithValue("@plaquetas", obj.Plaquetas);
+                        cmd.Parameters.AddWithValue("@mielocitos", obj.Mielocitos);
+                        cmd.Parameters.AddWithValue("@melamielocitos", obj.Melamielocitos);
+                        cmd.Parameters.AddWithValue("@cayados", obj.Cayados);
+                        cmd.Parameters.AddWithValue("@segmentados", obj.Segmentados);
+                        cmd.Parameters.AddWithValue("@linfocitos", obj.Linfocitos);
+                        cmd.Parameters.AddWithValue("@monocitos", obj.Monocitos);
+                        cmd.Parameters.AddWithValue("@eosinofilos", obj.Eosinofilos);
+                        cmd.Parameters.AddWithValue("@basofilos", obj.Basofilos);
+                        cmd.Parameters.AddWithValue("@ves1", obj.VES1);
+                        cmd.Parameters.AddWithValue("@ves2", obj.VES2);
+                        cmd.Parameters.AddWithValue("@ik", obj.Ik);
+                        cmd.Parameters.AddWithValue("@grupoSanguineo", obj.GrupoSanguineo);
+                        cmd.Parameters.AddWithValue("@factor", obj.Factor);
+                        cmd.Parameters.AddWithValue("@tiempoSangria", obj.TiempoSangria);
+                        cmd.Parameters.AddWithValue("@tiempoCoagulacion", obj.TiempoCoagulacion);
+                        cmd.Parameters.AddWithValue("@tiempoProtrombina", obj.TiempoProtrombina);
+                        cmd.Parameters.AddWithValue("@porcentajeActividad", obj.PorcentajeActividad);
+                        cmd.Parameters.AddWithValue("@aptt", obj.Aptt);
+                        cmd.Parameters.AddWithValue("@serieRoja", obj.SerieRoja);
+                        cmd.Parameters.AddWithValue("@serieBlanca", obj.SerieBlanca);
 
-                        if (reader.HasRows)
-                        {
-                            reader.Read(); // Lee la primera fila
-
-                            // Crear el objeto HemogramaM con los datos obtenidos
-                            hemograma = new HemogramaM
-                            {
-                                IdPaciente = idPaciente,
-                                Eritrocitos = reader["Eritrocitos"].ToString(),
-                                Leucocitos = reader["Leucocitos"].ToString(),
-                                Hemoglobina = reader["Hemoglobina"].ToString(),
-                                Hematocrito = reader["Hematocrito"].ToString(),
-                                Plaquetas = reader["Plaquetas"].ToString(),
-                                Mielocitos = reader["Mielocitos"].ToString(),
-                                Melamielocitos = reader["Melamielocitos"].ToString(),
-                                Cayados = reader["Cayados"].ToString(),
-                                Segmentados = reader["Segmentados"].ToString(),
-                                Linfocitos = reader["Linfocitos"].ToString(),
-                                Monocitos = reader["Monocitos"].ToString(),
-                                Eosinofilos = reader["Eosinofilos"].ToString(),
-                                Basofilos = reader["Basofilos"].ToString(),
-                                VES1 = reader["VES1"].ToString(),
-                                VES2 = reader["VES2"].ToString(),
-                                Ik = reader["Ik"].ToString(),
-                                GrupoSanguineo = reader["GrupoSanguineo"].ToString(),
-                                Factor = reader["Factor"].ToString(),
-                                TiempoSangria = reader["TiempoSangria"].ToString(),
-                                TiempoCoagulacion = reader["TiempoCoagulacion"].ToString(),
-                                TiempoProtrombina = reader["TiempoProtrombina"].ToString(),
-                                PorcentajeActividad = reader["PorcentajeActividad"].ToString(),
-                                Aptt = reader["Aptt"].ToString(),
-                                SerieRoja = reader["SerieRoja"].ToString(),
-                                SerieBlanca = reader["SerieBlanca"].ToString()
-                            };
-                        }
+                        respuesta = cmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show($"Error al obtener el hemograma:\n{ex.Message}",
-                                                         "Error", System.Windows.Forms.MessageBoxButtons.OK,
-                                                         System.Windows.Forms.MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show($"Error al actualizar hemograma:\n{ex.Message}",
+                        "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
-            return hemograma;
+            return respuesta;
         }
+
     }
 }

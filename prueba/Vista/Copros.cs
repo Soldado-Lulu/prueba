@@ -34,14 +34,33 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+
+            if (pacienteActivo != null)
+            {
+                panel1.Visible = true;
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+
+                CoprosM examen = CoprosLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    txtConsistencia.Text = examen.Consistencia;
+                    txtColor.Text = examen.Color;
+                    txtExamenM.Text = examen.ExamenM;
+                    txtObservaciones.Text = examen.Observaciones;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos del paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         private void Copros_Load(object sender, EventArgs e)
         {
             dtpFecha.Value = DateTime.Now;
-
-
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -66,71 +85,47 @@ namespace prueba.Vista
         }
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            try
+            if (pacienteActivo == null)
             {
-                CoprosM objeto = new CoprosM()
-                {
-                    Consistencia = txtConsistencia.Text,
-                    Color = txtColor.Text,
-                    ExamenM = txtExamenM.Text,
-                    Observaciones = txtObservaciones.Text,
-                };
-
-                int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores de null
-
-                // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar:\n" +
-                                      $"Muestra: {objeto.Consistencia}\n" +
-                                      $"Examen: {objeto.Color}\n" +
-                                      $"Datos: {objeto.ExamenM}\n" +
-                                      $"Otros: {objeto.Observaciones}\n" +
-                                      $"IdPaciente: {idPaciente}";
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                bool guardado = false;
-
-                try
-                {
-                    guardado = CoprosLogica.Instancia.GuardarExamen(objeto, idPaciente);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error en GuardarExamen:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                    "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Blanco guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Error al guardar el examen de Blanco. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
-
-            // Configurar el documento de impresión
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintDocument_PrintPage;
-
-            // Mostrar el cuadro de diálogo de impresión
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument;
-
-            if (printDialog.ShowDialog() == DialogResult.OK)
+            CoprosM objeto = new CoprosM()
             {
-                printDocument.Print();
+                Consistencia = txtConsistencia.Text,
+                Color = txtColor.Text,
+                ExamenM = txtExamenM.Text,
+                Observaciones = txtObservaciones.Text
+            };
+
+            int id = pacienteActivo.IdPaciente;
+
+            bool existe = CoprosLogica.Instancia.ObtenerExamenPorPaciente(id) != null;
+            bool resultado = existe
+                ? CoprosLogica.Instancia.ActualizarExamen(objeto, id)
+                : CoprosLogica.Instancia.GuardarExamen(objeto, id);
+
+            if (resultado)
+            {
+                MessageBox.Show("Examen de Copros guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CapturarPanel(PanelCap);
+
+                PrintDialog printDialog = new PrintDialog();
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrintPage += PrintDocument_PrintPage;
+                printDialog.Document = printDocument;
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error al guardar o actualizar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
         {
@@ -149,66 +144,134 @@ namespace prueba.Vista
         }
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Quimica formQuimica = new Quimica();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
+            if (pacienteActivo != null)
+            {
+                Quimica form = new Quimica(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Orina formQuimica = new Orina();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Hemograma form = new Hemograma(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnHCG_Click(object sender, EventArgs e)
         {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Serologia formQuimica = new Serologia();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Serologia form = new Serologia(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Micro formQuimica = new Micro();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Micro form = new Micro(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnBlanco_Click(object sender, EventArgs e)
         {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Varios formQuimica = new Varios();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
         }
+        private void MostrarAdvertencia()
+        {
+            MessageBox.Show("No hay un paciente activo. Registre uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
 
         private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
         {

@@ -32,74 +32,71 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+            if (pacienteActivo != null)
+            {
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+                panel1.Visible = true;
+
+                // Cargar examen si existe
+                MicroM examen = MicroLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    txtMuestra.Text = examen.Muestra;
+                    txtGram.Text = examen.Gram;
+                    txtM1.Text = examen.M1;
+                    txtM2.Text = examen.M2;
+                    txtM3.Text = examen.M3;
+                    txtCultivo.Text = examen.Cultivo;
+                    txtColonia.Text = examen.Colonia;
+                    txtIdentificacion.Text = examen.Identificacion;
+                    txtSensibles.Text = examen.Sensible;
+                    txtResistentes.Text = examen.Resistencia;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Paciente no encontrado.");
+            }
         }
+
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            try
+            if (pacienteActivo == null)
             {
-                MicroM objeto = new MicroM()
-                {
-                    Muestra = txtMuestra.Text,
-                    Gram = txtGram.Text,
-                    M1 = txtM1.Text,
-                    M2 = txtM2.Text,
-                    M3 = txtM3.Text,
-                    Cultivo = txtCultivo.Text,
-                    Colonia = txtColonia.Text,
-                    Identificacion = txtIdentificacion.Text,
-                    Sensible = txtSensibles.Text,
-                    Resistencia = txtResistentes.Text
-                };
-
-                int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores si pacienteActivo es null
-
-                // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar Microbiología:\n" +
-                                      $"Muestra: {objeto.Muestra}\n" +
-                                      $"Gram: {objeto.Gram}\n" +
-                                      $"M1: {objeto.M1}\n" +
-                                      $"M2: {objeto.M2}\n" +
-                                      $"M3: {objeto.M3}\n" +
-                                      $"Cultivo: {objeto.Cultivo}\n" +
-                                      $"Colonia: {objeto.Colonia}\n" +
-                                      $"Identificación: {objeto.Identificacion}\n" +
-                                      $"Sensible: {objeto.Sensible}\n" +
-                                      $"Resistencia: {objeto.Resistencia}\n" +
-                                      $"IdPaciente: {idPaciente}";
-
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                bool guardado = false;
-
-                try
-                {
-                    guardado = MicroLogica.Instancia.GuardarExamen(objeto, idPaciente);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error en Guardar:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                    "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Microbiología guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Error al guardar el examen de Microbiología. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            catch (Exception ex)
+            MicroM examen = new MicroM()
             {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Muestra = txtMuestra.Text,
+                Gram = txtGram.Text,
+                M1 = txtM1.Text,
+                M2 = txtM2.Text,
+                M3 = txtM3.Text,
+                Cultivo = txtCultivo.Text,
+                Colonia = txtColonia.Text,
+                Identificacion = txtIdentificacion.Text,
+                Sensible = txtSensibles.Text,
+                Resistencia = txtResistentes.Text
+            };
+
+            bool existe = MicroLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
+
+            bool resultado = existe ?
+                MicroLogica.Instancia.ActualizarExamen(examen, idPaciente) :
+                MicroLogica.Instancia.GuardarExamen(examen, idPaciente);
+
+            if (resultado)
+            {
+                MessageBox.Show(existe ? "Examen actualizado" : "Examen guardado", "Éxito");
             }
-
-
+            else
+            {
+                MessageBox.Show("Error al guardar o actualizar", "Error");
+            }
             CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
 
             // Configurar el documento de impresión
@@ -140,7 +137,6 @@ namespace prueba.Vista
 
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -162,68 +158,107 @@ namespace prueba.Vista
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Quimica formQuimica = new Quimica();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
+            if (pacienteActivo != null)
+            {
+                Quimica form = new Quimica(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Orina formQuimica = new Orina();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Copros formQuimica = new Copros();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Copros form = new Copros(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnHCG_Click(object sender, EventArgs e)
         {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Serologia formQuimica = new Serologia();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Serologia form = new Serologia(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Hemograma form = new Hemograma(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnBlanco_Click(object sender, EventArgs e)
         {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Varios formQuimica = new Varios();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
+        private void MostrarAdvertencia()
+        {
+            MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
 
         private void btnNuevopaciente_Click_1(object sender, EventArgs e)
         {

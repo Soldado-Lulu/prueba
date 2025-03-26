@@ -25,6 +25,15 @@ namespace prueba.Logica_Sevicio
                 return _instancia;
             }
         }
+        public HCGM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _hcgDAO.ObtenerPorIdPaciente(idPaciente);
+        }
+
+        public bool ActualizarExamen(HCGM examen, int idPaciente)
+        {
+            return _hcgDAO.Actualizar(examen, idPaciente);
+        }
 
         private HCGLogica() { }
 

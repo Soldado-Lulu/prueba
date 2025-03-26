@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnVarios = new System.Windows.Forms.Button();
             this.btnSobre = new System.Windows.Forms.Button();
             this.btnBlanco = new System.Windows.Forms.Button();
@@ -182,7 +181,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
             this.panel1.Controls.Add(this.btnBlanco);
@@ -197,20 +195,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(334, 1055);
             this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 585);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(334, 65);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "REPORTE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnVarios
             // 
@@ -1901,6 +1885,5 @@
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Button btnNuevoPaciente;
-        private System.Windows.Forms.Button button1;
     }
 }

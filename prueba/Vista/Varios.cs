@@ -62,66 +62,105 @@ namespace prueba.Vista
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Quimica formQuimica = new Quimica();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
+            if (pacienteActivo != null)
+            {
+                Quimica form = new Quimica(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Orina formQuimica = new Orina();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void btnHCG_Click(object sender, EventArgs e)
-        {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Copros formQuimica = new Copros();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Copros form = new Copros(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
+        }
+
+        private void btnHCG_Click(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Serologia formQuimica = new Serologia();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Serologia form = new Serologia(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Micro formQuimica = new Micro();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Micro form = new Micro(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnBlanco_Click(object sender, EventArgs e)
         {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
+        }
+        private void MostrarAdvertencia()
+        {
+            MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)

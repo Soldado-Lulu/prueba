@@ -13,6 +13,61 @@ namespace prueba.DAO
     public class ExamenHCGDAO
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
+        public bool Actualizar(HCGM obj, int idPaciente)
+        {
+            bool respuesta = true;
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = @"UPDATE HCG SET Resultado = @resultado WHERE IdPaciente = @idPaciente";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                        cmd.Parameters.AddWithValue("@resultado", obj.Resultado);
+                        respuesta = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    Console.WriteLine("Error al actualizar el examen HCG: " + ex.Message);
+                }
+            }
+            return respuesta;
+        }
+
+        public HCGM ObtenerPorIdPaciente(int idPaciente)
+        {
+            HCGM examen = null;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT * FROM HCG WHERE IdPaciente = @idPaciente LIMIT 1";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            examen = new HCGM()
+                            {
+                                IdPaciente = idPaciente,
+                                Resultado = dr["Resultado"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            return examen;
+        }
 
         public bool Guardar(HCGM obj, int idPaciente)
         {

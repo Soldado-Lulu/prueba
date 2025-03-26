@@ -27,6 +27,15 @@ namespace prueba.Logica_Sevicio
                 return _instancia;
             }
         }
+        public bool ActualizarExamen(SerologiaM examen, int idPaciente)
+        {
+            return _blancoDAO.ActualizarSerologia(examen, idPaciente);
+        }
+
+        public SerologiaM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _blancoDAO.ObtenerPorPaciente(idPaciente);
+        }
 
         private SerologiaLogica() { }
 

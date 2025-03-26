@@ -27,6 +27,15 @@ namespace prueba.Logica_Sevicio
                 return _instancia;
             }
         }
+        public bool ActualizarExamen(QuimicaM examen, int idPaciente)
+        {
+            return _quimicaDAO.ActualizarQuimica(examen, idPaciente);
+        }
+
+        public QuimicaM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _quimicaDAO.ObtenerPorPaciente(idPaciente);
+        }
 
         private QuimicaLogica() { }
 

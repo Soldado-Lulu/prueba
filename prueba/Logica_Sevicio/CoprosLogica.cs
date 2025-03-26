@@ -13,6 +13,10 @@ namespace prueba.Logica_Sevicio
     {
         private static CoprosLogica _instancia = null;
         private ExamenCoprosDAO _blancoDAO = new ExamenCoprosDAO();
+        public bool ActualizarExamen(CoprosM examen, int idPaciente)
+        {
+            return _blancoDAO.Actualizar(examen, idPaciente);
+        }
 
         public static CoprosLogica Instancia
         {
@@ -24,6 +28,10 @@ namespace prueba.Logica_Sevicio
                 }
                 return _instancia;
             }
+        }
+        public CoprosM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _blancoDAO.ObtenerPorIdPaciente(idPaciente);
         }
 
         private CoprosLogica() { }

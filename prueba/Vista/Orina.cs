@@ -98,9 +98,7 @@ namespace prueba.Vista
         {
 
             dtpFecha.Value = DateTime.Now;
-            // Obtener el último paciente registrado
-            //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-           // pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -228,58 +226,114 @@ namespace prueba.Vista
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Quimica formQuimica = new Quimica();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
+            if (pacienteActivo != null)
+            {
+                Quimica formHemograma = new Quimica(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Hemograma formHemograma = new Hemograma(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Copros formQuimica = new Copros();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Copros formHemograma = new Copros(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnHCG_Click(object sender, EventArgs e)
         {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                HCG formHemograma = new HCG(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Serologia formQuimica = new Serologia();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Serologia formHemograma = new Serologia(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Micro formQuimica = new Micro();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Micro formHemograma = new Micro(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Sobre formHemograma = new Sobre(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Varios formQuimica = new Varios();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios formHemograma = new Varios(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void dgvOrina_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -290,13 +344,6 @@ namespace prueba.Vista
         private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
         {
             RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
             formQuimica.Show();
             this.Hide();
         }

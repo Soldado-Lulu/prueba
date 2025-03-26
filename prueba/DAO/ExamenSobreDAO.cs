@@ -42,6 +42,48 @@ namespace prueba.DAO
             }
             return respuesta;
         }
+        public bool ActualizarSobre(SobreM obj, int idPaciente)
+        {
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "UPDATE Sobre SET Presente = @presente WHERE IdPaciente = @idPaciente";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                    cmd.Parameters.AddWithValue("@presente", obj.Presente);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public SobreM ObtenerPorPaciente(int idPaciente)
+        {
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Sobre WHERE IdPaciente = @idPaciente LIMIT 1";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            return new SobreM
+                            {
+                                IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
+                                Presente = dr["Presente"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
 
     }
 }

@@ -450,9 +450,9 @@
             this.label18.Font = new System.Drawing.Font("Arial", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(282, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 27);
+            this.label18.Size = new System.Drawing.Size(91, 27);
             this.label18.TabIndex = 23;
-            this.label18.Text = "VARIOS";
+            this.label18.Text = "Blanco";
             // 
             // panel6
             // 

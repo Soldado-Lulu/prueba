@@ -13,6 +13,40 @@ namespace prueba.DAO
     public class ExamenCoprosDAO
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
+        public bool Actualizar(CoprosM obj, int idPaciente)
+        {
+            bool respuesta = true;
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = @"UPDATE Copros SET 
+                Consistencia = @consistencia, 
+                Color = @color, 
+                ExamenM = @examenM, 
+                Observaciones = @observaciones 
+                WHERE IdPaciente = @idPaciente";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                        cmd.Parameters.AddWithValue("@consistencia", obj.Consistencia);
+                        cmd.Parameters.AddWithValue("@color", obj.Color);
+                        cmd.Parameters.AddWithValue("@examenM", obj.ExamenM);
+                        cmd.Parameters.AddWithValue("@observaciones", obj.Observaciones);
+
+                        respuesta = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al actualizar examen de Copros: " + ex.Message);
+                    respuesta = false;
+                }
+            }
+            return respuesta;
+        }
 
         public bool Guardar(CoprosM obj, int idPaciente)
         {
@@ -42,6 +76,35 @@ namespace prueba.DAO
                 }
             }
             return respuesta;
+        }
+        public CoprosM ObtenerPorIdPaciente(int idPaciente)
+        {
+            CoprosM examen = null;
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Copros WHERE IdPaciente = @idPaciente LIMIT 1";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            examen = new CoprosM()
+                            {
+                                IdPaciente = idPaciente,
+                                Consistencia = dr["Consistencia"].ToString(),
+                                Color = dr["Color"].ToString(),
+                                ExamenM = dr["ExamenM"].ToString(),
+                                Observaciones = dr["Observaciones"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return examen;
         }
 
 

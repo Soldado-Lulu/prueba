@@ -28,8 +28,43 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+            if (pacienteActivo != null)
+            {
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+                panel1.Visible = true;
+
+                SerologiaM examen = SerologiaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    txtReaccion.Text = examen.Reaccion;
+                    txtCampo11.Text = examen.Campo11;
+                    c12.Text = examen.Campo12;
+                    c13.Text = examen.Campo13;
+                    c14.Text = examen.Campo14;
+                    c15.Text = examen.Campo15;
+                    c21.Text = examen.Campo21;
+                    c22.Text = examen.Campo22;
+                    c23.Text = examen.Campo23;
+                    c24.Text = examen.Campo24;
+                    c25.Text = examen.Campo25;
+                    c31.Text = examen.Campo31;
+                    c32.Text = examen.Campo32;
+                    c33.Text = examen.Campo33;
+                    c34.Text = examen.Campo34;
+                    c35.Text = examen.Campo35;
+                    c41.Text = examen.Campo41;
+                    c42.Text = examen.Campo42;
+                    c43.Text = examen.Campo43;
+                    c44.Text = examen.Campo44;
+                    c45.Text = examen.Campo45;
+                    txtObservaciones.Text = examen.Observaciones;
+                }
+            }
         }
+
         public Serologia()
         {
             InitializeComponent();
@@ -37,9 +72,12 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            try
+            if (pacienteActivo == null)
             {
-                SerologiaM objeto = new SerologiaM()
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            SerologiaM objeto = new SerologiaM()
                 {
                     Reaccion = txtReaccion.Text,
                     Campo11 = txtCampo11.Text,
@@ -68,64 +106,24 @@ namespace prueba.Vista
                 int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores si pacienteActivo es null
 
                 // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar Serología:\n" +
-                                      $"Reacción: {objeto.Reaccion}\n" +
-                                      $"Campo11: {objeto.Campo11}\n" +
-                                      $"Campo12: {objeto.Campo12}\n" +
-                                      $"Campo13: {objeto.Campo13}\n" +
-                                      $"Campo14: {objeto.Campo14}\n" +
-                                      $"Campo15: {objeto.Campo15}\n" +
-                                      $"Campo21: {objeto.Campo21}\n" +
-                                      $"Campo22: {objeto.Campo22}\n" +
-                                      $"Campo23: {objeto.Campo23}\n" +
-                                      $"Campo24: {objeto.Campo24}\n" +
-                                      $"Campo25: {objeto.Campo25}\n" +
-                                      $"Campo31: {objeto.Campo31}\n" +
-                                      $"Campo32: {objeto.Campo32}\n" +
-                                      $"Campo33: {objeto.Campo33}\n" +
-                                      $"Campo34: {objeto.Campo34}\n" +
-                                      $"Campo35: {objeto.Campo35}\n" +
-                                      $"Campo41: {objeto.Campo41}\n" +
-                                      $"Campo42: {objeto.Campo42}\n" +
-                                      $"Campo43: {objeto.Campo43}\n" +
-                                      $"Campo44: {objeto.Campo44}\n" +
-                                      $"Campo45: {objeto.Campo45}\n" +
-                                      $"Observaciones: {objeto.Observaciones}\n" +
-                                      $"IdPaciente: {idPaciente}";
+                bool existe = SerologiaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
 
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool resultado = existe ?
+                    SerologiaLogica.Instancia.ActualizarExamen(objeto, idPaciente) :
+                    SerologiaLogica.Instancia.GuardarExamen(objeto, idPaciente);
 
-                bool guardado = false;
-
-                try
+                if (resultado)
                 {
-                    guardado = SerologiaLogica.Instancia.GuardarExamen(objeto, idPaciente);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error en Guardar:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                    "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Serología guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(existe ? "Examen actualizado correctamente." : "Examen guardado correctamente.", "Éxito");
                 }
                 else
                 {
-                    MessageBox.Show($"Error al guardar el examen de Serología. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al guardar o actualizar el examen de Serología.", "Error");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
 
-            CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
+
+                CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
 
             // Configurar el documento de impresión
             PrintDocument printDocument = new PrintDocument();
@@ -138,6 +136,10 @@ namespace prueba.Vista
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
                 printDocument.Print();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error al guardar o actualizar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -165,7 +167,6 @@ namespace prueba.Vista
             dtpFecha.Value = DateTime.Now;
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -187,72 +188,106 @@ namespace prueba.Vista
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Quimica formQuimica = new Quimica();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
+            if (pacienteActivo != null)
+            {
+                Quimica form = new Quimica(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Orina formQuimica = new Orina();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Copros formQuimica = new Copros();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Copros form = new Copros(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnHCG_Click(object sender, EventArgs e)
         {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Hemograma form = new Hemograma(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Micro formQuimica = new Micro();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Micro form = new Micro(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnBlanco_Click(object sender, EventArgs e)
         {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Varios formQuimica = new Varios();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
-
+        private void MostrarAdvertencia()
+        {
+            MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
         private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
         {
             RegistroPaciente formQuimica = new RegistroPaciente();

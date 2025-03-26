@@ -33,14 +33,62 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+            if (pacienteActivo != null)
+            {
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+                panel1.Visible = true;
+
+                // Cargar examen si existe
+                QuimicaM examen = QuimicaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    txtGlucosa.Text = examen.Glucosa;
+                    txtUrea.Text = examen.Urea;
+                    txtCreatinina.Text = examen.Creatina;
+                    txtBUN.Text = examen.BUN;
+                    txtUrico.Text = examen.Urico;
+                    txtColesterol.Text = examen.Colesterol;
+                    txtHDL.Text = examen.HDL;
+                    txtLDL.Text = examen.LDL;
+                    txtTrigliceridos.Text = examen.Triglicerido;
+                    txtBilirrubina.Text = examen.Bilirrubina;
+                    txtDirecta.Text = examen.Directa;
+                    txtIndirecta.Text = examen.Indirecta;
+                    txtTotal.Text = examen.Total;
+                    txtGOT.Text = examen.GOT;
+                    txtGPT.Text = examen.GPT;
+                    txtFosfatasaAlcalina.Text = examen.FosfatasaAlcalina;
+                    txtAmilasa.Text = examen.Amilasa;
+                    txtProteina.Text = examen.Proteina;
+                    txtAlbumina.Text = examen.Albumina;
+                    txtglobulina.Text = examen.Globulina;
+                    txtRelacion.Text = examen.Relacion;
+                    txtFosfatasaAcida.Text = examen.FosfatasaAcida;
+                    txtFosfatasaAcidaProstatica.Text = examen.FosfatasaAcidaProstatica;
+                    txtCKMB.Text = examen.CKMB;
+                    txtCPK.Text = examen.CPK;
+                    txtHemoglobina.Text = examen.Hemoglobina;
+                    txtSodio.Text = examen.Sodio;
+                    txtPotasio.Text = examen.Potasio;
+                    txtCloro.Text = examen.Cloro;
+                    txtCalcio.Text = examen.Calcio;
+                }
+            }
         }
+
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            try
+            if (pacienteActivo == null)
             {
-                // Crear un objeto QuimicaM con los valores de los controles de texto
-                QuimicaM objeto = new QuimicaM()
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Crear un objeto QuimicaM con los valores de los controles de texto
+            QuimicaM objeto = new QuimicaM()
                 {
                     Glucosa = txtGlucosa.Text,
                     Urea = txtUrea.Text,
@@ -73,97 +121,19 @@ namespace prueba.Vista
                     Cloro = txtCloro.Text,
                     Calcio = txtCalcio.Text
                 };
+            int idPaciente = pacienteActivo.IdPaciente;
+            bool existe = QuimicaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
+            bool resultado = existe ?
+                QuimicaLogica.Instancia.ActualizarExamen(objeto, idPaciente) :
+                QuimicaLogica.Instancia.GuardarExamen(objeto, idPaciente);
 
-                // Obtener el idPaciente del pacienteActivo
-                int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores si pacienteActivo es null
-
-                // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar Química Sanguínea:\n" +
-                                      $"Glucosa: {objeto.Glucosa}\n" +
-                                      $"Urea: {objeto.Urea}\n" +
-                                      $"Creatina: {objeto.Creatina}\n" +
-                                      $"BUN: {objeto.BUN}\n" +
-                                      $"Ácido Úrico: {objeto.Urico}\n" +
-                                      $"Colesterol: {objeto.Colesterol}\n" +
-                                      $"HDL: {objeto.HDL}\n" +
-                                      $"LDL: {objeto.LDL}\n" +
-                                      $"Triglicéridos: {objeto.Triglicerido}\n" +
-                                      $"Bilirrubina: {objeto.Bilirrubina}\n" +
-                                      $"Directa: {objeto.Directa}\n" +
-                                      $"Indirecta: {objeto.Indirecta}\n" +
-                                      $"Total: {objeto.Total}\n" +
-                                      $"GOT: {objeto.GOT}\n" +
-                                      $"GPT: {objeto.GPT}\n" +
-                                      $"Fosfatasa Alcalina: {objeto.FosfatasaAlcalina}\n" +
-                                      $"Amilasa: {objeto.Amilasa}\n" +
-                                      $"Proteína: {objeto.Proteina}\n" +
-                                      $"Albúmina: {objeto.Albumina}\n" +
-                                      $"Globulina: {objeto.Globulina}\n" +
-                                      $"Relación: {objeto.Relacion}\n" +
-                                      $"Fosfatasa Ácida: {objeto.FosfatasaAcida}\n" +
-                                      $"Fosfatasa Ácida Prostática: {objeto.FosfatasaAcidaProstatica}\n" +
-                                      $"CKMB: {objeto.CKMB}\n" +
-                                      $"CPK: {objeto.CPK}\n" +
-                                      $"Hemoglobina: {objeto.Hemoglobina}\n" +
-                                      $"Sodio: {objeto.Sodio}\n" +
-                                      $"Potasio: {objeto.Potasio}\n" +
-                                      $"Cloro: {objeto.Cloro}\n" +
-                                      $"Calcio: {objeto.Calcio}\n" +
-                                      $"IdPaciente: {idPaciente}";
-
-                // Mostrar los datos en un mensaje
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                bool guardado = false;
-
-                try
-                {
-                    // Intentar guardar los datos
-                    guardado = QuimicaLogica.Instancia.GuardarExamen(objeto, idPaciente);
-                }
-                catch (SQLiteException ex)
-                {
-                    // Capturar errores de la base de datos SQLite
-                    MessageBox.Show($"Error en Guardado (SQLite):\n{ex.Message}\nCódigo de error: {ex.ErrorCode}\nDetalles: {ex.StackTrace}",
-                                     "Error en Guardado SQLite", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                catch (InvalidOperationException ex)
-                {
-                    // Capturar errores de operación inválida en la base de datos
-                    MessageBox.Show($"Error en Guardado (Operación Inválida):\n{ex.Message}\nDetalles: {ex.StackTrace}",
-                                     "Error en Guardado Operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    // Capturar cualquier otro error inesperado
-                    MessageBox.Show($"Error inesperado en el fragmento de código:\n" +
-                                     $"Método: btnNuevoPaciente_Click\n" +
-                                     $"Mensaje: {ex.Message}\nDetalles: {ex.StackTrace}",
-                                     "Error Inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Verificar si el guardado fue exitoso
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Química Sanguínea guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    // Mostrar mensaje de error si no se insertaron los datos correctamente
-                    MessageBox.Show($"Error al guardar el examen de Química Sanguínea. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
+            if (resultado)
             {
-                // Capturar cualquier error inesperado fuera del bloque principal
-                MessageBox.Show($"Ocurrió un error inesperado en la ejecución:\n" +
-                                 $"Método: btnNuevoPaciente_Click\n" +
-                                 $"Mensaje: {ex.Message}\nDetalles: {ex.StackTrace}",
-                                 "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(existe ? "Examen actualizado correctamente." : "Examen guardado correctamente.", "Éxito");
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar o actualizar el examen.", "Error");
             }
 
 
@@ -206,7 +176,6 @@ namespace prueba.Vista
 
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -228,68 +197,105 @@ namespace prueba.Vista
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
-            Hemograma formQuimica = new Hemograma();
-            formQuimica.Show();  // Abre el formulario de Química
-            this.Hide();  // Oculta el formulario actual
-
+            if (pacienteActivo != null)
+            {
+                Hemograma form = new Hemograma(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Orina formQuimica = new Orina();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnCopros_Click(object sender, EventArgs e)
         {
-            Copros formQuimica = new Copros();
-            formQuimica.Show();
-            this.Hide();
-
+            if (pacienteActivo != null)
+            {
+                Copros form = new Copros(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnHCG_Click(object sender, EventArgs e)
         {
-            HCG formQuimica = new HCG();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSerologia_Click(object sender, EventArgs e)
         {
-            Serologia formQuimica = new Serologia();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Serologia form = new Serologia(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnMicro_Click(object sender, EventArgs e)
         {
-            Micro formQuimica = new Micro();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Micro form = new Micro(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnBlanco_Click(object sender, EventArgs e)
         {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre formQuimica = new Sobre();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
         }
 
         private void btnVarios_Click(object sender, EventArgs e)
         {
-            Varios formQuimica = new Varios();
-            formQuimica.Show();
-            this.Hide();
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else MostrarAdvertencia();
+        }
+        private void MostrarAdvertencia()
+        {
+            MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void panelRight_Paint(object sender, PaintEventArgs e)
