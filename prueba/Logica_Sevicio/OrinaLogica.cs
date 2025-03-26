@@ -36,5 +36,14 @@ namespace prueba.Logica_Servicio
                 return false; // No se puede guardar sin un paciente
             return _orinaDAO.Guardar(examen, idPaciente);
         }
+        public OrinaM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _orinaDAO.ObtenerPorIdPaciente(idPaciente);
+        }
+        public bool ActualizarExamen(OrinaM examen, int idPaciente)
+        {
+            return _orinaDAO.Actualizar(examen, idPaciente);
+        }
+
     }
 }

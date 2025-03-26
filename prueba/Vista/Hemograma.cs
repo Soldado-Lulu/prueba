@@ -18,58 +18,15 @@ namespace prueba.Vista
 {
     public partial class Hemograma : Form
     {
-        private int idPaciente;
         private PacienteM pacienteActivo;
 
-        public Hemograma()
-        {
-            InitializeComponent();
-            idPaciente = PacienteActivo.IdPaciente;
-            LlenarCampos(idPaciente);
-        }
-
+        private int idPaciente;
         public Hemograma(int id)
         {
             InitializeComponent();
             idPaciente = id;
             LlenarCampos(idPaciente);
         }
-
-        private void Hemograma_Load(object sender, EventArgs e)
-        {
-       
-            dtpFecha.Value = DateTime.Now;
-
-            // 🟢 Reforzamos: Si viene de nuevo paciente, tomamos de PacienteActivo
-            if (idPaciente == 0)
-            {
-                idPaciente = PacienteActivo.IdPaciente;
-            }
-
-            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
-
-            if (pacienteActivo != null)
-            {
-                panel1.Visible = true;
-                lblNombreCompleto.Visible = true;
-                lblEdad.Visible = true;
-                lblMedico.Visible = true;
-
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
-                lblEdad.Text = pacienteActivo.Edad;
-                lblMedico.Text = pacienteActivo.Medico;
-            }
-            else
-            {
-                MessageBox.Show("No se encontró el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
-        
-
-
-
         public void LlenarCampos(int idPaciente)
         {
             // Llamar al método que obtiene los datos del examen Hemograma
@@ -112,114 +69,9 @@ namespace prueba.Vista
             }
         }
 
-    
-        private void button2_Click(object sender, EventArgs e)
+        public Hemograma()
         {
-            try
-            {
-                // Crear el objeto HemogramaM con los datos del formulario
-                HemogramaM objeto = new HemogramaM()
-                {
-                    Eritrocitos = txtEritrocitos.Text,
-                    Leucocitos = txtLeucocitos.Text,
-                    Hemoglobina = txtHemoglobina.Text,
-                    Hematocrito = txtHematocritos.Text,
-                    Plaquetas = txtPlaquetas.Text,
-                    Mielocitos = textMielocitos.Text,
-                    Melamielocitos = textMetamielocitos.Text,
-                    Cayados = textCayados.Text,
-                    Segmentados = textSegmentados.Text,
-                    Linfocitos = textLinfocitos.Text,
-                    Monocitos = textMonocitos.Text,
-                    Eosinofilos = textEosinofilos.Text,
-                    Basofilos = textBasofilos.Text,
-                    VES1 = textVES1.Text,
-                    VES2 = textVES2.Text,
-                    Ik = textIK.Text,
-                    GrupoSanguineo = textGrupoSanguineo.Text,
-                    Factor = textFactorRh.Text,
-                    TiempoSangria = txtTiempoSangria.Text,
-                    TiempoCoagulacion = txtTiempoCoagulacion.Text,
-                    TiempoProtrombina = txtTiempoProtrombina.Text,
-                    PorcentajeActividad = txtPorcentajeActividad.Text,
-                    Aptt = txtAPTT.Text,
-                    SerieRoja = txtSerieRoja.Text,
-                    SerieBlanca = txtSerieBlanca.Text
-                };
-
-                // Obtener el ID del paciente activo (suponiendo que pacienteActivo no es null)
-                int idPaciente = pacienteActivo?.IdPaciente ?? 0;
-
-                // Crear el objeto PacienteM con los datos del paciente (estos deben venir de algún lugar)
-                PacienteM paciente = new PacienteM()
-                {
-                    IdPaciente = idPaciente,
-                    Nombre = lblNombreCompleto.Text,  // Asegúrate de tener un control de nombre
-                    Apellido = lblMedico.Text,  // Asegúrate de tener un control de apellido
-                    Telefono = lblEdad.Text,  // Asegúrate de tener un control de teléfono
-                };
-
-                // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar Hemograma:\n" +
-                                       $"Eritrocitos: {objeto.Eritrocitos}\n" +
-                                       $"Leucocitos: {objeto.Leucocitos}\n" +
-                                       $"Hemoglobina: {objeto.Hemoglobina}\n" +
-                                       $"Hematocrito: {objeto.Hematocrito}\n" +
-                                       $"Plaquetas: {objeto.Plaquetas}\n" +
-                                       $"Mielocitos: {objeto.Mielocitos}\n" +
-                                       $"Melamielocitos: {objeto.Melamielocitos}\n" +
-                                       $"Cayados: {objeto.Cayados}\n" +
-                                       $"Segmentados: {objeto.Segmentados}\n" +
-                                       $"Linfocitos: {objeto.Linfocitos}\n" +
-                                       $"Monocitos: {objeto.Monocitos}\n" +
-                                       $"Eosinofilos: {objeto.Eosinofilos}\n" +
-                                       $"Basofilos: {objeto.Basofilos}\n" +
-                                       $"VES1: {objeto.VES1}\n" +
-                                       $"VES2: {objeto.VES2}\n" +
-                                       $"Ik: {objeto.Ik}\n" +
-                                       $"Grupo Sanguíneo: {objeto.GrupoSanguineo}\n" +
-                                       $"Factor: {objeto.Factor}\n" +
-                                       $"Tiempo de Sangría: {objeto.TiempoSangria}\n" +
-                                       $"Tiempo de Coagulación: {objeto.TiempoCoagulacion}\n" +
-                                       $"Tiempo de Protrombina: {objeto.TiempoProtrombina}\n" +
-                                       $"Porcentaje de Actividad: {objeto.PorcentajeActividad}\n" +
-                                       $"APTT: {objeto.Aptt}\n" +
-                                       $"Serie Roja: {objeto.SerieRoja}\n" +
-                                       $"Serie Blanca: {objeto.SerieBlanca}\n" +
-                                       $"IdPaciente: {idPaciente}";
-
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                bool guardado = false;
-
-                try
-                {
-                    // Guardar el paciente y hemograma en la base de datos
-                    guardado = HemogramaLogica.Instancia.GuardarNuevoPaciente(objeto, paciente);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error en Guardar:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                     "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Verificar si la operación fue exitosa
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Hemograma y Paciente guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Error al guardar el examen de Hemograma o el paciente. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                 "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            InitializeComponent();
         }
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
@@ -349,8 +201,31 @@ namespace prueba.Vista
                 e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
             }
         }
-      
+        private void Hemograma_Load(object sender, EventArgs e)
+        {
+            dtpFecha.Value = DateTime.Now;
 
+            // Obtener el último paciente registrado
+            //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+            if (pacienteActivo != null) // Verificar si se encontró un paciente
+            {
+                // Mostrar el panel y labels
+                panel1.Visible = true;
+                lblNombreCompleto.Visible = true;
+                lblEdad.Visible = true;
+                lblMedico.Visible = true;
+
+                // Asignar los valores obtenidos
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
@@ -417,13 +292,10 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
         {
-            PacienteActivo.Limpiar(); // ✔️ Limpiar datos en memoria
-
-            RegistroPaciente form = new RegistroPaciente();
-            form.Show();
-            this.Close(); // ✔️ Cierra el formulario actual para liberar recursos
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -436,46 +308,5 @@ namespace prueba.Vista
         {
 
         }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            HemogramaM objeto = new HemogramaM()
-            {
-                Eritrocitos = txtEritrocitos.Text,
-                Leucocitos = txtLeucocitos.Text,
-                Hemoglobina = txtHemoglobina.Text,
-                Hematocrito = txtHematocritos.Text,
-                Plaquetas = txtPlaquetas.Text,
-                Mielocitos = textMielocitos.Text,
-                Melamielocitos = textMetamielocitos.Text,
-                Cayados = textCayados.Text,
-                Segmentados = textSegmentados.Text,
-                Linfocitos = textLinfocitos.Text,
-                Monocitos = textMonocitos.Text,
-                Eosinofilos = textEosinofilos.Text,
-                Basofilos = textBasofilos.Text,
-                VES1 = textVES1.Text,
-                VES2 = textVES2.Text,
-                Ik = textIK.Text,
-                GrupoSanguineo = textGrupoSanguineo.Text,
-                Factor = textFactorRh.Text,
-                TiempoSangria = txtTiempoSangria.Text,
-                TiempoCoagulacion = txtTiempoCoagulacion.Text,
-                TiempoProtrombina = txtTiempoProtrombina.Text,
-                PorcentajeActividad = txtPorcentajeActividad.Text,
-                Aptt = txtAPTT.Text,
-                SerieRoja = txtSerieRoja.Text,
-                SerieBlanca = txtSerieBlanca.Text
-            };
-
-            bool actualizado = HemogramaLogica.Instancia.ActualizarExamen(objeto, idPaciente);
-
-            if (actualizado)
-                MessageBox.Show("Examen actualizado correctamente.");
-            else
-                MessageBox.Show("No se pudo actualizar el examen.");
-        }
-
     }
 }
-

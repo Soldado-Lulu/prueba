@@ -43,15 +43,64 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+
+            if (pacienteActivo != null)
+            {
+                // Mostrar datos del paciente
+                panel1.Visible = true;
+                lblNombreCompleto.Visible = true;
+                lblEdad.Visible = true;
+                lblMedico.Visible = true;
+
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+
+                // Cargar datos del examen si existen
+                OrinaM examen = OrinaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    txtAspecto.Text = examen.Aspecto;
+                    txtColor.Text = examen.Color;
+                    txtOlor.Text = examen.Olor;
+                    txtDensidad.Text = examen.Densidad;
+                    txtReaccion.Text = examen.Reaccion;
+                    txtGlucosa.Text = examen.Glucosa;
+                    txtBilirrubina.Text = examen.Bilirrubina;
+                    txtCetonas.Text = examen.Cetonas;
+                    txtSangre.Text = examen.Sangre;
+                    txtProteina.Text = examen.Proteina;
+                    txtUrobiliogeno.Text = examen.Urobiliogeno;
+                    txtNitrito.Text = examen.Nitrito;
+                    txtLeucocitos.Text = examen.Leucocito1;
+                    txtEritrocitos.Text = examen.Eritrocito;
+                    txtLeucocitos1.Text = examen.Leucocito2;
+                    txtCED.Text = examen.CED;
+                    txtRedondas.Text = examen.Redonda;
+                    txtEmbarazo.Text = examen.Embarazo;
+                    txtOtros.Text = examen.Otros;
+                    txtObservaciones.Text = examen.Observaciones;
+                    txtFlora.Text = examen.Flora;
+                    txtPiocitos.Text = examen.Piocito;
+                    txtCristales.Text = examen.Cristale;
+                    txtCilindros.Text = examen.Cilindro;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos del paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
         private void Orina_Load(object sender, EventArgs e)
         {
 
             dtpFecha.Value = DateTime.Now;
             // Obtener el último paciente registrado
             //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+           // pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -84,10 +133,9 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-
-            if (pacienteActivo == null) // Verificar si hay un paciente cargado
+            if (pacienteActivo == null)
             {
-                MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -119,37 +167,40 @@ namespace prueba.Vista
                 Cilindro = txtCilindros.Text
             };
 
-            int idPaciente = pacienteActivo.IdPaciente; // Usamos la variable global
+            int idPaciente = pacienteActivo.IdPaciente;
 
-            bool guardado = OrinaLogica.Instancia.GuardarExamen(examenOrina, idPaciente);
+            // Verificar si ya existe un examen para este paciente
+            bool existe = OrinaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
+            bool operacionExitosa = false;
 
-            if (guardado)
+            if (existe)
             {
-                MessageBox.Show("Examen de orina guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                operacionExitosa = OrinaLogica.Instancia.ActualizarExamen(examenOrina, idPaciente);
             }
             else
             {
-                Console.WriteLine();
-
-                MessageBox.Show("Error al guardar el examen de orina. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                operacionExitosa = OrinaLogica.Instancia.GuardarExamen(examenOrina, idPaciente);
             }
 
-            CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
-
-            // Configurar el documento de impresión
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintDocument_PrintPage;
-
-            // Mostrar el cuadro de diálogo de impresión
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument;
-
-            if (printDialog.ShowDialog() == DialogResult.OK)
+            if (operacionExitosa)
             {
-                printDocument.Print();
+                MessageBox.Show("Examen de orina guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CapturarPanel(PanelCap);
+                PrintDialog printDialog = new PrintDialog();
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrintPage += PrintDocument_PrintPage;
+                printDialog.Document = printDocument;
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
             }
-
+            else
+            {
+                MessageBox.Show("Ocurrió un error al guardar o actualizar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
@@ -184,9 +235,9 @@ namespace prueba.Vista
 
         private void btnOrina_Click(object sender, EventArgs e)
         {
-            Hemograma formHemograma = new Hemograma(PacienteActivo.IdPaciente);
-            formHemograma.Show();
-
+            Hemograma formQuimica = new Hemograma();
+            formQuimica.Show();
+            this.Hide();
         }
 
         private void btnCopros_Click(object sender, EventArgs e)

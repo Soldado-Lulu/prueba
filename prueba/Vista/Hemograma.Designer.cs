@@ -40,7 +40,6 @@
             this.btnOrina = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
@@ -337,10 +336,10 @@
             this.btnHemograma.TabIndex = 11;
             this.btnHemograma.Text = "QUIMICA";
             this.btnHemograma.UseVisualStyleBackColor = false;
+            this.btnHemograma.Click += new System.EventHandler(this.btnHemograma_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnNuevoPaciente);
             this.panel2.Controls.Add(this.btnGuardarPaciente);
             this.panel2.Controls.Add(this.panelRight);
@@ -349,18 +348,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(345, 1055);
             this.panel2.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 307);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(345, 65);
-            this.button2.TabIndex = 197;
-            this.button2.Text = "Editar Paciente";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnNuevoPaciente
             // 
@@ -1914,6 +1902,5 @@
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Button btnNuevoPaciente;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

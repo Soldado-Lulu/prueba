@@ -22,8 +22,8 @@ namespace Laboratorio.Vista
 
         private void CargarPacientes()
         {
-            PacienteLogica.Instancia.ListarPacientes(dgvPaciente);
-
+            List<PacienteM> listaPacientes = logica.ObtenerTodos();
+            dgvPaciente.DataSource = listaPacientes; // Mostrar en el DataGridView
         }
         private void LimpiarCampos()
         {
@@ -42,7 +42,6 @@ namespace Laboratorio.Vista
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            // Verificar solo los campos realmente obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellido.Text))
             {
@@ -50,24 +49,8 @@ namespace Laboratorio.Vista
                 return;
             }
 
-            // Capturar la fecha del DateTimePicker
             string fechaRegistro = dtpFecha.Value.ToString("yyyy-MM-dd");
 
-            // Convertir Cuenta y Porcentaje a valores numéricos (opcional)
-            decimal? cuenta = null;
-            decimal? porcentaje = null;
-
-            if (decimal.TryParse(txtCuenta.Text, out decimal cuentaValor))
-            {
-                cuenta = cuentaValor;
-            }
-
-            if (decimal.TryParse(txtPorcentajeMedico.Text, out decimal porcentajeValor))
-            {
-                porcentaje = porcentajeValor;
-            }
-
-            // Crear el objeto PacienteM con todos los campos opcionales
             PacienteM nuevoPaciente = new PacienteM()
             {
                 Nombre = txtNombre.Text,
@@ -75,26 +58,23 @@ namespace Laboratorio.Vista
                 Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? null : txtTelefono.Text,
                 Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? null : txtEdad.Text,
                 Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? null : txtMedico.Text,
-                Fecha = fechaRegistro,
-                Cuenta = cuenta,
-                Porcentaje = porcentaje
+                Fecha = fechaRegistro
             };
 
-            // Calcular los saldos antes de guardar
-            logica.CalcularSaldo(nuevoPaciente);
+            // ⚠️ Usamos el nuevo método que devuelve el ID
+            int idPaciente = logica.GuardarYDevolverId(nuevoPaciente);
 
-            int nuevoId = PacienteLogica.Instancia.GuardarYObtenerId(nuevoPaciente);
-
-            if (nuevoId > 0)
+            if (idPaciente > 0)
             {
-                nuevoPaciente.IdPaciente = nuevoId; // asigna el ID al objeto
-                MessageBox.Show("Paciente registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                nuevoPaciente.IdPaciente = idPaciente;
                 PacienteActivo.EstablecerPaciente(nuevoPaciente);
 
-                Hemograma formHemograma = new Hemograma(nuevoId); // 👈 Aquí puedes abrir Hemograma directamente
-                formHemograma.Show();
-                this.Close(); // en lugar de this.Hide();
+                MessageBox.Show("Paciente registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Abrir el formulario de examen con el ID correcto
+                Orina formOrina = new Orina(idPaciente);
+                formOrina.Show();
+                this.Hide();
             }
             else
             {
@@ -102,7 +82,7 @@ namespace Laboratorio.Vista
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnHistorial_Click(object sender, EventArgs e)
         {
             Reporte formQuimica = new Reporte();
             formQuimica.Show();

@@ -1,7 +1,12 @@
 ﻿using prueba.Logica;
-using Prueba.Modelo;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace prueba.Vista
@@ -11,75 +16,74 @@ namespace prueba.Vista
         public Reporte()
         {
             InitializeComponent();
+
             LlenarDataGridView();
         }
 
-        private void Reporte_Load(object sender, EventArgs e) { }
+        private void Reporte_Load(object sender, EventArgs e)
+        {
 
+        }
         private void LlenarDataGridView()
         {
             dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
         }
 
+
+
+
         private void dgvOrina_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Verifica que se haga clic en una celda válida
             {
-                // ✅ Obtener ID del paciente
+                // Obtén el ID del paciente de la fila seleccionada
                 int idPaciente = Convert.ToInt32(dgvOrina.Rows[e.RowIndex].Cells["ID Paciente"].Value);
 
-                // ✅ Obtener el nombre de la columna (tipo de examen)
-                string nombreExamen = dgvOrina.Columns[e.ColumnIndex].HeaderText.Trim();
+                // Obtén el nombre del examen desde el encabezado de la columna
+                string nombreExamen = dgvOrina.Columns[e.ColumnIndex].HeaderText.Trim(); // Usamos Trim() para eliminar espacios extras
 
-                // ✅ Validar que haya un valor en la celda
-                string valorCelda = dgvOrina.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString();
-                if (string.IsNullOrWhiteSpace(valorCelda))
-                    return;
+                // Mostrar el valor del examen para depuración
+                MessageBox.Show($"ID del Paciente: {idPaciente}\nNombre del Examen: '{nombreExamen}'");
 
-                // ✅ Buscar el paciente en base al ID
-                PacienteM paciente = PacienteLogica.Instancia.BuscarPorId(idPaciente);
-                if (paciente == null)
-                {
-                    MessageBox.Show("No se encontró el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // ✅ Establecer paciente activo global
-                PacienteActivo.EstablecerPaciente(paciente);
-
-                // ✅ Abrir el formulario correspondiente al examen
+                // Asegúrate de que solo se muestren los datos de este paciente para el examen específico
                 switch (nombreExamen)
                 {
                     case "Orina":
-                        new Orina(idPaciente).Show();
-                        this.Close(); // en lugar de this.Hide();
-
+                        // Se pasa el ID del paciente y el examen específico
+                        Orina formOrina = new Orina(idPaciente);
+                        formOrina.Show();
                         break;
                     case "Quimica":
-                        new Quimica(idPaciente).Show();
+                        Quimica formQuimica = new Quimica(idPaciente);
+                        formQuimica.Show();
                         break;
                     case "Hemograma":
-                        new Hemograma(idPaciente).Show();
-                        this.Close(); // en lugar de this.Hide();
-
+                        Hemograma formHemograma = new Hemograma(idPaciente);
+                        formHemograma.Show();
                         break;
                     case "Serologia":
-                        new Serologia(idPaciente).Show();
+                        Serologia formSerologia = new Serologia(idPaciente);
+                        formSerologia.Show();
                         break;
                     case "HCG":
-                        new HCG(idPaciente).Show();
+                        HCG formHCG = new HCG(idPaciente);
+                        formHCG.Show();
                         break;
                     case "Coproparasitologia":
-                        new Copros(idPaciente).Show();
+                        Copros formCopro = new Copros(idPaciente);
+                        formCopro.Show();
                         break;
                     case "Microbiologia":
-                        new Micro(idPaciente).Show();
+                        Micro formMicro = new Micro(idPaciente);
+                        formMicro.Show();
                         break;
                     case "Varios":
-                        new Varios(idPaciente).Show();
+                        Varios formVarios = new Varios(idPaciente);
+                        formVarios.Show();
                         break;
                     case "Blanco":
-                        new Blanco(idPaciente).Show();
+                        Blanco formBlanco = new Blanco(idPaciente);
+                        formBlanco.Show();
                         break;
                     default:
                         MessageBox.Show("Seleccione un examen válido.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,5 +91,9 @@ namespace prueba.Vista
                 }
             }
         }
+
+
+
     }
 }
+
