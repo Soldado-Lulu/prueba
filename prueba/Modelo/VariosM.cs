@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using prueba.Modelo;
 
-namespace Prueba.Modelo
+namespace prueba.Modelo
 {
-    public class BlancoM : ExamenBase
+    public class VariosM: ExamenBase
+
     {
         public string Muestra { get; set; }
         public string Examen { get; set; }
@@ -15,7 +15,7 @@ namespace Prueba.Modelo
         public string Otros { get; set; }
         public string Paciente { get; set; }
         public string Valores { get; set; }
-        public int IdBlanco { get; set; }
+        public int IdVarios { get; set; }
         public int IdPaciente { get; set; }
 
     }

@@ -44,12 +44,12 @@ namespace prueba.Vista
                 MicroM examen = MicroLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
                 if (examen != null)
                 {
-                    txtMuestra.Text = examen.Muestra;
-                    txtGram.Text = examen.Gram;
+                    txtGram.Text = examen.Muestra;
+                    txtMuestra.Text = examen.Gram;
                     txtM1.Text = examen.M1;
                     txtM2.Text = examen.M2;
-                    txtM3.Text = examen.M3;
-                    txtCultivo.Text = examen.Cultivo;
+                    txtCultivo.Text = examen.M3;
+                    txtM3.Text = examen.Cultivo;
                     txtColonia.Text = examen.Colonia;
                     txtIdentificacion.Text = examen.Identificacion;
                     txtSensibles.Text = examen.Sensible;
@@ -71,12 +71,12 @@ namespace prueba.Vista
             }
             MicroM examen = new MicroM()
             {
-                Muestra = txtMuestra.Text,
-                Gram = txtGram.Text,
+                Muestra = txtGram.Text,
+                Gram = txtMuestra.Text,
                 M1 = txtM1.Text,
                 M2 = txtM2.Text,
-                M3 = txtM3.Text,
-                Cultivo = txtCultivo.Text,
+                M3 = txtCultivo.Text,
+                Cultivo = txtM3.Text,
                 Colonia = txtColonia.Text,
                 Identificacion = txtIdentificacion.Text,
                 Sensible = txtSensibles.Text,
@@ -155,6 +155,22 @@ namespace prueba.Vista
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
+        private void btnNuevopaciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
@@ -259,19 +275,9 @@ namespace prueba.Vista
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-
-        private void btnNuevopaciente_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
         }
     }
 }

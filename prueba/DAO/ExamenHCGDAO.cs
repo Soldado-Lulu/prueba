@@ -81,7 +81,7 @@ namespace prueba.DAO
 
                     SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                     {
-                        cmd.Parameters.Add(new SQLiteParameter("@idPaciente", obj.IdPaciente));
+                        cmd.Parameters.Add(new SQLiteParameter("@idPaciente", idPaciente));
                         cmd.Parameters.Add(new SQLiteParameter("@resultado", obj.Resultado));
              
                         cmd.CommandType = System.Data.CommandType.Text;

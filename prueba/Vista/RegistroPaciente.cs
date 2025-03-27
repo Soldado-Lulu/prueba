@@ -51,6 +51,11 @@ namespace Laboratorio.Vista
 
             string fechaRegistro = dtpFecha.Value.ToString("yyyy-MM-dd");
 
+            float cuenta = float.Parse(txtCuenta.Text);
+            float porcentaje = float.Parse(txtPorcentaje.Text);
+            float saldoMedico = cuenta * porcentaje / 100;
+            float saldoLab = cuenta - saldoMedico;
+
             PacienteM nuevoPaciente = new PacienteM()
             {
                 Nombre = txtNombre.Text,
@@ -58,8 +63,13 @@ namespace Laboratorio.Vista
                 Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? null : txtTelefono.Text,
                 Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? null : txtEdad.Text,
                 Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? null : txtMedico.Text,
-                Fecha = fechaRegistro
+                Fecha = fechaRegistro,
+                Cuenta = cuenta,
+                Porcentaje = porcentaje,
+                SaldoMedico = saldoMedico,
+                SaldoLab = saldoLab
             };
+
 
             // ⚠️ Usamos el nuevo método que devuelve el ID
             int idPaciente = logica.GuardarYDevolverId(nuevoPaciente);
@@ -80,6 +90,10 @@ namespace Laboratorio.Vista
             {
                 MessageBox.Show("Error al registrar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
+
+           
+
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)

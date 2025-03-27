@@ -29,6 +29,15 @@ namespace prueba.Logica_Sevicio
                 return _instancia;
             }
         }
+        public bool ActualizarExamen(BlancoM examen, int idPaciente)
+        {
+            return _blancoDAO.Actualizar(examen, idPaciente);
+        }
+
+        public BlancoM ObtenerExamenPorPaciente(int idPaciente)
+        {
+            return _blancoDAO.ObtenerPorPaciente(idPaciente);
+        }
 
         private BlancoLogica() { }
 

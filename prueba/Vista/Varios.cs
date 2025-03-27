@@ -1,5 +1,7 @@
 ﻿using Laboratorio.Vista;
 using prueba.Logica;
+using prueba.Logica_Sevicio;
+using prueba.Modelo;
 using Prueba.Modelo;
 using System;
 using System.Collections.Generic;
@@ -32,7 +34,27 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-           
+
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+            if (pacienteActivo != null)
+            {
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+                panel1.Visible = true;
+
+                VariosM examen = VariosLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                    // txtMuestra.Text = examen.Muestra;
+                    ///txtExamen.Text = examen.Examen;
+                    txtDatos.Text = examen.Datos;
+                    richTextBox1.Text = examen.Otros;
+                    txtValoresReferencia.Text = examen.Valores;
+                    txtPaciente.Text = examen.Paciente;
+
+                }
+            }
         }
         private void Varios_Load(object sender, EventArgs e)
         {
@@ -59,6 +81,103 @@ namespace prueba.Vista
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnNuevoPaciente_Click(object sender, EventArgs e)
+        {
+            if (pacienteActivo == null)
+            {
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            VariosM objeto = new VariosM()
+            {
+                //Muestra = txtMuestra.Text,
+                // Examen = /txtExamen.Text,
+                Datos = txtDatos.Text,
+                Otros = richTextBox1.Text,
+                Valores = txtValoresReferencia.Text,
+                Paciente = txtPaciente.Text
+            };
+
+            int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores de null
+
+
+            CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
+
+            // Configurar el documento de impresión
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            // Mostrar el cuadro de diálogo de impresión
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+            bool existe = VariosLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
+
+            bool resultado = existe
+                ? VariosLogica.Instancia.ActualizarExamen(objeto, idPaciente)
+                : VariosLogica.Instancia.GuardarExamen(objeto, idPaciente);
+
+            if (resultado)
+            {
+                MessageBox.Show(existe ? "Examen actualizado correctamente." : "Examen guardado correctamente.", "Éxito");
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar o actualizar el examen de varios.", "Error");
+            }
+        }
+
+        private Bitmap panelBitmap;
+        private void CapturarPanel(Panel panel)
+        {
+            // Crear un Bitmap con el tamaño del panel
+            panelBitmap = new Bitmap(panel.Width, panel.Height);
+            panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Dibujar el contenido del panel capturado en la página de impresión
+            if (panelBitmap != null)
+            {
+                e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
+            }
+        }
+
+        private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void lblNombreCompleto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label65_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
@@ -152,7 +271,7 @@ namespace prueba.Vista
         {
             if (pacienteActivo != null)
             {
-                Varios form = new Varios(pacienteActivo.IdPaciente);
+                Hemograma form = new Hemograma(pacienteActivo.IdPaciente);
                 form.Show();
                 this.Hide();
             }
@@ -163,68 +282,15 @@ namespace prueba.Vista
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void btnNuevoPaciente_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
-
-            // Configurar el documento de impresión
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintDocument_PrintPage;
-
-            // Mostrar el cuadro de diálogo de impresión
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument;
-
-            if (printDialog.ShowDialog() == DialogResult.OK)
+            if (pacienteActivo != null)
             {
-                printDocument.Print();
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
             }
-        }
-
-        private Bitmap panelBitmap;
-        private void CapturarPanel(Panel panel)
-        {
-            // Crear un Bitmap con el tamaño del panel
-            panelBitmap = new Bitmap(panel.Width, panel.Height);
-            panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
-        }
-
-        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Dibujar el contenido del panel capturado en la página de impresión
-            if (panelBitmap != null)
-            {
-                e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
-            }
-        }
-
-        private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
-        {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void lblNombreCompleto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label65_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
+            else MostrarAdvertencia();
         }
     }
 }

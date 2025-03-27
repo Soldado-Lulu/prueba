@@ -121,8 +121,6 @@ namespace prueba.Vista
                     MessageBox.Show("Error al guardar o actualizar el examen de Serología.", "Error");
                 }
 
-
-
                 CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
 
             // Configurar el documento de impresión
@@ -137,10 +135,7 @@ namespace prueba.Vista
             {
                 printDocument.Print();
             }
-            else
-            {
-                MessageBox.Show("Ocurrió un error al guardar o actualizar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+         
 
         }
 
@@ -185,6 +180,42 @@ namespace prueba.Vista
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblNombreCompleto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMedico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label65_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
@@ -288,38 +319,17 @@ namespace prueba.Vista
         {
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        private void btnNuevoPAciente_Click_1(object sender, EventArgs e)
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtReaccion.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblNombreCompleto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMedico_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label65_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }

@@ -28,37 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Blanco));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnVarios = new System.Windows.Forms.Button();
             this.btnSobre = new System.Windows.Forms.Button();
-            this.btnBlanco = new System.Windows.Forms.Button();
             this.btnMicro = new System.Windows.Forms.Button();
             this.btnSerologia = new System.Windows.Forms.Button();
             this.btnHCG = new System.Windows.Forms.Button();
             this.btnCopros = new System.Windows.Forms.Button();
             this.btnOrina = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnVarios = new System.Windows.Forms.Button();
+            this.btnBlanco = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvOrina = new System.Windows.Forms.DataGridView();
             this.btnNuevoPaciente = new System.Windows.Forms.Button();
             this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtOtros = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.txtpaciente = new System.Windows.Forms.TextBox();
             this.txtDatos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtExamen = new System.Windows.Forms.TextBox();
-            this.txtMuestra = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblMedico = new System.Windows.Forms.Label();
@@ -77,27 +73,24 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
             this.PanelCap.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
-            this.panel1.Controls.Add(this.btnBlanco);
             this.panel1.Controls.Add(this.btnMicro);
             this.panel1.Controls.Add(this.btnSerologia);
             this.panel1.Controls.Add(this.btnHCG);
             this.panel1.Controls.Add(this.btnCopros);
             this.panel1.Controls.Add(this.btnOrina);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnVarios);
+            this.panel1.Controls.Add(this.btnBlanco);
             this.panel1.Controls.Add(this.btnHemograma);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -105,61 +98,19 @@
             this.panel1.Size = new System.Drawing.Size(334, 1015);
             this.panel1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 585);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(334, 65);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "REPORTES";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnVarios
-            // 
-            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVarios.FlatAppearance.BorderSize = 0;
-            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVarios.Location = new System.Drawing.Point(0, 520);
-            this.btnVarios.Name = "btnVarios";
-            this.btnVarios.Size = new System.Drawing.Size(334, 65);
-            this.btnVarios.TabIndex = 19;
-            this.btnVarios.Text = "VARIOS";
-            this.btnVarios.UseVisualStyleBackColor = false;
-            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
-            // 
             // btnSobre
             // 
             this.btnSobre.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnSobre.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSobre.FlatAppearance.BorderSize = 0;
             this.btnSobre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSobre.Location = new System.Drawing.Point(0, 455);
+            this.btnSobre.Location = new System.Drawing.Point(0, 585);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(334, 65);
-            this.btnSobre.TabIndex = 18;
+            this.btnSobre.TabIndex = 35;
             this.btnSobre.Text = "SOBRE";
             this.btnSobre.UseVisualStyleBackColor = false;
-            this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
-            // 
-            // btnBlanco
-            // 
-            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBlanco.FlatAppearance.BorderSize = 0;
-            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlanco.Location = new System.Drawing.Point(0, 390);
-            this.btnBlanco.Name = "btnBlanco";
-            this.btnBlanco.Size = new System.Drawing.Size(334, 65);
-            this.btnBlanco.TabIndex = 17;
-            this.btnBlanco.Text = "QUIMICA";
-            this.btnBlanco.UseVisualStyleBackColor = false;
-            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
+            this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click_1);
             // 
             // btnMicro
             // 
@@ -167,13 +118,13 @@
             this.btnMicro.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMicro.FlatAppearance.BorderSize = 0;
             this.btnMicro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMicro.Location = new System.Drawing.Point(0, 325);
+            this.btnMicro.Location = new System.Drawing.Point(0, 520);
             this.btnMicro.Name = "btnMicro";
             this.btnMicro.Size = new System.Drawing.Size(334, 65);
-            this.btnMicro.TabIndex = 16;
+            this.btnMicro.TabIndex = 34;
             this.btnMicro.Text = "MICRO";
             this.btnMicro.UseVisualStyleBackColor = false;
-            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click_1);
             // 
             // btnSerologia
             // 
@@ -181,13 +132,13 @@
             this.btnSerologia.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSerologia.FlatAppearance.BorderSize = 0;
             this.btnSerologia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSerologia.Location = new System.Drawing.Point(0, 260);
+            this.btnSerologia.Location = new System.Drawing.Point(0, 455);
             this.btnSerologia.Name = "btnSerologia";
             this.btnSerologia.Size = new System.Drawing.Size(334, 65);
-            this.btnSerologia.TabIndex = 15;
+            this.btnSerologia.TabIndex = 33;
             this.btnSerologia.Text = "SEROLOGIA";
             this.btnSerologia.UseVisualStyleBackColor = false;
-            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
+            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click_1);
             // 
             // btnHCG
             // 
@@ -195,13 +146,13 @@
             this.btnHCG.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHCG.FlatAppearance.BorderSize = 0;
             this.btnHCG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHCG.Location = new System.Drawing.Point(0, 195);
+            this.btnHCG.Location = new System.Drawing.Point(0, 390);
             this.btnHCG.Name = "btnHCG";
             this.btnHCG.Size = new System.Drawing.Size(334, 65);
-            this.btnHCG.TabIndex = 14;
+            this.btnHCG.TabIndex = 32;
             this.btnHCG.Text = "HCG";
             this.btnHCG.UseVisualStyleBackColor = false;
-            this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click);
+            this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click_1);
             // 
             // btnCopros
             // 
@@ -209,13 +160,13 @@
             this.btnCopros.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCopros.FlatAppearance.BorderSize = 0;
             this.btnCopros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopros.Location = new System.Drawing.Point(0, 130);
+            this.btnCopros.Location = new System.Drawing.Point(0, 325);
             this.btnCopros.Name = "btnCopros";
             this.btnCopros.Size = new System.Drawing.Size(334, 65);
-            this.btnCopros.TabIndex = 13;
+            this.btnCopros.TabIndex = 31;
             this.btnCopros.Text = "COPROS";
             this.btnCopros.UseVisualStyleBackColor = false;
-            this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click);
+            this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click_1);
             // 
             // btnOrina
             // 
@@ -223,13 +174,55 @@
             this.btnOrina.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOrina.FlatAppearance.BorderSize = 0;
             this.btnOrina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrina.Location = new System.Drawing.Point(0, 65);
+            this.btnOrina.Location = new System.Drawing.Point(0, 260);
             this.btnOrina.Name = "btnOrina";
             this.btnOrina.Size = new System.Drawing.Size(334, 65);
-            this.btnOrina.TabIndex = 12;
+            this.btnOrina.TabIndex = 30;
             this.btnOrina.Text = "ORINAS";
             this.btnOrina.UseVisualStyleBackColor = false;
-            this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click);
+            this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 195);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(334, 65);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "BLANCO";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnVarios
+            // 
+            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVarios.FlatAppearance.BorderSize = 0;
+            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVarios.Location = new System.Drawing.Point(0, 130);
+            this.btnVarios.Name = "btnVarios";
+            this.btnVarios.Size = new System.Drawing.Size(334, 65);
+            this.btnVarios.TabIndex = 22;
+            this.btnVarios.Text = "VARIOS";
+            this.btnVarios.UseVisualStyleBackColor = false;
+            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click_1);
+            // 
+            // btnBlanco
+            // 
+            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBlanco.FlatAppearance.BorderSize = 0;
+            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlanco.Location = new System.Drawing.Point(0, 65);
+            this.btnBlanco.Name = "btnBlanco";
+            this.btnBlanco.Size = new System.Drawing.Size(334, 65);
+            this.btnBlanco.TabIndex = 21;
+            this.btnBlanco.Text = "QUIMICA";
+            this.btnBlanco.UseVisualStyleBackColor = false;
+            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click_1);
             // 
             // btnHemograma
             // 
@@ -247,7 +240,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvOrina);
             this.panel2.Controls.Add(this.btnNuevoPaciente);
             this.panel2.Controls.Add(this.btnGuardarPaciente);
             this.panel2.Controls.Add(this.panelRight);
@@ -256,17 +248,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(295, 1015);
             this.panel2.TabIndex = 1;
-            // 
-            // dgvOrina
-            // 
-            this.dgvOrina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrina.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvOrina.Location = new System.Drawing.Point(0, 307);
-            this.dgvOrina.Name = "dgvOrina";
-            this.dgvOrina.RowHeadersWidth = 51;
-            this.dgvOrina.RowTemplate.Height = 24;
-            this.dgvOrina.Size = new System.Drawing.Size(295, 230);
-            this.dgvOrina.TabIndex = 197;
             // 
             // btnNuevoPaciente
             // 
@@ -300,13 +281,12 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(295, 177);
             this.panelRight.TabIndex = 193;
+            this.panelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRight_Paint);
             // 
             // PanelCap
             // 
             this.PanelCap.Controls.Add(this.panel3);
             this.PanelCap.Controls.Add(this.panel4);
-            this.PanelCap.Controls.Add(this.panel5);
-            this.PanelCap.Controls.Add(this.panel8);
             this.PanelCap.Controls.Add(this.panel6);
             this.PanelCap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelCap.Location = new System.Drawing.Point(334, 0);
@@ -318,27 +298,39 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtOtros);
+            this.panel3.Controls.Add(this.richTextBox1);
+            this.panel3.Controls.Add(this.button6);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 668);
+            this.panel3.Location = new System.Drawing.Point(0, 717);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(903, 192);
+            this.panel3.Size = new System.Drawing.Size(903, 200);
             this.panel3.TabIndex = 157;
             // 
-            // txtOtros
+            // richTextBox1
             // 
-            this.txtOtros.Location = new System.Drawing.Point(52, 53);
-            this.txtOtros.Multiline = true;
-            this.txtOtros.Name = "txtOtros";
-            this.txtOtros.Size = new System.Drawing.Size(617, 97);
-            this.txtOtros.TabIndex = 9;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(36, 40);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(756, 144);
+            this.richTextBox1.TabIndex = 130;
+            this.richTextBox1.Text = "";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button6.Location = new System.Drawing.Point(812, 40);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(30, 23);
+            this.button6.TabIndex = 129;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 28);
+            this.label2.Location = new System.Drawing.Point(32, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 5;
@@ -348,28 +340,50 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.txtReferencia);
+            this.panel4.Controls.Add(this.txtpaciente);
             this.panel4.Controls.Add(this.txtDatos);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 409);
+            this.panel4.Location = new System.Drawing.Point(0, 247);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(903, 259);
+            this.panel4.Size = new System.Drawing.Size(903, 470);
             this.panel4.TabIndex = 156;
+            // 
+            // txtReferencia
+            // 
+            this.txtReferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReferencia.Location = new System.Drawing.Point(530, 37);
+            this.txtReferencia.Multiline = true;
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(250, 409);
+            this.txtReferencia.TabIndex = 110;
+            // 
+            // txtpaciente
+            // 
+            this.txtpaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpaciente.Location = new System.Drawing.Point(332, 37);
+            this.txtpaciente.Multiline = true;
+            this.txtpaciente.Name = "txtpaciente";
+            this.txtpaciente.Size = new System.Drawing.Size(192, 409);
+            this.txtpaciente.TabIndex = 109;
             // 
             // txtDatos
             // 
-            this.txtDatos.Location = new System.Drawing.Point(52, 48);
+            this.txtDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatos.Location = new System.Drawing.Point(52, 37);
             this.txtDatos.Multiline = true;
             this.txtDatos.Name = "txtDatos";
-            this.txtDatos.Size = new System.Drawing.Size(610, 187);
+            this.txtDatos.Size = new System.Drawing.Size(270, 409);
             this.txtDatos.TabIndex = 9;
+            this.txtDatos.Text = resources.GetString("txtDatos.Text");
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(470, 18);
+            this.label4.Location = new System.Drawing.Point(577, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 20);
             this.label4.TabIndex = 108;
@@ -379,80 +393,11 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(352, 18);
+            this.label19.Location = new System.Drawing.Point(376, 8);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(88, 20);
             this.label19.TabIndex = 5;
             this.label19.Text = "Panciente ";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.txtExamen);
-            this.panel5.Controls.Add(this.txtMuestra);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 277);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(903, 132);
-            this.panel5.TabIndex = 155;
-            // 
-            // txtExamen
-            // 
-            this.txtExamen.Location = new System.Drawing.Point(194, 72);
-            this.txtExamen.Name = "txtExamen";
-            this.txtExamen.Size = new System.Drawing.Size(457, 22);
-            this.txtExamen.TabIndex = 8;
-            // 
-            // txtMuestra
-            // 
-            this.txtMuestra.Location = new System.Drawing.Point(194, 30);
-            this.txtMuestra.Name = "txtMuestra";
-            this.txtMuestra.Size = new System.Drawing.Size(456, 22);
-            this.txtMuestra.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 22);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "EXAMEN :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(52, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 22);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "MUESTRA :";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.label18);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 247);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(903, 30);
-            this.panel8.TabIndex = 154;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(282, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 27);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Blanco";
             // 
             // panel6
             // 
@@ -636,16 +581,11 @@
             this.Load += new System.EventHandler(this.Blanco_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).EndInit();
             this.PanelCap.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -659,19 +599,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelCap;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtOtros;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtDatos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtExamen;
-        private System.Windows.Forms.TextBox txtMuestra;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label85;
@@ -685,22 +617,25 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnVarios;
-        private System.Windows.Forms.Button btnSobre;
-        private System.Windows.Forms.Button btnBlanco;
-        private System.Windows.Forms.Button btnMicro;
-        private System.Windows.Forms.Button btnSerologia;
-        private System.Windows.Forms.Button btnHCG;
-        private System.Windows.Forms.Button btnCopros;
-        private System.Windows.Forms.Button btnOrina;
         private System.Windows.Forms.Button btnHemograma;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Button btnGuardarPaciente;
-        private System.Windows.Forms.DataGridView dgvOrina;
         private System.Windows.Forms.Button btnNuevoPaciente;
+        private System.Windows.Forms.TextBox txtReferencia;
+        private System.Windows.Forms.TextBox txtpaciente;
+        private System.Windows.Forms.Button btnBlanco;
+        private System.Windows.Forms.Button btnVarios;
+        private System.Windows.Forms.Button btnSobre;
+        private System.Windows.Forms.Button btnMicro;
+        private System.Windows.Forms.Button btnSerologia;
+        private System.Windows.Forms.Button btnHCG;
+        private System.Windows.Forms.Button btnCopros;
+        private System.Windows.Forms.Button btnOrina;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button6;
     }
 }

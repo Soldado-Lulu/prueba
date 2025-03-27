@@ -28,12 +28,7 @@ namespace prueba.Vista
          //   CargarDatosEnDataGridView(tipoExamen);
 
         }
-        private void CargarDatosEnDataGridView(string tipoExamen)
-        {
-            // Llamar al método para obtener los datos del examen seleccionado
-           // dgvOrina.DataSource = PacienteLogica.Instacia.ObtenerPacientesConExamenes(tipoExamen);
-    
-        }
+  
 
         private int idPaciente;
         public Blanco(int id)
@@ -44,8 +39,27 @@ namespace prueba.Vista
         }
         private void CargarDatos()
         {
-            // Aquí consultas la base de datos y llenas los campos con los datos del paciente
+            pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
+            if (pacienteActivo != null)
+            {
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblEdad.Text = pacienteActivo.Edad;
+                lblMedico.Text = pacienteActivo.Medico;
+                panel1.Visible = true;
+
+                BlancoM examen = BlancoLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
+                if (examen != null)
+                {
+                   // txtMuestra.Text = examen.Muestra;
+///txtExamen.Text = examen.Examen;
+                    txtDatos.Text = examen.Datos;
+                    richTextBox1.Text = examen.Otros;
+                    txtReferencia.Text = examen.Valores;
+                    txtpaciente.Text = examen.Paciente;
+                }
+            }
         }
+
         private void Blanco_Load(object sender, EventArgs e)
         {
             dtpFecha.Value = DateTime.Now;
@@ -71,56 +85,24 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
-            try
+            if (pacienteActivo == null)
             {
-                BlancoM objeto = new BlancoM()
+                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            BlancoM objeto = new BlancoM()
                 {
-                    Muestra = txtMuestra.Text,
-                    Examen = txtExamen.Text,
+                    //Muestra = txtMuestra.Text,
+                   // Examen = /txtExamen.Text,
                     Datos = txtDatos.Text,
-                    Otros = txtOtros.Text,
+                    Otros = richTextBox1.Text,
+                    Valores = txtReferencia.Text,
+                    Paciente = txtpaciente.Text
                 };
 
                 int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores de null
 
-                // Mostrar los datos antes de guardar
-                string datosMensaje = $"Intentando guardar:\n" +
-                                      $"Muestra: {objeto.Muestra}\n" +
-                                      $"Examen: {objeto.Examen}\n" +
-                                      $"Datos: {objeto.Datos}\n" +
-                                      $"Otros: {objeto.Otros}\n" +
-                                      $"IdPaciente: {idPaciente}";
-                MessageBox.Show(datosMensaje, "Datos antes de guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                bool guardado = false;
-
-                try
-                {
-                    guardado = BlancoLogica.Instancia.GuardarExamen(objeto, idPaciente);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error en GuardarExamen:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                    "Error en Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (guardado)
-                {
-                    MessageBox.Show("Examen de Blanco guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Error al guardar el examen de Blanco. No se insertaron los datos correctamente.\n\n{datosMensaje}",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}\nStackTrace:\n{ex.StackTrace}",
-                                "Error General", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            // Capturar el contenido del panel
+                
             CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
 
             // Configurar el documento de impresión
@@ -134,6 +116,20 @@ namespace prueba.Vista
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
                 printDocument.Print();
+            }
+            bool existe = BlancoLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
+
+            bool resultado = existe
+                ? BlancoLogica.Instancia.ActualizarExamen(objeto, idPaciente)
+                : BlancoLogica.Instancia.GuardarExamen(objeto, idPaciente);
+
+            if (resultado)
+            {
+                MessageBox.Show(existe ? "Examen actualizado correctamente." : "Examen guardado correctamente.", "Éxito");
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar o actualizar el examen de Blanco.", "Error");
             }
         }
         private Bitmap panelBitmap;
@@ -302,6 +298,160 @@ namespace prueba.Vista
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnBlanco_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Quimica form = new Quimica(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Blanco form = new Blanco(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnOrina_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Orina form = new Orina(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnCopros_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Copros form = new Copros(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnHCG_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                HCG form = new HCG(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnSerologia_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Serologia form = new Serologia(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnMicro_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Micro form = new Micro(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void btnSobre_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Sobre form = new Sobre(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+        
+            if (richTextBox1.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        richTextBox1.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        
+
+    }
+
+        private void panelRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnVarios_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Varios form = new Varios(pacienteActivo.IdPaciente);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MostrarAdvertencia();
+            }
 
         }
     }

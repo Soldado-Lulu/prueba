@@ -30,6 +30,73 @@ namespace prueba.Logica
                     return _instancia;
                 }
             }
+        public List<string> ObtenerMedicosUnicos()
+        {
+            List<string> medicos = new List<string>();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT DISTINCT Medico FROM Paciente WHERE Medico IS NOT NULL AND Medico <> ''";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                using (SQLiteDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        medicos.Add(dr["Medico"].ToString());
+                    }
+                }
+            }
+            return medicos;
+        }
+
+        public DataTable ObtenerPacientesPorMedico(string medico)
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = @"
+        SELECT 
+            p.IdPaciente AS 'ID Paciente', 
+            p.Nombre, 
+            p.Apellido, 
+            p.Telefono, 
+            p.Fecha, 
+p.Medico,
+            p.Medico AS 'Doctor', 
+            p.SaldoMedico AS 'Monto Total',
+            CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
+            CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
+            CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
+            CASE WHEN s.IdPaciente IS NOT NULL THEN 'Serologia' ELSE '' END AS 'Serologia',
+            CASE WHEN hc.IdPaciente IS NOT NULL THEN 'HCG' ELSE '' END AS 'HCG',
+            CASE WHEN c.IdPaciente IS NOT NULL THEN 'Coproparasitologia' ELSE '' END AS 'Coproparasitologia',
+            CASE WHEN m.IdPaciente IS NOT NULL THEN 'Microbiologia' ELSE '' END AS 'Microbiologia',
+            CASE WHEN v.IdPaciente IS NOT NULL THEN 'Varios' ELSE '' END AS 'Varios',
+            CASE WHEN b.IdPaciente IS NOT NULL THEN 'Blanco' ELSE '' END AS 'Blanco'
+        FROM Paciente p
+        LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+        LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+        LEFT JOIN Hematologia h ON p.IdPaciente = h.IdPaciente
+        LEFT JOIN Serologia s ON p.IdPaciente = s.IdPaciente
+        LEFT JOIN HCG hc ON p.IdPaciente = hc.IdPaciente
+        LEFT JOIN Copros c ON p.IdPaciente = c.IdPaciente
+        LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
+        LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
+        LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
+        WHERE p.Medico = @medico
+        ORDER BY p.IdPaciente DESC";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@medico", medico);
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
 
         // 🔹 Guardar Paciente
         public int GuardarYDevolverId(PacienteM obj)
@@ -38,9 +105,11 @@ namespace prueba.Logica
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = @"INSERT INTO Paciente (Nombre, Apellido, Telefono, Edad, Medico, Fecha) 
-                         VALUES (@nombre, @apellido, @telefono, @edad, @medico, @fecha);
-                         SELECT last_insert_rowid();";
+                string query = @"INSERT INTO Paciente 
+    (Nombre, Apellido, Telefono, Edad, Medico, Fecha, Cuenta, Porcentaje, SaldoMedico, SaldoLab) 
+    VALUES 
+    (@nombre, @apellido, @telefono, @edad, @medico, @fecha, @cuenta, @porcentaje, @saldoMedico, @saldoLab);
+    SELECT last_insert_rowid();";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
@@ -50,6 +119,10 @@ namespace prueba.Logica
                     cmd.Parameters.AddWithValue("@edad", obj.Edad);
                     cmd.Parameters.AddWithValue("@medico", obj.Medico);
                     cmd.Parameters.AddWithValue("@fecha", obj.Fecha);
+                    cmd.Parameters.AddWithValue("@cuenta", obj.Cuenta);
+                    cmd.Parameters.AddWithValue("@porcentaje", obj.Porcentaje);
+                    cmd.Parameters.AddWithValue("@saldoMedico", obj.SaldoMedico);
+                    cmd.Parameters.AddWithValue("@saldoLab", obj.SaldoLab);
 
                     object result = cmd.ExecuteScalar();
                     if (result != null)
@@ -61,39 +134,6 @@ namespace prueba.Logica
             return idGenerado;
         }
 
-        /*
-        public List<PacienteM> Listar()
-        {
-            List<PacienteM> lista = new List<PacienteM>();
-            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
-            {
-                conexion.Open();
-                string query = "SELECT * FROM Paciente";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
-                {
-                    using (SQLiteDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new PacienteM()
-                            {
-                                IdPaciente = Convert.ToInt32(dr["Id"]),
-                                Nombre = dr["Nombre"].ToString(),
-                                Apellido = dr["Apellido"].ToString(),
-                                Telefono = dr["Telefono"].ToString(),
-                                Medico = dr["Medico"].ToString(),
-                                Edad = dr["Edad"].ToString(),
-
-                            });
-                        }
-                    }
-                }
-            }
-            return lista;
-        }
-        -*/
-        // 🔹 Editar Paciente
         public bool Editar(PacienteM obj)
             {
                 bool respuesta = true;
@@ -147,41 +187,36 @@ namespace prueba.Logica
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = "SELECT IdPaciente, Nombre, Apellido FROM Paciente";
-                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
+                string query = "SELECT * FROM Paciente";  // Obtener todos los campos
 
-                using (SQLiteDataReader dr = cmd.ExecuteReader())
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
-                    while (dr.Read())
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
                     {
-                        listaPacientes.Add(new PacienteM()
+                        while (dr.Read())
                         {
-                            IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
-                            Nombre = dr["Nombre"].ToString(),
-                            Apellido = dr["Apellido"].ToString()
-                        });
+                            listaPacientes.Add(new PacienteM()
+                            {
+                                IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
+                                Nombre = dr["Nombre"].ToString(),
+                                Apellido = dr["Apellido"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Edad = dr["Edad"].ToString(),
+                                Medico = dr["Medico"].ToString(),
+                                Fecha = dr["Fecha"].ToString(),
+                                Cuenta = Convert.ToSingle(dr["Cuenta"]),
+                                Porcentaje = Convert.ToSingle(dr["Porcentaje"]),
+                                SaldoMedico = Convert.ToSingle(dr["SaldoMedico"]),
+                                SaldoLab = Convert.ToSingle(dr["SaldoLab"])
+                            });
+                        }
                     }
                 }
             }
             return listaPacientes;
         }
-       /* public int ObtenerUltimoPacienteId()
-        {
-            int idPaciente = -1;
-            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
-            {
-                conexion.Open();
-                string query = "SELECT IdPaciente FROM Paciente ORDER BY IdPaciente DESC LIMIT 1";
-                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    idPaciente = Convert.ToInt32(result);
-                }
-            }
-            return idPaciente;
-        }
-        */
+
+       
         public PacienteM ObtenerUltimoPaciente()
         {
             using (SQLiteConnection conexion = ConexionSQLite.ObtenerConexion())
@@ -222,9 +257,10 @@ namespace prueba.Logica
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-            p.CI, 
             p.Telefono, 
             p.Fecha,
+p.Medico,
+            p.SaldoMedico AS 'Monto Total',
             CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
             CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
             CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
@@ -252,6 +288,54 @@ namespace prueba.Logica
                     {
                         adapter.Fill(dt);
                     }
+                }
+            }
+            return dt;
+        }
+        public DataTable ObtenerPacientesPorMedicoYFecha(string medico, DateTime desde, DateTime hasta)
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = @"
+        SELECT 
+            p.IdPaciente AS 'ID Paciente', 
+            p.Nombre, 
+            p.Apellido, 
+            p.Telefono, 
+            p.Fecha, 
+            p.Medico AS 'Doctor', 
+            p.SaldoMedico AS 'Monto Total',
+            CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
+            CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
+            CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
+            CASE WHEN s.IdPaciente IS NOT NULL THEN 'Serologia' ELSE '' END AS 'Serologia',
+            CASE WHEN hc.IdPaciente IS NOT NULL THEN 'HCG' ELSE '' END AS 'HCG',
+            CASE WHEN c.IdPaciente IS NOT NULL THEN 'Coproparasitologia' ELSE '' END AS 'Coproparasitologia',
+            CASE WHEN m.IdPaciente IS NOT NULL THEN 'Microbiologia' ELSE '' END AS 'Microbiologia',
+            CASE WHEN v.IdPaciente IS NOT NULL THEN 'Varios' ELSE '' END AS 'Varios',
+            CASE WHEN b.IdPaciente IS NOT NULL THEN 'Blanco' ELSE '' END AS 'Blanco'
+        FROM Paciente p
+        LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+        LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+        LEFT JOIN Hematologia h ON p.IdPaciente = h.IdPaciente
+        LEFT JOIN Serologia s ON p.IdPaciente = s.IdPaciente
+        LEFT JOIN HCG hc ON p.IdPaciente = hc.IdPaciente
+        LEFT JOIN Copros c ON p.IdPaciente = c.IdPaciente
+        LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
+        LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
+        LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
+        WHERE p.Medico = @medico AND p.Fecha BETWEEN @desde AND @hasta
+        ORDER BY p.IdPaciente DESC";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@medico", medico);
+                    cmd.Parameters.AddWithValue("@desde", desde.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@hasta", hasta.ToString("yyyy-MM-dd"));
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                    adapter.Fill(dt);
                 }
             }
             return dt;

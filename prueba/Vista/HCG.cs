@@ -40,7 +40,8 @@ namespace prueba.Vista
 
             HCGM objeto = new HCGM()
             {
-                Resultado = txtResultado.Text
+                Muestra = txtMuestra.Text,
+                Resultado = txtMuestra.Text
             };
 
             int id = pacienteActivo.IdPaciente;
@@ -113,13 +114,16 @@ namespace prueba.Vista
                 HCGM examen = HCGLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
                 if (examen != null)
                 {
+                    txtMuestra.Text = examen.Muestra;
                     txtResultado.Text = examen.Resultado;
                 }
             }
             else
             {
+                panel1.Visible = false;
                 MessageBox.Show("No se encontraron datos del paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void HCG_Load(object sender, EventArgs e)
@@ -143,6 +147,36 @@ namespace prueba.Vista
             {
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+     
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtResultado.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+            
+        }
+
+    }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
         }
 
         private void btnHemograma_Click(object sender, EventArgs e)
@@ -249,35 +283,7 @@ namespace prueba.Vista
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
-                {
-                    txtResultado.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
-                }
-            
-        }
-
-    }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void l_TextChanged(object sender, EventArgs e)
         {
 
         }

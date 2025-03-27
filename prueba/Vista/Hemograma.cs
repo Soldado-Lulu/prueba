@@ -36,7 +36,7 @@ namespace prueba.Vista
                 HemogramaM examen = HemogramaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
                 if (examen != null)
                 {
-                    txtEritrocitos.Text = examen.Eritrocitos;
+                    //txtEritrocitos.Text = examen.Eritrocitos;
                     txtLeucocitos.Text = examen.Leucocitos;
                     txtHemoglobina.Text = examen.Hemoglobina;
                     txtHematocritos.Text = examen.Hematocrito;
@@ -89,7 +89,7 @@ namespace prueba.Vista
         {
             HemogramaM objeto = new HemogramaM()
             {
-                Eritrocitos = txtEritrocitos.Text,
+                Eritrocitos = lblEritrocitos.Text,
                 Leucocitos = txtLeucocitos.Text,
                 Hemoglobina = txtHemoglobina.Text,
                 Hematocrito = txtHematocritos.Text,
@@ -185,6 +185,21 @@ namespace prueba.Vista
             {
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+       
+        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+       
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btnHemograma_Click(object sender, EventArgs e)
@@ -313,18 +328,5 @@ namespace prueba.Vista
             }
         }
 
-        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
-        {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-       
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

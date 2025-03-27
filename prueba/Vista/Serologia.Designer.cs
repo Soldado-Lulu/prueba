@@ -29,54 +29,52 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnVarios = new System.Windows.Forms.Button();
             this.btnSobre = new System.Windows.Forms.Button();
-            this.btnBlanco = new System.Windows.Forms.Button();
             this.btnMicro = new System.Windows.Forms.Button();
-            this.btnSerologia = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnHCG = new System.Windows.Forms.Button();
             this.btnCopros = new System.Windows.Forms.Button();
             this.btnOrina = new System.Windows.Forms.Button();
+            this.btnBlanco = new System.Windows.Forms.Button();
+            this.btnVarios = new System.Windows.Forms.Button();
             this.btnHemograma = new System.Windows.Forms.Button();
+            this.btnSerologia = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNuevoPAciente = new System.Windows.Forms.Button();
             this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.PanelCap = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.c45 = new System.Windows.Forms.TextBox();
             this.c41 = new System.Windows.Forms.TextBox();
             this.c31 = new System.Windows.Forms.TextBox();
             this.c35 = new System.Windows.Forms.TextBox();
-            this.c21 = new System.Windows.Forms.TextBox();
+            this.c43 = new System.Windows.Forms.TextBox();
             this.c25 = new System.Windows.Forms.TextBox();
-            this.c22 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.c14 = new System.Windows.Forms.TextBox();
             this.c15 = new System.Windows.Forms.TextBox();
-            this.c32 = new System.Windows.Forms.TextBox();
-            this.c12 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.c44 = new System.Windows.Forms.TextBox();
+            this.c21 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.c34 = new System.Windows.Forms.TextBox();
-            this.c42 = new System.Windows.Forms.TextBox();
+            this.c24 = new System.Windows.Forms.TextBox();
+            this.c33 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtCampo11 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.c24 = new System.Windows.Forms.TextBox();
-            this.c13 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.c44 = new System.Windows.Forms.TextBox();
             this.c23 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.c22 = new System.Windows.Forms.TextBox();
+            this.c13 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.c14 = new System.Windows.Forms.TextBox();
-            this.c33 = new System.Windows.Forms.TextBox();
+            this.c42 = new System.Windows.Forms.TextBox();
+            this.c32 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.c43 = new System.Windows.Forms.TextBox();
+            this.c12 = new System.Windows.Forms.TextBox();
             this.txtReaccion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -98,10 +96,11 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtObservaciones = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelCap.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -111,49 +110,21 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnSobre);
-            this.panel1.Controls.Add(this.btnBlanco);
             this.panel1.Controls.Add(this.btnMicro);
-            this.panel1.Controls.Add(this.btnSerologia);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnHCG);
             this.panel1.Controls.Add(this.btnCopros);
             this.panel1.Controls.Add(this.btnOrina);
+            this.panel1.Controls.Add(this.btnBlanco);
+            this.panel1.Controls.Add(this.btnVarios);
             this.panel1.Controls.Add(this.btnHemograma);
+            this.panel1.Controls.Add(this.btnSerologia);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(334, 1055);
             this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 585);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(334, 65);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "REPORTE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnVarios
-            // 
-            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVarios.FlatAppearance.BorderSize = 0;
-            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVarios.Location = new System.Drawing.Point(0, 520);
-            this.btnVarios.Name = "btnVarios";
-            this.btnVarios.Size = new System.Drawing.Size(334, 65);
-            this.btnVarios.TabIndex = 19;
-            this.btnVarios.Text = "VARIOS";
-            this.btnVarios.UseVisualStyleBackColor = false;
-            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
             // 
             // btnSobre
             // 
@@ -161,27 +132,13 @@
             this.btnSobre.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSobre.FlatAppearance.BorderSize = 0;
             this.btnSobre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSobre.Location = new System.Drawing.Point(0, 455);
+            this.btnSobre.Location = new System.Drawing.Point(0, 585);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(334, 65);
-            this.btnSobre.TabIndex = 18;
+            this.btnSobre.TabIndex = 29;
             this.btnSobre.Text = "SOBRE";
             this.btnSobre.UseVisualStyleBackColor = false;
             this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
-            // 
-            // btnBlanco
-            // 
-            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBlanco.FlatAppearance.BorderSize = 0;
-            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlanco.Location = new System.Drawing.Point(0, 390);
-            this.btnBlanco.Name = "btnBlanco";
-            this.btnBlanco.Size = new System.Drawing.Size(334, 65);
-            this.btnBlanco.TabIndex = 17;
-            this.btnBlanco.Text = "BLANCO";
-            this.btnBlanco.UseVisualStyleBackColor = false;
-            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
             // 
             // btnMicro
             // 
@@ -189,27 +146,26 @@
             this.btnMicro.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMicro.FlatAppearance.BorderSize = 0;
             this.btnMicro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMicro.Location = new System.Drawing.Point(0, 325);
+            this.btnMicro.Location = new System.Drawing.Point(0, 520);
             this.btnMicro.Name = "btnMicro";
             this.btnMicro.Size = new System.Drawing.Size(334, 65);
-            this.btnMicro.TabIndex = 16;
+            this.btnMicro.TabIndex = 28;
             this.btnMicro.Text = "MICRO";
             this.btnMicro.UseVisualStyleBackColor = false;
             this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
-            // btnSerologia
+            // button1
             // 
-            this.btnSerologia.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnSerologia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSerologia.FlatAppearance.BorderSize = 0;
-            this.btnSerologia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSerologia.Location = new System.Drawing.Point(0, 260);
-            this.btnSerologia.Name = "btnSerologia";
-            this.btnSerologia.Size = new System.Drawing.Size(334, 65);
-            this.btnSerologia.TabIndex = 15;
-            this.btnSerologia.Text = "HEMOGRAMA";
-            this.btnSerologia.UseVisualStyleBackColor = false;
-            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
+            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 455);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(334, 65);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "SEROLOGIA";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnHCG
             // 
@@ -217,10 +173,10 @@
             this.btnHCG.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHCG.FlatAppearance.BorderSize = 0;
             this.btnHCG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHCG.Location = new System.Drawing.Point(0, 195);
+            this.btnHCG.Location = new System.Drawing.Point(0, 390);
             this.btnHCG.Name = "btnHCG";
             this.btnHCG.Size = new System.Drawing.Size(334, 65);
-            this.btnHCG.TabIndex = 14;
+            this.btnHCG.TabIndex = 26;
             this.btnHCG.Text = "HCG";
             this.btnHCG.UseVisualStyleBackColor = false;
             this.btnHCG.Click += new System.EventHandler(this.btnHCG_Click);
@@ -231,10 +187,10 @@
             this.btnCopros.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCopros.FlatAppearance.BorderSize = 0;
             this.btnCopros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopros.Location = new System.Drawing.Point(0, 130);
+            this.btnCopros.Location = new System.Drawing.Point(0, 325);
             this.btnCopros.Name = "btnCopros";
             this.btnCopros.Size = new System.Drawing.Size(334, 65);
-            this.btnCopros.TabIndex = 13;
+            this.btnCopros.TabIndex = 25;
             this.btnCopros.Text = "COPROS";
             this.btnCopros.UseVisualStyleBackColor = false;
             this.btnCopros.Click += new System.EventHandler(this.btnCopros_Click);
@@ -245,13 +201,41 @@
             this.btnOrina.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOrina.FlatAppearance.BorderSize = 0;
             this.btnOrina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrina.Location = new System.Drawing.Point(0, 65);
+            this.btnOrina.Location = new System.Drawing.Point(0, 260);
             this.btnOrina.Name = "btnOrina";
             this.btnOrina.Size = new System.Drawing.Size(334, 65);
-            this.btnOrina.TabIndex = 12;
+            this.btnOrina.TabIndex = 24;
             this.btnOrina.Text = "ORINAS";
             this.btnOrina.UseVisualStyleBackColor = false;
             this.btnOrina.Click += new System.EventHandler(this.btnOrina_Click);
+            // 
+            // btnBlanco
+            // 
+            this.btnBlanco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnBlanco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBlanco.FlatAppearance.BorderSize = 0;
+            this.btnBlanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlanco.Location = new System.Drawing.Point(0, 195);
+            this.btnBlanco.Name = "btnBlanco";
+            this.btnBlanco.Size = new System.Drawing.Size(334, 65);
+            this.btnBlanco.TabIndex = 23;
+            this.btnBlanco.Text = "BLANCO";
+            this.btnBlanco.UseVisualStyleBackColor = false;
+            this.btnBlanco.Click += new System.EventHandler(this.btnBlanco_Click);
+            // 
+            // btnVarios
+            // 
+            this.btnVarios.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnVarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVarios.FlatAppearance.BorderSize = 0;
+            this.btnVarios.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVarios.Location = new System.Drawing.Point(0, 130);
+            this.btnVarios.Name = "btnVarios";
+            this.btnVarios.Size = new System.Drawing.Size(334, 65);
+            this.btnVarios.TabIndex = 22;
+            this.btnVarios.Text = "VARIOS";
+            this.btnVarios.UseVisualStyleBackColor = false;
+            this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
             // 
             // btnHemograma
             // 
@@ -259,13 +243,27 @@
             this.btnHemograma.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHemograma.FlatAppearance.BorderSize = 0;
             this.btnHemograma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHemograma.Location = new System.Drawing.Point(0, 0);
+            this.btnHemograma.Location = new System.Drawing.Point(0, 65);
             this.btnHemograma.Name = "btnHemograma";
             this.btnHemograma.Size = new System.Drawing.Size(334, 65);
-            this.btnHemograma.TabIndex = 11;
+            this.btnHemograma.TabIndex = 21;
             this.btnHemograma.Text = "QUIMICA";
             this.btnHemograma.UseVisualStyleBackColor = false;
             this.btnHemograma.Click += new System.EventHandler(this.btnHemograma_Click);
+            // 
+            // btnSerologia
+            // 
+            this.btnSerologia.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSerologia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSerologia.FlatAppearance.BorderSize = 0;
+            this.btnSerologia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSerologia.Location = new System.Drawing.Point(0, 0);
+            this.btnSerologia.Name = "btnSerologia";
+            this.btnSerologia.Size = new System.Drawing.Size(334, 65);
+            this.btnSerologia.TabIndex = 20;
+            this.btnSerologia.Text = "HEMOGRAMA";
+            this.btnSerologia.UseVisualStyleBackColor = false;
+            this.btnSerologia.Click += new System.EventHandler(this.btnSerologia_Click);
             // 
             // panel2
             // 
@@ -313,7 +311,6 @@
             // 
             // PanelCap
             // 
-            this.PanelCap.Controls.Add(this.panel4);
             this.PanelCap.Controls.Add(this.panel5);
             this.PanelCap.Controls.Add(this.panel8);
             this.PanelCap.Controls.Add(this.panel7);
@@ -323,36 +320,20 @@
             this.PanelCap.Size = new System.Drawing.Size(982, 1055);
             this.PanelCap.TabIndex = 2;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.txtObservaciones);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 580);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(982, 293);
-            this.panel4.TabIndex = 151;
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Location = new System.Drawing.Point(72, 29);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(589, 204);
-            this.txtObservaciones.TabIndex = 9;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.txtObservaciones);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.txtReaccion);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(0, 252);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(982, 328);
+            this.panel5.Size = new System.Drawing.Size(982, 581);
             this.panel5.TabIndex = 148;
             // 
             // panel6
@@ -395,109 +376,116 @@
             // 
             this.c45.Location = new System.Drawing.Point(527, 182);
             this.c45.Name = "c45";
-            this.c45.Size = new System.Drawing.Size(70, 22);
+            this.c45.Size = new System.Drawing.Size(70, 28);
             this.c45.TabIndex = 40;
             // 
             // c41
             // 
             this.c41.Location = new System.Drawing.Point(429, 63);
             this.c41.Name = "c41";
-            this.c41.Size = new System.Drawing.Size(70, 22);
+            this.c41.Size = new System.Drawing.Size(70, 28);
             this.c41.TabIndex = 25;
             // 
             // c31
             // 
             this.c31.Location = new System.Drawing.Point(339, 60);
             this.c31.Name = "c31";
-            this.c31.Size = new System.Drawing.Size(70, 22);
+            this.c31.Size = new System.Drawing.Size(70, 28);
             this.c31.TabIndex = 24;
             // 
             // c35
             // 
             this.c35.Location = new System.Drawing.Point(429, 182);
             this.c35.Name = "c35";
-            this.c35.Size = new System.Drawing.Size(70, 22);
+            this.c35.Size = new System.Drawing.Size(70, 28);
             this.c35.TabIndex = 39;
             // 
-            // c21
+            // c43
             // 
-            this.c21.Location = new System.Drawing.Point(239, 63);
-            this.c21.Name = "c21";
-            this.c21.Size = new System.Drawing.Size(70, 22);
-            this.c21.TabIndex = 23;
+            this.c43.Location = new System.Drawing.Point(239, 142);
+            this.c43.Name = "c43";
+            this.c43.Size = new System.Drawing.Size(70, 28);
+            this.c43.TabIndex = 33;
             // 
             // c25
             // 
             this.c25.Location = new System.Drawing.Point(339, 182);
             this.c25.Name = "c25";
-            this.c25.Size = new System.Drawing.Size(70, 22);
+            this.c25.Size = new System.Drawing.Size(70, 28);
             this.c25.TabIndex = 38;
             // 
-            // c22
+            // c14
             // 
-            this.c22.Location = new System.Drawing.Point(154, 103);
-            this.c22.Name = "c22";
-            this.c22.Size = new System.Drawing.Size(70, 22);
-            this.c22.TabIndex = 27;
+            this.c14.Location = new System.Drawing.Point(339, 147);
+            this.c14.Name = "c14";
+            this.c14.Size = new System.Drawing.Size(70, 28);
+            this.c14.TabIndex = 34;
+            // 
+            // c15
+            // 
+            this.c15.Location = new System.Drawing.Point(239, 182);
+            this.c15.Name = "c15";
+            this.c15.Size = new System.Drawing.Size(70, 28);
+            this.c15.TabIndex = 37;
+            // 
+            // c44
+            // 
+            this.c44.Location = new System.Drawing.Point(154, 179);
+            this.c44.Name = "c44";
+            this.c44.Size = new System.Drawing.Size(70, 28);
+            this.c44.TabIndex = 35;
+            // 
+            // c21
+            // 
+            this.c21.Location = new System.Drawing.Point(239, 63);
+            this.c21.Name = "c21";
+            this.c21.Size = new System.Drawing.Size(70, 28);
+            this.c21.TabIndex = 23;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(37, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.Size = new System.Drawing.Size(103, 22);
             this.label3.TabIndex = 22;
             this.label3.Text = "Paratlphl  B";
             // 
-            // c15
+            // c34
             // 
-            this.c15.Location = new System.Drawing.Point(239, 182);
-            this.c15.Name = "c15";
-            this.c15.Size = new System.Drawing.Size(70, 22);
-            this.c15.TabIndex = 37;
+            this.c34.Location = new System.Drawing.Point(527, 147);
+            this.c34.Name = "c34";
+            this.c34.Size = new System.Drawing.Size(70, 28);
+            this.c34.TabIndex = 36;
             // 
-            // c32
+            // c24
             // 
-            this.c32.Location = new System.Drawing.Point(239, 103);
-            this.c32.Name = "c32";
-            this.c32.Size = new System.Drawing.Size(70, 22);
-            this.c32.TabIndex = 28;
+            this.c24.Location = new System.Drawing.Point(429, 147);
+            this.c24.Name = "c24";
+            this.c24.Size = new System.Drawing.Size(70, 28);
+            this.c24.TabIndex = 35;
             // 
-            // c12
+            // c33
             // 
-            this.c12.Location = new System.Drawing.Point(527, 60);
-            this.c12.Name = "c12";
-            this.c12.Size = new System.Drawing.Size(70, 22);
-            this.c12.TabIndex = 26;
+            this.c33.Location = new System.Drawing.Point(154, 142);
+            this.c33.Name = "c33";
+            this.c33.Size = new System.Drawing.Size(70, 28);
+            this.c33.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 16);
+            this.label2.Size = new System.Drawing.Size(103, 22);
             this.label2.TabIndex = 21;
             this.label2.Text = "Paratlphl  A";
-            // 
-            // c34
-            // 
-            this.c34.Location = new System.Drawing.Point(527, 147);
-            this.c34.Name = "c34";
-            this.c34.Size = new System.Drawing.Size(70, 22);
-            this.c34.TabIndex = 36;
-            // 
-            // c42
-            // 
-            this.c42.Location = new System.Drawing.Point(339, 103);
-            this.c42.Name = "c42";
-            this.c42.Size = new System.Drawing.Size(70, 22);
-            this.c42.TabIndex = 29;
             // 
             // txtCampo11
             // 
             this.txtCampo11.Location = new System.Drawing.Point(154, 63);
             this.txtCampo11.Name = "txtCampo11";
-            this.txtCampo11.Size = new System.Drawing.Size(70, 22);
+            this.txtCampo11.Size = new System.Drawing.Size(70, 28);
             this.txtCampo11.TabIndex = 12;
             // 
             // label1
@@ -505,62 +493,55 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.Size = new System.Drawing.Size(73, 22);
             this.label1.TabIndex = 20;
             this.label1.Text = "TIphl  H";
             // 
-            // c24
+            // c23
             // 
-            this.c24.Location = new System.Drawing.Point(429, 147);
-            this.c24.Name = "c24";
-            this.c24.Size = new System.Drawing.Size(70, 22);
-            this.c24.TabIndex = 35;
-            // 
-            // c13
-            // 
-            this.c13.Location = new System.Drawing.Point(429, 103);
-            this.c13.Name = "c13";
-            this.c13.Size = new System.Drawing.Size(70, 22);
-            this.c13.TabIndex = 30;
+            this.c23.Location = new System.Drawing.Point(527, 97);
+            this.c23.Name = "c23";
+            this.c23.Size = new System.Drawing.Size(70, 28);
+            this.c23.TabIndex = 31;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(37, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(74, 22);
             this.label4.TabIndex = 9;
             this.label4.Text = "TIphl  O";
+            // 
+            // c22
+            // 
+            this.c22.Location = new System.Drawing.Point(154, 103);
+            this.c22.Name = "c22";
+            this.c22.Size = new System.Drawing.Size(70, 28);
+            this.c22.TabIndex = 27;
+            // 
+            // c13
+            // 
+            this.c13.Location = new System.Drawing.Point(429, 103);
+            this.c13.Name = "c13";
+            this.c13.Size = new System.Drawing.Size(70, 28);
+            this.c13.TabIndex = 30;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(535, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 16);
+            this.label10.Size = new System.Drawing.Size(65, 22);
             this.label10.TabIndex = 19;
             this.label10.Text = "1 : 320";
-            // 
-            // c44
-            // 
-            this.c44.Location = new System.Drawing.Point(154, 179);
-            this.c44.Name = "c44";
-            this.c44.Size = new System.Drawing.Size(70, 22);
-            this.c44.TabIndex = 35;
-            // 
-            // c23
-            // 
-            this.c23.Location = new System.Drawing.Point(527, 97);
-            this.c23.Name = "c23";
-            this.c23.Size = new System.Drawing.Size(70, 22);
-            this.c23.TabIndex = 31;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(351, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 16);
+            this.label5.Size = new System.Drawing.Size(55, 22);
             this.label5.TabIndex = 16;
             this.label5.Text = "1 : 80";
             // 
@@ -569,30 +550,30 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(440, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 16);
+            this.label8.Size = new System.Drawing.Size(65, 22);
             this.label8.TabIndex = 18;
             this.label8.Text = "1 : 160";
             // 
-            // c14
+            // c42
             // 
-            this.c14.Location = new System.Drawing.Point(339, 147);
-            this.c14.Name = "c14";
-            this.c14.Size = new System.Drawing.Size(70, 22);
-            this.c14.TabIndex = 34;
+            this.c42.Location = new System.Drawing.Point(339, 103);
+            this.c42.Name = "c42";
+            this.c42.Size = new System.Drawing.Size(70, 28);
+            this.c42.TabIndex = 29;
             // 
-            // c33
+            // c32
             // 
-            this.c33.Location = new System.Drawing.Point(154, 142);
-            this.c33.Name = "c33";
-            this.c33.Size = new System.Drawing.Size(70, 22);
-            this.c33.TabIndex = 32;
+            this.c32.Location = new System.Drawing.Point(239, 103);
+            this.c32.Name = "c32";
+            this.c32.Size = new System.Drawing.Size(70, 28);
+            this.c32.TabIndex = 28;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(173, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.Size = new System.Drawing.Size(55, 22);
             this.label6.TabIndex = 16;
             this.label6.Text = "1 : 20";
             // 
@@ -601,23 +582,23 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(254, 16);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 16);
+            this.label7.Size = new System.Drawing.Size(55, 22);
             this.label7.TabIndex = 17;
             this.label7.Text = "1: 40 ";
             // 
-            // c43
+            // c12
             // 
-            this.c43.Location = new System.Drawing.Point(239, 142);
-            this.c43.Name = "c43";
-            this.c43.Size = new System.Drawing.Size(70, 22);
-            this.c43.TabIndex = 33;
+            this.c12.Location = new System.Drawing.Point(527, 60);
+            this.c12.Name = "c12";
+            this.c12.Size = new System.Drawing.Size(70, 28);
+            this.c12.TabIndex = 26;
             // 
             // txtReaccion
             // 
-            this.txtReaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReaccion.Location = new System.Drawing.Point(263, 30);
             this.txtReaccion.Name = "txtReaccion";
-            this.txtReaccion.Size = new System.Drawing.Size(362, 27);
+            this.txtReaccion.Size = new System.Drawing.Size(362, 28);
             this.txtReaccion.TabIndex = 8;
             // 
             // label17
@@ -834,6 +815,24 @@
             this.dtpFecha.TabIndex = 151;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(46, 332);
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(643, 209);
+            this.txtObservaciones.TabIndex = 100;
+            this.txtObservaciones.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Location = new System.Drawing.Point(659, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(30, 23);
+            this.button2.TabIndex = 101;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Serologia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -849,8 +848,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.PanelCap.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -868,19 +865,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnVarios;
-        private System.Windows.Forms.Button btnSobre;
-        private System.Windows.Forms.Button btnBlanco;
-        private System.Windows.Forms.Button btnMicro;
-        private System.Windows.Forms.Button btnSerologia;
-        private System.Windows.Forms.Button btnHCG;
-        private System.Windows.Forms.Button btnCopros;
-        private System.Windows.Forms.Button btnOrina;
-        private System.Windows.Forms.Button btnHemograma;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel PanelCap;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox c45;
@@ -934,7 +920,18 @@
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.Button btnNuevoPAciente;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSobre;
+        private System.Windows.Forms.Button btnMicro;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHCG;
+        private System.Windows.Forms.Button btnCopros;
+        private System.Windows.Forms.Button btnOrina;
+        private System.Windows.Forms.Button btnBlanco;
+        private System.Windows.Forms.Button btnVarios;
+        private System.Windows.Forms.Button btnHemograma;
+        private System.Windows.Forms.Button btnSerologia;
+        private System.Windows.Forms.RichTextBox txtObservaciones;
+        private System.Windows.Forms.Button button2;
     }
 }

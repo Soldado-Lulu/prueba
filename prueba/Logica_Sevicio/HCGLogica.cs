@@ -39,9 +39,14 @@ namespace prueba.Logica_Sevicio
 
         public bool GuardarExamen(HCGM examen, int idPaciente)
         {
-            if (idPaciente <= 0)
-                return false; // No se puede guardar sin un paciente
+            if (idPaciente <= 0 || string.IsNullOrEmpty(examen.Resultado))
+            {
+                Console.WriteLine("ID del paciente inválido o resultado vacío.");
+                return false;
+            }
+
             return _hcgDAO.Guardar(examen, idPaciente);
         }
+
     }
 }

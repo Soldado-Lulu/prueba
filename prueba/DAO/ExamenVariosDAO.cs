@@ -1,8 +1,8 @@
-﻿using Prueba.Modelo;
+﻿using prueba.Modelo;
+using Prueba.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace prueba.DAO
 {
-    public class ExamenBlancoDAO
+    public class ExamenVariosDAO
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
 
-        public bool Guardar(BlancoM obj, int idPaciente)
+        public bool Guardar(VariosM obj, int idPaciente)
         {
             bool respuesta = true;
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
@@ -22,15 +22,15 @@ namespace prueba.DAO
                 try
                 {
                     conexion.Open();
-                    string query = @"INSERT INTO Blanco (IdPaciente, Muestra,Examen, Datos,Otros,Valores,Paciente) VALUES (@idPaciente, @muestra, @examen, @datos, @otros,@valores,@paciente)";
+                    string query = @"INSERT INTO Varios (IdPaciente, Muestra,Examen, Datos,Otros,Valores,Paciente) VALUES (@idPaciente, @muestra, @examen, @datos, @otros,@valores,@paciente)";
 
                     SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                     {
                         cmd.Parameters.Add(new SQLiteParameter("@idPaciente", obj.IdPaciente));
-                    cmd.Parameters.Add(new SQLiteParameter("@muestra", obj.Muestra));
-                    cmd.Parameters.Add(new SQLiteParameter("@examen", obj.Examen));
-                    cmd.Parameters.Add(new SQLiteParameter("@datos", obj.Datos));
-                    cmd.Parameters.Add(new SQLiteParameter("@otros", obj.Otros));
+                        cmd.Parameters.Add(new SQLiteParameter("@muestra", obj.Muestra));
+                        cmd.Parameters.Add(new SQLiteParameter("@examen", obj.Examen));
+                        cmd.Parameters.Add(new SQLiteParameter("@datos", obj.Datos));
+                        cmd.Parameters.Add(new SQLiteParameter("@otros", obj.Otros));
                         cmd.Parameters.Add(new SQLiteParameter("@valores", obj.Datos));
                         cmd.Parameters.Add(new SQLiteParameter("@paciente", obj.Otros));
                         cmd.CommandType = System.Data.CommandType.Text;
@@ -40,17 +40,17 @@ namespace prueba.DAO
                 catch (Exception ex)
                 {
                     respuesta = false;
-                    Console.WriteLine(" capa dao  Error al guardar el examen de Blanco:  "+ ex.Message);
+                    Console.WriteLine(" capa dao  Error al guardar el examen de Varios:  " + ex.Message);
                 }
             }
             return respuesta;
         }
-        public bool Actualizar(BlancoM obj, int idPaciente)
+        public bool Actualizar(VariosM obj, int idPaciente)
         {
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = @"UPDATE Blanco SET 
+                string query = @"UPDATE Varios SET 
             Muestra = @muestra, 
             Examen = @examen, 
             Datos = @datos, 
@@ -74,12 +74,12 @@ namespace prueba.DAO
             }
         }
 
-        public BlancoM ObtenerPorPaciente(int idPaciente)
+        public VariosM ObtenerPorPaciente(int idPaciente)
         {
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = "SELECT * FROM Blanco WHERE IdPaciente = @idPaciente LIMIT 1";
+                string query = "SELECT * FROM Varios WHERE IdPaciente = @idPaciente LIMIT 1";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
@@ -88,7 +88,7 @@ namespace prueba.DAO
                     {
                         if (dr.Read())
                         {
-                            return new BlancoM
+                            return new VariosM
                             {
                                 IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
                                 Muestra = dr["Muestra"].ToString(),
@@ -104,7 +104,5 @@ namespace prueba.DAO
             }
             return null;
         }
-
-
     }
 }

@@ -133,6 +133,22 @@ namespace prueba.Vista
                 e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+
         private void btnHemograma_Click(object sender, EventArgs e)
         {
             if (pacienteActivo != null)
@@ -234,20 +250,6 @@ namespace prueba.Vista
         private void MostrarAdvertencia()
         {
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
         }
     }
 }

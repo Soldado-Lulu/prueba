@@ -73,7 +73,7 @@ namespace prueba.Vista
                     txtProteina.Text = examen.Proteina;
                     txtUrobiliogeno.Text = examen.Urobiliogeno;
                     txtNitrito.Text = examen.Nitrito;
-                    txtLeucocitos.Text = examen.Leucocito1;
+                    txtLeucocitos1.Text = examen.Leucocito1;
                     txtEritrocitos.Text = examen.Eritrocito;
                     txtLeucocitos1.Text = examen.Leucocito2;
                     txtCED.Text = examen.CED;
@@ -217,124 +217,7 @@ namespace prueba.Vista
             }
         }
 
-        private void btnBlanco_Click(object sender, EventArgs e)
-        {
-            Blanco formQuimica = new Blanco();
-            formQuimica.Show();
-            this.Hide();
-        }
-
-        private void btnHemograma_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Quimica formHemograma = new Quimica(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnOrina_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Hemograma formHemograma = new Hemograma(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnCopros_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Copros formHemograma = new Copros(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnHCG_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                HCG formHemograma = new HCG(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnSerologia_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Serologia formHemograma = new Serologia(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnMicro_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Micro formHemograma = new Micro(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnSobre_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Sobre formHemograma = new Sobre(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnVarios_Click(object sender, EventArgs e)
-        {
-            if (pacienteActivo != null)
-            {
-                Varios formHemograma = new Varios(pacienteActivo.IdPaciente); // ✅ PASA EL ID
-                formHemograma.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+      
 
         private void dgvOrina_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -351,6 +234,168 @@ namespace prueba.Vista
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtColor.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+                 using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGlucosa.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtBilirrubina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void btnOrina_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Hemograma formHemograma = new Hemograma(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnHemograma_Click(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Quimica formHemograma = new Quimica(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnVarios_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Varios formHemograma = new Varios(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnBlanco_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Blanco formHemograma = new Blanco(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnCopros_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Copros formHemograma = new Copros(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnHCG_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                HCG formHemograma = new HCG(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnSerologia_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Serologia formHemograma = new Serologia(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnMicro_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Micro formHemograma = new Micro(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnSobre_Click_1(object sender, EventArgs e)
+        {
+            if (pacienteActivo != null)
+            {
+                Sobre formHemograma = new Sobre(pacienteActivo.IdPaciente); // ✅ PASA EL ID
+                formHemograma.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No hay un paciente cargado para continuar al Hemograma.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

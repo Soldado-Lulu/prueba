@@ -94,7 +94,7 @@ namespace prueba.Vista
                     Urea = txtUrea.Text,
                     Creatina = txtCreatinina.Text,
                     BUN = txtBUN.Text,
-                    Urico = txtUrico.Text,
+                    Urico =txtUrico.Text,
                     Colesterol = txtColesterol.Text,
                     HDL = txtHDL.Text,
                     LDL = txtLDL.Text,
@@ -194,6 +194,100 @@ namespace prueba.Vista
                 MessageBox.Show("No hay un paciente activo. Registre un paciente antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
+        private void panelRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reporte formQuimica = new Reporte();
+            formQuimica.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGlucosa.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtHemoglobina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           using(ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtUrea.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtCreatinina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtBUN.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtSodio.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
 
         private void btnHemograma_Click(object sender, EventArgs e)
         {
@@ -298,23 +392,132 @@ namespace prueba.Vista
             MessageBox.Show("No hay un paciente activo. Registre o seleccione uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void panelRight_Paint(object sender, PaintEventArgs e)
+        private void button11_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtBilirrubina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtDirecta.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+                using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtIndirecta.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGOT.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGPT.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtCKMB.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtAmilasa.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtProteina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtAlbumina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnNuevoPaciente_Click_1(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)
         {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            Reporte formQuimica = new Reporte();
-            formQuimica.Show();
-            this.Hide();
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

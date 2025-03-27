@@ -16,5 +16,11 @@ namespace Prueba.Modelo
         public string Edad { get; set; }
         public string Telefono { get; set; }
         public string Fecha { get; set; }
+        public float Cuenta { get; set; }
+        public float Porcentaje { get; set; }
+        public float SaldoMedico { get; set; }
+        public float SaldoLab { get; set; }
+
+
     }
 }

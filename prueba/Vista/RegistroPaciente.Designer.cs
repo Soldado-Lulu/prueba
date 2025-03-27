@@ -36,6 +36,7 @@
             this.label81 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHistorial = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvPaciente = new System.Windows.Forms.DataGridView();
@@ -52,7 +53,10 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.btnHistorial = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
+            this.txtCuenta = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -136,6 +140,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.txtPorcentaje);
+            this.panel1.Controls.Add(this.txtCuenta);
             this.panel1.Controls.Add(this.btnHistorial);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.panel5);
@@ -157,6 +165,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1286, 743);
             this.panel1.TabIndex = 5;
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.Location = new System.Drawing.Point(409, 371);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(308, 45);
+            this.btnHistorial.TabIndex = 25;
+            this.btnHistorial.Text = "Historial Pacientes";
+            this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // label8
             // 
@@ -309,17 +329,41 @@
             this.txtNombre.Size = new System.Drawing.Size(160, 30);
             this.txtNombre.TabIndex = 0;
             // 
-            // btnHistorial
+            // label9
             // 
-            this.btnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorial.Location = new System.Drawing.Point(409, 371);
-            this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(308, 45);
-            this.btnHistorial.TabIndex = 25;
-            this.btnHistorial.Text = "Historial Pacientes";
-            this.btnHistorial.UseVisualStyleBackColor = false;
-            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(423, 219);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 25);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Porcentaje %";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(423, 170);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 25);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Cuenta";
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentaje.Location = new System.Drawing.Point(557, 216);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(160, 30);
+            this.txtPorcentaje.TabIndex = 27;
+            // 
+            // txtCuenta
+            // 
+            this.txtCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuenta.Location = new System.Drawing.Point(557, 167);
+            this.txtCuenta.Name = "txtCuenta";
+            this.txtCuenta.Size = new System.Drawing.Size(160, 30);
+            this.txtCuenta.TabIndex = 26;
             // 
             // RegistroPaciente
             // 
@@ -371,5 +415,9 @@
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Button btnHistorial;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtPorcentaje;
+        private System.Windows.Forms.TextBox txtCuenta;
     }
 }
