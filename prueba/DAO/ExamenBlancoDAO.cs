@@ -26,13 +26,13 @@ namespace prueba.DAO
 
                     SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                     {
-                        cmd.Parameters.Add(new SQLiteParameter("@idPaciente", obj.IdPaciente));
+                        cmd.Parameters.Add(new SQLiteParameter("@idPaciente", idPaciente));
                     cmd.Parameters.Add(new SQLiteParameter("@muestra", obj.Muestra));
                     cmd.Parameters.Add(new SQLiteParameter("@examen", obj.Examen));
                     cmd.Parameters.Add(new SQLiteParameter("@datos", obj.Datos));
                     cmd.Parameters.Add(new SQLiteParameter("@otros", obj.Otros));
-                        cmd.Parameters.Add(new SQLiteParameter("@valores", obj.Datos));
-                        cmd.Parameters.Add(new SQLiteParameter("@paciente", obj.Otros));
+                        cmd.Parameters.Add(new SQLiteParameter("@valores", obj.Valores));
+                        cmd.Parameters.Add(new SQLiteParameter("@paciente", obj.Paciente));
                         cmd.CommandType = System.Data.CommandType.Text;
                         respuesta = cmd.ExecuteNonQuery() > 0;
                     }

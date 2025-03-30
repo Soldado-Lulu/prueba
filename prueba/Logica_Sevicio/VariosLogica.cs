@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace prueba.Logica_Sevicio
 {
@@ -41,8 +42,12 @@ namespace prueba.Logica_Sevicio
         public bool GuardarExamen(VariosM examen, int idPaciente)
         {
             if (idPaciente <= 0)
-                return false; // No se puede guardar sin un paciente
+            {
+                MessageBox.Show("No hay un paciente activo para guardar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             return _variosDAO.Guardar(examen, idPaciente);
         }
+
     }
 }

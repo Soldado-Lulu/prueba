@@ -28,7 +28,7 @@ namespace prueba.Vista
         
         private void LlenarDataGridView()
         {
-            dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
+            //dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
         }
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {

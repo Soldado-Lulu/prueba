@@ -81,7 +81,7 @@ namespace prueba.Vista
         }
         private void LlenarDataGridView()
         {
-            dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
+          //  dgvOrina.DataSource = PacienteLogica.Instancia.ObtenerPacientesConExamenes();
         }
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
@@ -292,6 +292,16 @@ namespace prueba.Vista
         private void MostrarAdvertencia()
         {
             MessageBox.Show("No hay un paciente activo. Registre uno antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void txtExamenM_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

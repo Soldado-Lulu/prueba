@@ -413,27 +413,7 @@ namespace prueba.Vista
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-        
-            if (richTextBox1.SelectionLength > 0) // Verifica que haya texto seleccionado
-            {
-                using (ColorDialog colorDialog = new ColorDialog())
-                {
-                    if (colorDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        // Aplica el color al texto seleccionado
-                        richTextBox1.SelectionColor = colorDialog.Color;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        
-
-    }
+      
 
         private void panelRight_Paint(object sender, PaintEventArgs e)
         {
@@ -453,6 +433,82 @@ namespace prueba.Vista
                 MostrarAdvertencia();
             }
 
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        richTextBox1.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtDatos.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtDatos.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (txtpaciente.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtpaciente.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (txtReferencia.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtReferencia.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

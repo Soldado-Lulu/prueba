@@ -86,9 +86,12 @@ namespace prueba.Vista
         {
             if (pacienteActivo == null)
             {
-                MessageBox.Show("No hay un paciente activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay un paciente activo para guardar el examen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            int idPaciente = pacienteActivo.IdPaciente;
+
             VariosM objeto = new VariosM()
             {
                 //Muestra = txtMuestra.Text,
@@ -99,7 +102,6 @@ namespace prueba.Vista
                 Paciente = txtPaciente.Text
             };
 
-            int idPaciente = pacienteActivo?.IdPaciente ?? 0; // Previene errores de null
 
 
             CapturarPanel(PanelCap); // Reemplaza 'panel1' con el nombre de tu panel.
@@ -135,10 +137,16 @@ namespace prueba.Vista
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
         {
-            // Crear un Bitmap con el tamaño del panel
+            if (panel.Width == 0 || panel.Height == 0)
+            {
+                MessageBox.Show("El panel no tiene contenido para capturar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             panelBitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
         }
+
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
