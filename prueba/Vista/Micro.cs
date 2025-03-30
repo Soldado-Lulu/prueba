@@ -117,10 +117,76 @@ namespace prueba.Vista
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
         {
-            // Crear un Bitmap con el tamaño del panel
+            // Ocultar solo los botones de paneles superpuestos antes de capturar
+            OcultarBotonesEnPanelesSuperpuestos(this);
+
+            // Crear un Bitmap con el tamaño del panel principal
             panelBitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+
+            // Restaurar visibilidad de los botones después de capturar
+            MostrarBotonesEnPanelesSuperpuestos(this);
         }
+
+        // 🔹 Método para ocultar botones en paneles superpuestos
+        private void OcultarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap) // Excluir el PanelCap de la captura
+                {
+                    OcultarBotones(control);
+                }
+
+                // Si el control tiene controles anidados, buscar recursivamente
+                if (control.HasChildren)
+                {
+                    OcultarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // 🔹 Método para restaurar visibilidad de botones después de capturar
+        private void MostrarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap)
+                {
+                    MostrarBotones(control);
+                }
+
+                if (control.HasChildren)
+                {
+                    MostrarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // ✅ Ocultar botones específicos dentro de un panel
+        private void OcultarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = false; // Ocultar botones
+                }
+            }
+        }
+
+        // ✅ Restaurar visibilidad de los botones
+        private void MostrarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = true; // Mostrar botones nuevamente
+                }
+            }
+        }
+
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -276,6 +342,11 @@ namespace prueba.Vista
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sobre));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMicro = new System.Windows.Forms.Button();
@@ -55,15 +56,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label81 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label74 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelRight.SuspendLayout();
             this.PanelCap.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,42 +236,45 @@
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1239, 0);
+            this.panel2.Location = new System.Drawing.Point(1186, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(265, 1055);
+            this.panel2.Size = new System.Drawing.Size(318, 1055);
             this.panel2.TabIndex = 1;
             // 
             // btnNuevoPAciente
             // 
+            this.btnNuevoPAciente.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnNuevoPAciente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevoPAciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoPAciente.Location = new System.Drawing.Point(0, 242);
             this.btnNuevoPAciente.Name = "btnNuevoPAciente";
-            this.btnNuevoPAciente.Size = new System.Drawing.Size(265, 65);
+            this.btnNuevoPAciente.Size = new System.Drawing.Size(318, 65);
             this.btnNuevoPAciente.TabIndex = 199;
             this.btnNuevoPAciente.Text = "Nuevo Paciente";
-            this.btnNuevoPAciente.UseVisualStyleBackColor = true;
+            this.btnNuevoPAciente.UseVisualStyleBackColor = false;
             this.btnNuevoPAciente.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.SkyBlue;
             this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(0, 177);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(265, 65);
+            this.btnGuardar.Size = new System.Drawing.Size(318, 65);
             this.btnGuardar.TabIndex = 198;
             this.btnGuardar.Text = "Guardar Paciente";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
             // 
             // panelRight
             // 
             this.panelRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelRight.Controls.Add(this.panel3);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelRight.Location = new System.Drawing.Point(0, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(265, 177);
+            this.panelRight.Size = new System.Drawing.Size(318, 177);
             this.panelRight.TabIndex = 1;
             // 
             // PanelCap
@@ -273,12 +283,13 @@
             this.PanelCap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelCap.Location = new System.Drawing.Point(334, 0);
             this.PanelCap.Name = "PanelCap";
-            this.PanelCap.Size = new System.Drawing.Size(905, 1055);
+            this.PanelCap.Size = new System.Drawing.Size(852, 1055);
             this.PanelCap.TabIndex = 2;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel6.Controls.Add(this.pictureBox1);
             this.panel6.Controls.Add(this.txtPaciente);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.lblMedico);
@@ -289,7 +300,6 @@
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label85);
             this.panel6.Controls.Add(this.label83);
-            this.panel6.Controls.Add(this.pictureBox1);
             this.panel6.Controls.Add(this.label81);
             this.panel6.Controls.Add(this.label77);
             this.panel6.Controls.Add(this.label86);
@@ -297,7 +307,7 @@
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(905, 732);
+            this.panel6.Size = new System.Drawing.Size(852, 732);
             this.panel6.TabIndex = 141;
             // 
             // txtPaciente
@@ -378,6 +388,7 @@
             // 
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label85.ForeColor = System.Drawing.Color.Blue;
             this.label85.Location = new System.Drawing.Point(67, 37);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(309, 30);
@@ -388,25 +399,18 @@
             // 
             this.label83.AutoSize = true;
             this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.ForeColor = System.Drawing.Color.Blue;
             this.label83.Location = new System.Drawing.Point(133, 145);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(173, 20);
             this.label83.TabIndex = 136;
             this.label83.Text = "Cochabamba - Bolivia";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Location = new System.Drawing.Point(458, 67);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 98);
-            this.pictureBox1.TabIndex = 139;
-            this.pictureBox1.TabStop = false;
-            // 
             // label81
             // 
             this.label81.AutoSize = true;
             this.label81.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.ForeColor = System.Drawing.Color.Blue;
             this.label81.Location = new System.Drawing.Point(101, 125);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(232, 20);
@@ -417,6 +421,7 @@
             // 
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.Blue;
             this.label77.Location = new System.Drawing.Point(89, 105);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(271, 20);
@@ -427,11 +432,54 @@
             // 
             this.label86.AutoSize = true;
             this.label86.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.ForeColor = System.Drawing.Color.Blue;
             this.label86.Location = new System.Drawing.Point(155, 67);
             this.label86.Name = "label86";
             this.label86.Size = new System.Drawing.Size(142, 30);
             this.label86.TabIndex = 138;
             this.label86.Text = "\" ISRAEL \"";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(427, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(170, 127);
+            this.pictureBox1.TabIndex = 187;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel3.Controls.Add(this.label74);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(318, 177);
+            this.panel3.TabIndex = 196;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(14, 139);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(267, 25);
+            this.label74.TabIndex = 189;
+            this.label74.Text = "Doctor Paulo Vasquez Reyes";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(56, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 152);
+            this.pictureBox2.TabIndex = 188;
+            this.pictureBox2.TabStop = false;
             // 
             // Sobre
             // 
@@ -447,10 +495,14 @@
             this.Load += new System.EventHandler(this.Sobre_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panelRight.ResumeLayout(false);
             this.PanelCap.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -464,7 +516,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
@@ -488,5 +539,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

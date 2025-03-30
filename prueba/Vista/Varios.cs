@@ -137,15 +137,76 @@ namespace prueba.Vista
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
         {
-            if (panel.Width == 0 || panel.Height == 0)
-            {
-                MessageBox.Show("El panel no tiene contenido para capturar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            // Ocultar solo los botones de paneles superpuestos antes de capturar
+            OcultarBotonesEnPanelesSuperpuestos(this);
 
+            // Crear un Bitmap con el tamaño del panel principal
             panelBitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+
+            // Restaurar visibilidad de los botones después de capturar
+            MostrarBotonesEnPanelesSuperpuestos(this);
         }
+
+        // 🔹 Método para ocultar botones en paneles superpuestos
+        private void OcultarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap) // Excluir el PanelCap de la captura
+                {
+                    OcultarBotones(control);
+                }
+
+                // Si el control tiene controles anidados, buscar recursivamente
+                if (control.HasChildren)
+                {
+                    OcultarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // 🔹 Método para restaurar visibilidad de botones después de capturar
+        private void MostrarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap)
+                {
+                    MostrarBotones(control);
+                }
+
+                if (control.HasChildren)
+                {
+                    MostrarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // ✅ Ocultar botones específicos dentro de un panel
+        private void OcultarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = false; // Ocultar botones
+                }
+            }
+        }
+
+        // ✅ Restaurar visibilidad de los botones
+        private void MostrarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = true; // Mostrar botones nuevamente
+                }
+            }
+        }
+
 
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -299,6 +360,82 @@ namespace prueba.Vista
                 this.Hide();
             }
             else MostrarAdvertencia();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtDatos.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtDatos.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (txtPaciente.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtPaciente.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (txtValoresReferencia.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        txtValoresReferencia.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0) // Verifica que haya texto seleccionado
+            {
+                using (ColorDialog colorDialog = new ColorDialog())
+                {
+                    if (colorDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Aplica el color al texto seleccionado
+                        richTextBox1.SelectionColor = colorDialog.Color;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona primero el texto que deseas colorear.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

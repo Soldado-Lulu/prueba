@@ -155,9 +155,74 @@ namespace prueba.Vista
         private Bitmap panelBitmap;
         private void CapturarPanel(Panel panel)
         {
-            // Crear un Bitmap con el tamaño del panel
+            // Ocultar solo los botones de paneles superpuestos antes de capturar
+            OcultarBotonesEnPanelesSuperpuestos(this);
+
+            // Crear un Bitmap con el tamaño del panel principal
             panelBitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+
+            // Restaurar visibilidad de los botones después de capturar
+            MostrarBotonesEnPanelesSuperpuestos(this);
+        }
+
+        // 🔹 Método para ocultar botones en paneles superpuestos
+        private void OcultarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap) // Excluir el PanelCap de la captura
+                {
+                    OcultarBotones(control);
+                }
+
+                // Si el control tiene controles anidados, buscar recursivamente
+                if (control.HasChildren)
+                {
+                    OcultarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // 🔹 Método para restaurar visibilidad de botones después de capturar
+        private void MostrarBotonesEnPanelesSuperpuestos(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Panel && control != PanelCap)
+                {
+                    MostrarBotones(control);
+                }
+
+                if (control.HasChildren)
+                {
+                    MostrarBotonesEnPanelesSuperpuestos(control);
+                }
+            }
+        }
+
+        // ✅ Ocultar botones específicos dentro de un panel
+        private void OcultarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = false; // Ocultar botones
+                }
+            }
+        }
+
+        // ✅ Restaurar visibilidad de los botones
+        private void MostrarBotones(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Visible = true; // Mostrar botones nuevamente
+                }
+            }
         }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -502,22 +567,199 @@ namespace prueba.Vista
 
         private void button10_Click(object sender, EventArgs e)
         {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtAmilasa.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
 
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtDirecta.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
 
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+                using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtBilirrubina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
 
+            }
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtProteina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtAlbumina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+             using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtglobulina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtRelacion.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button15_Click_1(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtFosfatasaAcidaProstatica.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button16_Click_1(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtIndirecta.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGOT.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button18_Click_1(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGPT.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button19_Click_1(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtCKMB.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button20_Click_1(object sender, EventArgs e)
+        {
+              using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtCPK.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtColesterol.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+                using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtLDL.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtFosfatasaAlcalina.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
         }
     }
 }

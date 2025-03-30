@@ -61,11 +61,10 @@ namespace prueba.Logica
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-            p.Telefono, 
-            p.Fecha, 
+            p.Telefono, p.Fecha, 
 p.Medico,
             p.Medico AS 'Doctor', 
-            p.SaldoMedico AS 'Monto Total',
+            p.SaldoMedico AS 'Monto',
             CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
             CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
             CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
@@ -132,6 +131,55 @@ p.Medico,
                 }
             }
             return idGenerado;
+        }
+        public DataTable ObtenerPacientesPorFecha(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = @"
+        SELECT 
+            p.IdPaciente AS 'ID Paciente', 
+            p.Nombre, 
+            p.Apellido, 
+           
+            p.Fecha, 
+            p.Medico AS 'Doctor', 
+            p.SaldoMedico AS 'Monto',
+            CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
+            CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
+            CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
+            CASE WHEN s.IdPaciente IS NOT NULL THEN 'Serologia' ELSE '' END AS 'Serologia',
+            CASE WHEN hc.IdPaciente IS NOT NULL THEN 'HCG' ELSE '' END AS 'HCG',
+            CASE WHEN c.IdPaciente IS NOT NULL THEN 'Coproparasitologia' ELSE '' END AS 'Coproparasitologia',
+            CASE WHEN m.IdPaciente IS NOT NULL THEN 'Microbiologia' ELSE '' END AS 'Microbiologia',
+            CASE WHEN v.IdPaciente IS NOT NULL THEN 'Varios' ELSE '' END AS 'Varios',
+            CASE WHEN b.IdPaciente IS NOT NULL THEN 'Blanco' ELSE '' END AS 'Blanco'
+        FROM Paciente p
+        LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+        LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+        LEFT JOIN Hematologia h ON p.IdPaciente = h.IdPaciente
+        LEFT JOIN Serologia s ON p.IdPaciente = s.IdPaciente
+        LEFT JOIN HCG hc ON p.IdPaciente = hc.IdPaciente
+        LEFT JOIN Copros c ON p.IdPaciente = c.IdPaciente
+        LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
+        LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
+        LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
+        WHERE DATE(p.Fecha) BETWEEN DATE(@fechaDesde) AND DATE(@fechaHasta)
+        ORDER BY p.IdPaciente DESC";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta.ToString("yyyy-MM-dd"));
+
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
         }
 
         public bool Editar(PacienteM obj)
@@ -257,10 +305,9 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-            p.Telefono, 
             p.Fecha,
 p.Medico,
-            p.SaldoMedico AS 'Monto Total',
+            p.SaldoMedico AS 'Monto',
             CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
             CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
             CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
@@ -303,7 +350,7 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-            p.Telefono, 
+            
             p.Fecha, 
             p.Medico AS 'Doctor', 
             p.SaldoMedico AS 'Monto Total',
@@ -430,7 +477,53 @@ p.Medico,
                 return paciente;
             }
 
-     
+        public DataTable ObtenerPacientesPorNombreApellido(string nombre, string apellido)
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = @"
+        SELECT 
+            p.IdPaciente AS 'ID Paciente', 
+            p.Nombre, 
+            p.Apellido, 
+            p.Fecha,
+            p.Medico,
+            p.SaldoMedico AS 'Monto',
+            CASE WHEN o.IdPaciente IS NOT NULL THEN 'Orina' ELSE '' END AS 'Orina',
+            CASE WHEN q.IdPaciente IS NOT NULL THEN 'Quimica' ELSE '' END AS 'Quimica',
+            CASE WHEN h.IdPaciente IS NOT NULL THEN 'Hemograma' ELSE '' END AS 'Hemograma',
+            CASE WHEN s.IdPaciente IS NOT NULL THEN 'Serologia' ELSE '' END AS 'Serologia',
+            CASE WHEN hc.IdPaciente IS NOT NULL THEN 'HCG' ELSE '' END AS 'HCG',
+            CASE WHEN c.IdPaciente IS NOT NULL THEN 'Coproparasitologia' ELSE '' END AS 'Coproparasitologia',
+            CASE WHEN m.IdPaciente IS NOT NULL THEN 'Microbiologia' ELSE '' END AS 'Microbiologia',
+            CASE WHEN v.IdPaciente IS NOT NULL THEN 'Varios' ELSE '' END AS 'Varios',
+            CASE WHEN b.IdPaciente IS NOT NULL THEN 'Blanco' ELSE '' END AS 'Blanco'
+        FROM Paciente p
+        LEFT JOIN Orina o ON p.IdPaciente = o.IdPaciente
+        LEFT JOIN Quimica q ON p.IdPaciente = q.IdPaciente
+        LEFT JOIN Hematologia h ON p.IdPaciente = h.IdPaciente
+        LEFT JOIN Serologia s ON p.IdPaciente = s.IdPaciente
+        LEFT JOIN HCG hc ON p.IdPaciente = hc.IdPaciente
+        LEFT JOIN Copros c ON p.IdPaciente = c.IdPaciente
+        LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
+        LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
+        LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
+        WHERE (p.Nombre LIKE @nombre) AND (p.Apellido LIKE @apellido)
+        ORDER BY p.IdPaciente DESC";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", "%" + nombre + "%"); // Filtro parcial
+                    cmd.Parameters.AddWithValue("@apellido", "%" + apellido + "%"); // Filtro parcial
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
 
     }
 }

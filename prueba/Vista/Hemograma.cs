@@ -81,8 +81,27 @@ namespace prueba.Vista
             InitializeComponent();
             idPaciente = id;
             CargarDatos();
-        }
+            txtHematocritos.TextChanged += ActualizarResultado;
 
+        }
+        private const float VARIABLE = 110000;
+        private void ActualizarResultado(object sender, EventArgs e)
+        {
+            // Verifica si el valor ingresado es un número válido
+            if (float.TryParse(txtHematocritos.Text, out float valor))
+            {
+                // Multiplica el valor ingresado por la variable fija
+                float resultado = valor * VARIABLE;
+
+                // Muestra el resultado en el Label
+                lblEritrocitos.Text = $"{resultado}";
+            }
+            else
+            {
+                // Mensaje si el valor no es válido
+                lblEritrocitos.Text = "";
+            }
+        }
 
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
@@ -163,6 +182,8 @@ namespace prueba.Vista
                 e.Graphics.DrawImage(panelBitmap, new Point(0, 0));
             }
         }
+
+
         private void Hemograma_Load(object sender, EventArgs e)
         {
             dtpFecha.Value = DateTime.Now;
