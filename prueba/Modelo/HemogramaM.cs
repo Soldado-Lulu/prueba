@@ -18,6 +18,7 @@ namespace prueba.Modelo
         public string Plaquetas { get; set; }
 
         public string Mielocitos { get; set; }
+        public string Reticulocitos { get; set; }
 
         public string Melamielocitos { get; set; }
         public string Cayados { get; set; }
@@ -29,6 +30,10 @@ namespace prueba.Modelo
         public string VES1 { get; set; }
         public string VES2 { get; set; }
         public string Ik { get; set; }
+        public string Isi { get; set; }
+        public string Inr { get; set; }
+
+        public string Vcm { get; set; }
         public string GrupoSanguineo { get; set; }
         public string Factor { get; set; }
         public string TiempoSangria { get; set; }

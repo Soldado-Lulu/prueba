@@ -61,6 +61,7 @@ namespace prueba.Logica
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
+p.ApellidoM,
             p.Telefono, p.Fecha, 
 p.Medico,
             p.Medico AS 'Doctor', 
@@ -105,15 +106,17 @@ p.Medico,
             {
                 conexion.Open();
                 string query = @"INSERT INTO Paciente 
-    (Nombre, Apellido, Telefono, Edad, Medico, Fecha, Cuenta, Porcentaje, SaldoMedico, SaldoLab) 
+    (Nombre, Apellido, Telefono, Edad, Medico, Fecha, Cuenta, Porcentaje, SaldoMedico, SaldoLab,ApellidoM) 
     VALUES 
-    (@nombre, @apellido, @telefono, @edad, @medico, @fecha, @cuenta, @porcentaje, @saldoMedico, @saldoLab);
+    (@nombre, @apellido, @telefono, @edad, @medico, @fecha, @cuenta, @porcentaje, @saldoMedico, @saldoLab,@apellidoM);
     SELECT last_insert_rowid();";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", obj.Apellido);
+                    cmd.Parameters.AddWithValue("@apellidoM", obj.ApellidoM);
+
                     cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("@edad", obj.Edad);
                     cmd.Parameters.AddWithValue("@medico", obj.Medico);
@@ -122,6 +125,7 @@ p.Medico,
                     cmd.Parameters.AddWithValue("@porcentaje", obj.Porcentaje);
                     cmd.Parameters.AddWithValue("@saldoMedico", obj.SaldoMedico);
                     cmd.Parameters.AddWithValue("@saldoLab", obj.SaldoLab);
+
 
                     object result = cmd.ExecuteScalar();
                     if (result != null)
@@ -144,7 +148,8 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-           
+           p.ApellidoM,
+
             p.Fecha, 
             p.Medico AS 'Doctor', 
             p.SaldoMedico AS 'Monto',
@@ -188,13 +193,14 @@ p.Medico,
                 using (SQLiteConnection conexion = new SQLiteConnection(cadena))
                 {
                     conexion.Open();
-                    string query = "UPDATE Paciente SET Nombre = @nombre, Apellido = @apellido, Telefono = @telefono, Edad = @edad,Medico =@medico WHERE IdPaciente = @id";
+                    string query = "UPDATE Paciente SET Nombre = @nombre, Apellido = @apellido, Telefono = @telefono, Edad = @edad,Medico =@medico,ApellidoM=@apellidoM WHERE IdPaciente = @id";
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@id", obj.IdPaciente);
                         cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
                         cmd.Parameters.AddWithValue("@apellido", obj.Apellido);
-                        cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("@apellidoM", obj.ApellidoM);
+                    cmd.Parameters.AddWithValue("@telefono", obj.Telefono);
                         cmd.Parameters.AddWithValue("@edad", obj.Edad);
                     cmd.Parameters.AddWithValue("@medico", obj.Medico);
 
@@ -248,12 +254,15 @@ p.Medico,
                                 IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
                                 Nombre = dr["Nombre"].ToString(),
                                 Apellido = dr["Apellido"].ToString(),
+                                ApellidoM = dr["ApellidoM"].ToString(),
                                 Telefono = dr["Telefono"].ToString(),
                                 Edad = dr["Edad"].ToString(),
                                 Medico = dr["Medico"].ToString(),
                                 Fecha = dr["Fecha"].ToString(),
                                 Cuenta = Convert.ToSingle(dr["Cuenta"]),
                                 Porcentaje = Convert.ToSingle(dr["Porcentaje"]),
+                               
+
                                 SaldoMedico = Convert.ToSingle(dr["SaldoMedico"]),
                                 SaldoLab = Convert.ToSingle(dr["SaldoLab"])
                             });
@@ -283,8 +292,11 @@ p.Medico,
                                 IdPaciente = reader.GetInt32(reader.GetOrdinal("IdPaciente")),
                                 Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 Apellido = reader.GetString(reader.GetOrdinal("Apellido")),
+                                ApellidoM = reader.GetString(reader.GetOrdinal("ApellidoM")),
+
                                 Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
                                 Edad = reader.GetString(reader.GetOrdinal("Edad")),
+
                                 Medico = reader.GetString(reader.GetOrdinal("Medico"))
                             };
                         }
@@ -305,6 +317,7 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
+p.ApellidoM, 
             p.Fecha,
 p.Medico,
             p.SaldoMedico AS 'Monto',
@@ -350,7 +363,7 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
-            
+            p.ApellidoM,
             p.Fecha, 
             p.Medico AS 'Doctor', 
             p.SaldoMedico AS 'Monto Total',
@@ -466,6 +479,7 @@ p.Medico,
                                     IdPaciente = Convert.ToInt32(dr["IdPaciente"]),
                                     Nombre = dr["Nombre"].ToString(),
                                     Apellido = dr["Apellido"].ToString(),
+                                    ApellidoM = dr["ApellidoM"].ToString(),
                                     Telefono = dr["Telefono"].ToString(),
                                     Edad = dr["Edad"].ToString(),
                                     Medico = dr["Medico"].ToString()
@@ -477,7 +491,7 @@ p.Medico,
                 return paciente;
             }
 
-        public DataTable ObtenerPacientesPorNombreApellido(string nombre, string apellido)
+        public DataTable ObtenerPacientesPorNombreApellido(string nombre, string apellido,string apellidoM)
         {
             DataTable dt = new DataTable();
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
@@ -488,6 +502,7 @@ p.Medico,
             p.IdPaciente AS 'ID Paciente', 
             p.Nombre, 
             p.Apellido, 
+            p.ApellidoM, 
             p.Fecha,
             p.Medico,
             p.SaldoMedico AS 'Monto',
@@ -510,13 +525,15 @@ p.Medico,
         LEFT JOIN Microbiologia m ON p.IdPaciente = m.IdPaciente
         LEFT JOIN Varios v ON p.IdPaciente = v.IdPaciente
         LEFT JOIN Blanco b ON p.IdPaciente = b.IdPaciente
-        WHERE (p.Nombre LIKE @nombre) AND (p.Apellido LIKE @apellido)
+        WHERE (p.Nombre LIKE @nombre) AND (p.Apellido LIKE @apellido) AND (p.ApellidoM LIKE @apellidoM) 
         ORDER BY p.IdPaciente DESC";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@nombre", "%" + nombre + "%"); // Filtro parcial
                     cmd.Parameters.AddWithValue("@apellido", "%" + apellido + "%"); // Filtro parcial
+                    cmd.Parameters.AddWithValue("@apellidoM", "%" + apellidoM + "%"); // Filtro parcial
+
                     SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
                     adapter.Fill(dt);
                 }

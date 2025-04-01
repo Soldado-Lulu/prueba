@@ -250,7 +250,7 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
             }
@@ -347,7 +347,7 @@ namespace prueba.Vista
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
                 {
-                    txtSodio.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                    txtUrico.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
                 }
 
             }

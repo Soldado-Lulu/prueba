@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -46,8 +48,8 @@
             this.cmbMedico = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvOrina = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtApellidoM = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrina)).BeginInit();
@@ -74,6 +76,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.txtApellidoM);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
@@ -95,21 +99,41 @@
             this.panel3.Size = new System.Drawing.Size(1584, 126);
             this.panel3.TabIndex = 10;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 22);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "MONTO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(49, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 22);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "MEDICO";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(297, 63);
+            this.label4.Location = new System.Drawing.Point(263, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 22);
+            this.label4.Size = new System.Drawing.Size(120, 22);
             this.label4.TabIndex = 20;
-            this.label4.Text = "APELLIDO";
+            this.label4.Text = "A. PATERNO";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(297, 7);
+            this.label3.Location = new System.Drawing.Point(254, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 22);
             this.label3.TabIndex = 19;
@@ -118,7 +142,7 @@
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(301, 89);
+            this.txtApellido.Location = new System.Drawing.Point(258, 89);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(194, 28);
             this.txtApellido.TabIndex = 18;
@@ -126,7 +150,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(301, 32);
+            this.txtNombre.Location = new System.Drawing.Point(258, 32);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(194, 28);
             this.txtNombre.TabIndex = 17;
@@ -135,7 +159,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Peru;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(513, 26);
+            this.button1.Location = new System.Drawing.Point(513, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 41);
             this.button1.TabIndex = 16;
@@ -215,6 +239,7 @@
             this.btnInicio.TabIndex = 9;
             this.btnInicio.Text = "Atras";
             this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click_1);
             // 
             // cmbMedico
             // 
@@ -249,25 +274,23 @@
             this.dgvOrina.TabIndex = 1;
             this.dgvOrina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrina_CellContentClick_1);
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(49, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 22);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "MEDICO";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(480, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 22);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "A. MATERNO";
             // 
-            // label6
+            // txtApellidoM
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(49, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 22);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "MONTO";
+            this.txtApellidoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoM.Location = new System.Drawing.Point(472, 89);
+            this.txtApellidoM.Name = "txtApellidoM";
+            this.txtApellidoM.Size = new System.Drawing.Size(194, 28);
+            this.txtApellidoM.TabIndex = 23;
             // 
             // Reporte
             // 
@@ -312,5 +335,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtApellidoM;
     }
 }

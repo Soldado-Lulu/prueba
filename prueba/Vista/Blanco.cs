@@ -42,7 +42,7 @@ namespace prueba.Vista
             pacienteActivo = PacienteLogica.Instancia.BuscarPorId(idPaciente);
             if (pacienteActivo != null)
             {
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido} {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
                 panel1.Visible = true;
@@ -73,7 +73,7 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
             }

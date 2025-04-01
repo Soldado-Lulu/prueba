@@ -20,5 +20,8 @@ namespace prueba.Modelo
         public string Identificacion { get; set; }
         public string Sensible { get; set; }
         public string Resistencia { get; set; }
+        public string Nota { get; set; }
+
+
     }
 }

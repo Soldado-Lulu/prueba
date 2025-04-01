@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace prueba.Vista
             if (pacienteActivo != null)
             {
                 panel1.Visible = true;
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
 
@@ -41,6 +42,7 @@ namespace prueba.Vista
                     txtHemoglobina.Text = examen.Hemoglobina;
                     txtHematocritos.Text = examen.Hematocrito;
                     txtPlaquetas.Text = examen.Plaquetas;
+                    txtReticulocitos.Text = examen.Reticulocitos;
                     textMielocitos.Text = examen.Mielocitos;
                     textMetamielocitos.Text = examen.Melamielocitos;
                     textCayados.Text = examen.Cayados;
@@ -59,7 +61,10 @@ namespace prueba.Vista
                     txtTiempoProtrombina.Text = examen.TiempoProtrombina;
                     txtPorcentajeActividad.Text = examen.PorcentajeActividad;
                     txtAPTT.Text = examen.Aptt;
+                    textVCM.Text = examen.Vcm;
                     txtSerieRoja.Text = examen.SerieRoja;
+                    textInr.Text = examen.Inr;
+                    textIsi.Text = examen.Isi;
                     txtSerieBlanca.Text = examen.SerieBlanca;
                 }
             }
@@ -106,6 +111,7 @@ namespace prueba.Vista
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
+            
             HemogramaM objeto = new HemogramaM()
             {
                 Eritrocitos = lblEritrocitos.Text,
@@ -120,17 +126,21 @@ namespace prueba.Vista
                 Linfocitos = textLinfocitos.Text,
                 Monocitos = textMonocitos.Text,
                 Eosinofilos = textEosinofilos.Text,
+                Reticulocitos = txtReticulocitos.Text,
                 Basofilos = textBasofilos.Text,
                 VES1 = textVES1.Text,
                 VES2 = textVES2.Text,
                 Ik = textIK.Text,
                 GrupoSanguineo = textGrupoSanguineo.Text,
                 Factor = textFactorRh.Text,
+                Vcm=textVCM.Text,
                 TiempoSangria = txtTiempoSangria.Text,
                 TiempoCoagulacion = txtTiempoCoagulacion.Text,
                 TiempoProtrombina = txtTiempoProtrombina.Text,
                 PorcentajeActividad = txtPorcentajeActividad.Text,
                 Aptt = txtAPTT.Text,
+                Isi = textIsi.Text,
+                Inr= textInr.Text,
                 SerieRoja = txtSerieRoja.Text,
                 SerieBlanca = txtSerieBlanca.Text
             };
@@ -198,7 +208,7 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
             }
@@ -349,5 +359,9 @@ namespace prueba.Vista
             }
         }
 
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -42,27 +42,36 @@ namespace Laboratorio.Vista
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text))
+            // Validar que el Nombre y Apellido no estén vacíos
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 MessageBox.Show("Por favor, complete al menos el Nombre y Apellido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Obtener la fecha del DateTimePicker
             string fechaRegistro = dtpFecha.Value.ToString("yyyy-MM-dd");
 
-            float cuenta = float.Parse(txtCuenta.Text);
-            float porcentaje = float.Parse(txtPorcentaje.Text);
-            float saldoMedico = cuenta * porcentaje / 100;
-            float saldoLab = cuenta - saldoMedico;
+            // Validar y asignar valores numéricos (cuenta, porcentaje)
+            float cuenta = 0, porcentaje = 0, saldoMedico = 0, saldoLab = 0;
 
+            // Intentar convertir valores numéricos, si falla, asignar 0
+            float.TryParse(txtCuenta.Text, out cuenta);
+            float.TryParse(txtPorcentaje.Text, out porcentaje);
+
+            // Calcular saldos solo si cuenta y porcentaje son válidos
+            saldoMedico = cuenta * porcentaje / 100;
+            saldoLab = cuenta - saldoMedico;
+
+            // Crear objeto PacienteM con datos y asignar valores vacíos si no hay datos
             PacienteM nuevoPaciente = new PacienteM()
             {
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? null : txtTelefono.Text,
-                Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? null : txtEdad.Text,
-                Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? null : txtMedico.Text,
+                Nombre = txtNombre.Text.Trim(),
+                Apellido = txtApellido.Text.Trim(),
+                ApellidoM =txtApellidoM.Text.Trim(),
+                Telefono = string.IsNullOrWhiteSpace(txtTelefono.Text) ? "Sin Teléfono" : txtTelefono.Text.Trim(),
+                Edad = string.IsNullOrWhiteSpace(txtEdad.Text) ? "Sin Edad" : txtEdad.Text.Trim(),
+                Medico = string.IsNullOrWhiteSpace(txtMedico.Text) ? "No Asignado" : txtMedico.Text.Trim(),
                 Fecha = fechaRegistro,
                 Cuenta = cuenta,
                 Porcentaje = porcentaje,
@@ -70,31 +79,28 @@ namespace Laboratorio.Vista
                 SaldoLab = saldoLab
             };
 
-
-            // ⚠️ Usamos el nuevo método que devuelve el ID
-            int idPaciente = logica.GuardarYDevolverId(nuevoPaciente);
+            // ⚡️ Guardar el nuevo paciente y obtener el ID generado
+            int idPaciente = PacienteLogica.Instancia.GuardarYDevolverId(nuevoPaciente);
 
             if (idPaciente > 0)
             {
+                // Establecer el nuevo paciente activo
                 nuevoPaciente.IdPaciente = idPaciente;
                 PacienteActivo.EstablecerPaciente(nuevoPaciente);
 
                 MessageBox.Show("Paciente registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Abrir el formulario de examen con el ID correcto
+                // Abrir el formulario de Orina con el ID correcto del paciente
                 Orina formOrina = new Orina(idPaciente);
                 formOrina.Show();
-                this.Hide();
+                this.Hide(); // Cierra el formulario actual para abrir el nuevo
             }
             else
             {
                 MessageBox.Show("Error al registrar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
-
-           
-
         }
+
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {

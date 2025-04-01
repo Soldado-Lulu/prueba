@@ -25,11 +25,11 @@ namespace prueba.DAO
                     string query = @"INSERT INTO Hematologia 
                 (IdPaciente, Eritrocitos, Leucocitos, Hemoglobina, Hematocrito, Plaquetas, Mielocitos, Melamielocitos, Cayados, 
                 Segmentados, Linfocitos, Monocitos, Eosinofilos, Basofilos, VES1, VES2, Ik, GrupoSanguineo, Factor, 
-                TiempoSangria, TiempoCoagulacion, TiempoProtrombina, PorcentajeActividad, Aptt, SerieRoja, SerieBlanca) 
+                TiempoSangria, TiempoCoagulacion, TiempoProtrombina, PorcentajeActividad, Aptt, SerieRoja, SerieBlanca,Reticulocitos,Isi,Vcm,Inr) 
                 VALUES 
                 (@idPaciente, @eritrocitos, @leucocitos, @hemoglobina, @hematocrito, @plaquetas, @mielocitos, @melamielocitos, @cayados, 
                 @segmentados, @linfocitos, @monocitos, @eosinofilos, @basofilos, @ves1, @ves2, @ik, @grupoSanguineo, @factor, 
-                @tiempoSangria, @tiempoCoagulacion, @tiempoProtrombina, @porcentajeActividad, @aptt, @serieRoja, @serieBlanca)";
+                @tiempoSangria, @tiempoCoagulacion, @tiempoProtrombina, @porcentajeActividad, @aptt, @serieRoja, @serieBlanca,@reticulocitos,@isi,@vcm,@inr)";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                     {
@@ -59,7 +59,13 @@ namespace prueba.DAO
                         cmd.Parameters.AddWithValue("@aptt", obj.Aptt);
                         cmd.Parameters.AddWithValue("@serieRoja", obj.SerieRoja);
                         cmd.Parameters.AddWithValue("@serieBlanca", obj.SerieBlanca);
+                        cmd.Parameters.AddWithValue("@isi", obj.Isi);
+                        cmd.Parameters.AddWithValue("@vcm", obj.Vcm);
+                        cmd.Parameters.AddWithValue("@inr", obj.Inr);
 
+
+
+                        cmd.Parameters.AddWithValue("@reticulocitos",obj.Reticulocitos);
                         respuesta = cmd.ExecuteNonQuery() > 0;
                     }
                 }
@@ -119,9 +125,15 @@ namespace prueba.DAO
                                 TiempoProtrombina = dr["TiempoProtrombina"].ToString(),
                                 PorcentajeActividad = dr["PorcentajeActividad"].ToString(),
                                 Aptt = dr["Aptt"].ToString(),
-                                SerieRoja = dr["SerieRoja"].ToString(),
-                                SerieBlanca = dr["SerieBlanca"].ToString()
-                            };
+                                Reticulocitos = dr["Reticulocitos"].ToString(),
+                                Isi = dr["Isi"].ToString(),
+                            SerieRoja = dr["SerieRoja"].ToString(),
+                                SerieBlanca = dr["SerieBlanca"].ToString(),
+                                                                Vcm = dr["Vcm"].ToString(),
+                            Inr = dr["Inr"].ToString()
+
+
+                        };
                         }
                     }
                 }
@@ -144,7 +156,7 @@ namespace prueba.DAO
                 Basofilos = @basofilos, VES1 = @ves1, VES2 = @ves2, Ik = @ik, GrupoSanguineo = @grupoSanguineo,
                 Factor = @factor, TiempoSangria = @tiempoSangria, TiempoCoagulacion = @tiempoCoagulacion,
                 TiempoProtrombina = @tiempoProtrombina, PorcentajeActividad = @porcentajeActividad, Aptt = @aptt,
-                SerieRoja = @serieRoja, SerieBlanca = @serieBlanca
+                SerieRoja = @serieRoja, SerieBlanca = @serieBlanca, Reticulocitos=@reticulocitos,Isi=@isi,Vcm =@vcm,Inr=@inr
                 WHERE IdPaciente = @idPaciente";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
@@ -173,7 +185,12 @@ namespace prueba.DAO
                         cmd.Parameters.AddWithValue("@tiempoProtrombina", obj.TiempoProtrombina);
                         cmd.Parameters.AddWithValue("@porcentajeActividad", obj.PorcentajeActividad);
                         cmd.Parameters.AddWithValue("@aptt", obj.Aptt);
+                        cmd.Parameters.AddWithValue("@reticulocitos", obj.Reticulocitos);
+                        cmd.Parameters.AddWithValue("@isi", obj.Isi);
                         cmd.Parameters.AddWithValue("@serieRoja", obj.SerieRoja);
+                        cmd.Parameters.AddWithValue("@vcm", obj.Vcm);
+                        cmd.Parameters.AddWithValue("@inr", obj.Inr);
+
                         cmd.Parameters.AddWithValue("@serieBlanca", obj.SerieBlanca);
 
                         respuesta = cmd.ExecuteNonQuery() > 0;

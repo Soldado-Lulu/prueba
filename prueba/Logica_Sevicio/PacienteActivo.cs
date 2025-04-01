@@ -12,6 +12,8 @@ namespace prueba.Logica
         public static int IdPaciente { get;  set; }
         public static string Nombre { get;  set; }
         public static string Apellido { get;  set; }
+        public static string ApellidoM { get; set; }
+
         public static string Edad { get;  set; }
         public static string Medico { get;  set; }
 
@@ -20,6 +22,8 @@ namespace prueba.Logica
             IdPaciente = paciente.IdPaciente;
             Nombre = paciente.Nombre;
             Apellido = paciente.Apellido;
+            ApellidoM = paciente.ApellidoM;
+
             Edad = paciente.Edad;
             Medico = paciente.Medico;
         }
@@ -29,6 +33,8 @@ namespace prueba.Logica
             IdPaciente = 0;
             Nombre = "";
             Apellido = "";
+            ApellidoM = "";
+
             Edad = "";
             Medico = "";
         }

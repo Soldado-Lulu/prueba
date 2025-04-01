@@ -133,12 +133,6 @@ namespace prueba.Vista
 
 
 
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            RegistroPaciente formQuimica = new RegistroPaciente();
-            formQuimica.Show();
-            this.Hide();
-        }
 
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
@@ -301,9 +295,11 @@ namespace prueba.Vista
         {
             string nombre = txtNombre.Text.Trim();
             string apellido = txtApellido.Text.Trim();
+            string apellidoM = txtApellidoM.Text.Trim();
+
 
             // Obtener datos filtrados
-            DataTable dtFiltrado = PacienteLogica.Instancia.ObtenerPacientesPorNombreApellido(nombre, apellido);
+            DataTable dtFiltrado = PacienteLogica.Instancia.ObtenerPacientesPorNombreApellido(nombre, apellido,apellidoM);
 
             // Mostrar los resultados en el DataGridView
             dgvOrina.DataSource = dtFiltrado;
@@ -316,6 +312,13 @@ namespace prueba.Vista
 
             // Actualizar el total de "Monto Total"
             ActualizarTotalMonto();
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            RegistroPaciente formQuimica = new RegistroPaciente();
+            formQuimica.Show();
+            this.Hide();
         }
     }
 }

@@ -49,7 +49,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNota = new System.Windows.Forms.TextBox();
             this.txtResistentes = new System.Windows.Forms.TextBox();
             this.txtSensibles = new System.Windows.Forms.TextBox();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
@@ -57,7 +57,6 @@
             this.txtCultivo = new System.Windows.Forms.TextBox();
             this.txtM2 = new System.Windows.Forms.TextBox();
             this.txtM1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -91,6 +90,7 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelRight.SuspendLayout();
@@ -354,7 +354,8 @@
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.txtNota);
             this.panel6.Controls.Add(this.txtResistentes);
             this.panel6.Controls.Add(this.txtSensibles);
             this.panel6.Controls.Add(this.txtIdentificacion);
@@ -362,7 +363,6 @@
             this.panel6.Controls.Add(this.txtCultivo);
             this.panel6.Controls.Add(this.txtM2);
             this.panel6.Controls.Add(this.txtM1);
-            this.panel6.Controls.Add(this.button2);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label13);
@@ -386,12 +386,12 @@
             this.panel6.Size = new System.Drawing.Size(877, 751);
             this.panel6.TabIndex = 154;
             // 
-            // textBox1
+            // txtNota
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 595);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(650, 28);
-            this.textBox1.TabIndex = 138;
+            this.txtNota.Location = new System.Drawing.Point(119, 595);
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(650, 28);
+            this.txtNota.TabIndex = 138;
             // 
             // txtResistentes
             // 
@@ -451,16 +451,6 @@
             this.txtM1.Name = "txtM1";
             this.txtM1.Size = new System.Drawing.Size(108, 28);
             this.txtM1.TabIndex = 131;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(648, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 23);
-            this.button2.TabIndex = 130;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
@@ -803,6 +793,16 @@
             this.dtpFecha.TabIndex = 152;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Location = new System.Drawing.Point(646, 71);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(33, 29);
+            this.button2.TabIndex = 139;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Micro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -884,18 +884,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtM3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtM1;
         private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.TextBox txtColonia;
         private System.Windows.Forms.TextBox txtCultivo;
         private System.Windows.Forms.TextBox txtM2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.TextBox txtResistentes;
         private System.Windows.Forms.TextBox txtSensibles;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button2;
     }
 }

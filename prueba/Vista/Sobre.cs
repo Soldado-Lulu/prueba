@@ -66,7 +66,7 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblMedico.Text = pacienteActivo.Medico;
             }
             else

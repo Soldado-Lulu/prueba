@@ -54,6 +54,7 @@ namespace prueba.Vista
                     txtIdentificacion.Text = examen.Identificacion;
                     txtSensibles.Text = examen.Sensible;
                     txtResistentes.Text = examen.Resistencia;
+                    txtNota.Text = examen.Nota;
                 }
             }
             else
@@ -80,7 +81,8 @@ namespace prueba.Vista
                 Colonia = txtColonia.Text,
                 Identificacion = txtIdentificacion.Text,
                 Sensible = txtSensibles.Text,
-                Resistencia = txtResistentes.Text
+                Resistencia = txtResistentes.Text,
+                Nota = txtNota.Text,
             };
 
             bool existe = MicroLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
@@ -212,7 +214,7 @@ namespace prueba.Vista
                 lblMedico.Visible = true;
 
                 // Asignar los valores obtenidos
-                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}";
+                lblNombreCompleto.Text = $"{pacienteActivo.Nombre} {pacienteActivo.Apellido}  {pacienteActivo.ApellidoM}";
                 lblEdad.Text = pacienteActivo.Edad;
                 lblMedico.Text = pacienteActivo.Medico;
             }
@@ -349,6 +351,18 @@ namespace prueba.Vista
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
+                {
+                    txtGram.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                }
+
+            }
         }
     }
 }

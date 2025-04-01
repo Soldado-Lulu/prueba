@@ -21,12 +21,14 @@ namespace prueba.DAO
                 try
                 {
                     conexion.Open();
-                    string query = @"UPDATE HCG SET Resultado = @resultado WHERE IdPaciente = @idPaciente";
+                    string query = @"UPDATE HCG SET Resultado = @resultado,Muestra=@muestra WHERE IdPaciente = @idPaciente";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@idPaciente", idPaciente);
                         cmd.Parameters.AddWithValue("@resultado", obj.Resultado);
+                        cmd.Parameters.AddWithValue("@muestra", obj.Muestra);
+
                         respuesta = cmd.ExecuteNonQuery() > 0;
                     }
                 }
@@ -59,7 +61,9 @@ namespace prueba.DAO
                             examen = new HCGM()
                             {
                                 IdPaciente = idPaciente,
-                                Resultado = dr["Resultado"].ToString()
+                                Resultado = dr["Resultado"].ToString(),
+                                                                Muestra = dr["Muestra"].ToString()
+
                             };
                         }
                     }
@@ -77,13 +81,15 @@ namespace prueba.DAO
                 try
                 {
                     conexion.Open();
-                    string query = @"INSERT INTO HCG (IdPaciente, Resultado) VALUES (@idPaciente, @resultado)";
+                    string query = @"INSERT INTO HCG (IdPaciente, Resultado,Muestra) VALUES (@idPaciente, @resultado,@muestra)";
 
                     SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                     {
                         cmd.Parameters.Add(new SQLiteParameter("@idPaciente", idPaciente));
                         cmd.Parameters.Add(new SQLiteParameter("@resultado", obj.Resultado));
-             
+                        cmd.Parameters.Add(new SQLiteParameter("@muestra", obj.Muestra));
+
+
                         cmd.CommandType = System.Data.CommandType.Text;
                         respuesta = cmd.ExecuteNonQuery() > 0;
                     }
