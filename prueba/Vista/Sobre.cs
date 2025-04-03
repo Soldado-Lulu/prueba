@@ -43,7 +43,7 @@ namespace prueba.Vista
                 SobreM examen = SobreLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
                 if (examen != null)
                 {
-                    txtPresente.Text = examen.Presente;
+                    lblNombreCompleto.Text = examen.Presente;
                 }
             }
         }
@@ -80,7 +80,8 @@ namespace prueba.Vista
             
                 SobreM objeto = new SobreM()
                 {
-                    Presente = txtPresente.Text,
+                    Presente = lblNombreCompleto.Text,
+                    
 
                 };
 

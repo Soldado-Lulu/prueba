@@ -44,6 +44,9 @@
             this.btnNuevoPAciente = new System.Windows.Forms.Button();
             this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label74 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -90,28 +93,23 @@
             this.label85 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label74 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label77 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelRight.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelCap.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -318,6 +316,38 @@
             this.panelRight.Size = new System.Drawing.Size(278, 177);
             this.panelRight.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel3.Controls.Add(this.label74);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(278, 177);
+            this.panel3.TabIndex = 195;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(14, 139);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(267, 25);
+            this.label74.TabIndex = 189;
+            this.label74.Text = "Doctor Paulo Vasquez Reyes";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(56, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 152);
+            this.pictureBox2.TabIndex = 188;
+            this.pictureBox2.TabStop = false;
+            // 
             // PanelCap
             // 
             this.PanelCap.Controls.Add(this.panel5);
@@ -357,6 +387,7 @@
             // 
             // txtObservaciones
             // 
+            this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservaciones.Location = new System.Drawing.Point(46, 332);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(643, 209);
@@ -622,10 +653,10 @@
             // 
             // txtReaccion
             // 
-            this.txtReaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReaccion.Location = new System.Drawing.Point(263, 30);
             this.txtReaccion.Name = "txtReaccion";
-            this.txtReaccion.Size = new System.Drawing.Size(362, 28);
+            this.txtReaccion.Size = new System.Drawing.Size(362, 30);
             this.txtReaccion.TabIndex = 8;
             // 
             // label17
@@ -662,6 +693,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel7.Controls.Add(this.label77);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Controls.Add(this.lblMedico);
@@ -670,11 +702,8 @@
             this.panel7.Controls.Add(this.label85);
             this.panel7.Controls.Add(this.label57);
             this.panel7.Controls.Add(this.label65);
-            this.panel7.Controls.Add(this.label83);
             this.panel7.Controls.Add(this.label71);
-            this.panel7.Controls.Add(this.label81);
             this.panel7.Controls.Add(this.label72);
-            this.panel7.Controls.Add(this.label77);
             this.panel7.Controls.Add(this.label86);
             this.panel7.Controls.Add(this.dtpFecha);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -755,17 +784,6 @@
             this.label65.Text = "Medico Solicitante";
             this.label65.Click += new System.EventHandler(this.label65_Click);
             // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.ForeColor = System.Drawing.Color.Blue;
-            this.label83.Location = new System.Drawing.Point(98, 115);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(173, 20);
-            this.label83.TabIndex = 156;
-            this.label83.Text = "Cochabamba - Bolivia";
-            // 
             // label71
             // 
             this.label71.AutoSize = true;
@@ -776,17 +794,6 @@
             this.label71.TabIndex = 149;
             this.label71.Text = "Fecha";
             // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.ForeColor = System.Drawing.Color.Blue;
-            this.label81.Location = new System.Drawing.Point(69, 93);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(242, 20);
-            this.label81.TabIndex = 155;
-            this.label81.Text = "Cel.  62608447   Cel: 70374276";
-            // 
             // label72
             // 
             this.label72.AutoSize = true;
@@ -796,17 +803,6 @@
             this.label72.Size = new System.Drawing.Size(58, 25);
             this.label72.TabIndex = 150;
             this.label72.Text = "Edad";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.ForeColor = System.Drawing.Color.Blue;
-            this.label77.Location = new System.Drawing.Point(43, 70);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(271, 20);
-            this.label77.TabIndex = 154;
-            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo";
             // 
             // label86
             // 
@@ -822,7 +818,7 @@
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(425, 134);
+            this.dtpFecha.Location = new System.Drawing.Point(422, 134);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(257, 30);
             this.dtpFecha.TabIndex = 151;
@@ -834,41 +830,22 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(422, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 127);
-            this.pictureBox1.TabIndex = 186;
+            this.pictureBox1.Size = new System.Drawing.Size(142, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 184;
             this.pictureBox1.TabStop = false;
             // 
-            // panel3
+            // label77
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.label74);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(278, 177);
-            this.panel3.TabIndex = 195;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.Location = new System.Drawing.Point(14, 139);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(267, 25);
-            this.label74.TabIndex = 189;
-            this.label74.Text = "Doctor Paulo Vasquez Reyes";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(56, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(175, 152);
-            this.pictureBox2.TabIndex = 188;
-            this.pictureBox2.TabStop = false;
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.Blue;
+            this.label77.Location = new System.Drawing.Point(48, 65);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(293, 66);
+            this.label77.TabIndex = 185;
+            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo\r\n   Cel.  62608447   Cel: 70374276\r\n          Co" +
+    "chabamba - Bolivia";
             // 
             // Serologia
             // 
@@ -885,6 +862,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelCap.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -895,9 +875,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -947,11 +924,8 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnGuardarPaciente;
@@ -972,9 +946,10 @@
         private System.Windows.Forms.Button btnSerologia;
         private System.Windows.Forms.RichTextBox txtObservaciones;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label77;
     }
 }

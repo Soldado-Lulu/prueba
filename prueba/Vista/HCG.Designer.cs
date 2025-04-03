@@ -48,18 +48,14 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblMedico = new System.Windows.Forms.Label();
             this.lblNombreCompleto = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnHCG = new System.Windows.Forms.Button();
@@ -73,6 +69,8 @@
             this.btnOrina = new System.Windows.Forms.Button();
             this.btnBlanco = new System.Windows.Forms.Button();
             this.btnVarios = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label77 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -82,8 +80,8 @@
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -286,6 +284,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel4.Controls.Add(this.label77);
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.lblEdad);
             this.panel4.Controls.Add(this.lblMedico);
@@ -293,11 +292,8 @@
             this.panel4.Controls.Add(this.label85);
             this.panel4.Controls.Add(this.label57);
             this.panel4.Controls.Add(this.label65);
-            this.panel4.Controls.Add(this.label83);
             this.panel4.Controls.Add(this.label71);
-            this.panel4.Controls.Add(this.label81);
             this.panel4.Controls.Add(this.label72);
-            this.panel4.Controls.Add(this.label77);
             this.panel4.Controls.Add(this.label86);
             this.panel4.Controls.Add(this.dtpFecha);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -305,16 +301,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(849, 212);
             this.panel4.TabIndex = 138;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(431, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 127);
-            this.pictureBox1.TabIndex = 182;
-            this.pictureBox1.TabStop = false;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // lblEdad
             // 
@@ -348,7 +335,7 @@
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label85.ForeColor = System.Drawing.Color.Blue;
-            this.label85.Location = new System.Drawing.Point(80, 24);
+            this.label85.Location = new System.Drawing.Point(59, 9);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(309, 30);
             this.label85.TabIndex = 155;
@@ -374,17 +361,6 @@
             this.label65.TabIndex = 146;
             this.label65.Text = "Medico Solicitante";
             // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.ForeColor = System.Drawing.Color.Blue;
-            this.label83.Location = new System.Drawing.Point(140, 116);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(173, 20);
-            this.label83.TabIndex = 154;
-            this.label83.Text = "Cochabamba - Bolivia";
-            // 
             // label71
             // 
             this.label71.AutoSize = true;
@@ -394,17 +370,6 @@
             this.label71.Size = new System.Drawing.Size(67, 25);
             this.label71.TabIndex = 147;
             this.label71.Text = "Fecha";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.ForeColor = System.Drawing.Color.Blue;
-            this.label81.Location = new System.Drawing.Point(105, 96);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(237, 20);
-            this.label81.TabIndex = 153;
-            this.label81.Text = "Cel.  62608447  Cel: 70374276";
             // 
             // label72
             // 
@@ -416,23 +381,12 @@
             this.label72.TabIndex = 148;
             this.label72.Text = "Edad";
             // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.ForeColor = System.Drawing.Color.Blue;
-            this.label77.Location = new System.Drawing.Point(94, 76);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(271, 20);
-            this.label77.TabIndex = 152;
-            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo";
-            // 
             // label86
             // 
             this.label86.AutoSize = true;
             this.label86.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label86.ForeColor = System.Drawing.Color.Blue;
-            this.label86.Location = new System.Drawing.Point(161, 50);
+            this.label86.Location = new System.Drawing.Point(129, 39);
             this.label86.Name = "label86";
             this.label86.Size = new System.Drawing.Size(142, 30);
             this.label86.TabIndex = 156;
@@ -604,6 +558,29 @@
             this.btnVarios.UseVisualStyleBackColor = false;
             this.btnVarios.Click += new System.EventHandler(this.btnVarios_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(431, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 184;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.Blue;
+            this.label77.Location = new System.Drawing.Point(60, 69);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(293, 66);
+            this.label77.TabIndex = 185;
+            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo\r\n   Cel.  62608447   Cel: 70374276\r\n          Co" +
+    "chabamba - Bolivia";
+            // 
             // HCG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -629,8 +606,8 @@
             this.panel8.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -651,11 +628,8 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnGuardarPaciente;
@@ -680,5 +654,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label77;
     }
 }
