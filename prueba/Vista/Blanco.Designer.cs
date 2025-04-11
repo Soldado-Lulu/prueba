@@ -45,7 +45,6 @@
             this.btnGuardarPaciente = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelCap = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -72,14 +71,15 @@
             this.label72 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelCap.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -256,7 +256,7 @@
             this.btnNuevoPaciente.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnNuevoPaciente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevoPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 242);
+            this.btnNuevoPaciente.Location = new System.Drawing.Point(0, 260);
             this.btnNuevoPaciente.Name = "btnNuevoPaciente";
             this.btnNuevoPaciente.Size = new System.Drawing.Size(295, 65);
             this.btnNuevoPaciente.TabIndex = 196;
@@ -269,7 +269,7 @@
             this.btnGuardarPaciente.BackColor = System.Drawing.Color.SkyBlue;
             this.btnGuardarPaciente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGuardarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPaciente.Location = new System.Drawing.Point(0, 177);
+            this.btnGuardarPaciente.Location = new System.Drawing.Point(0, 195);
             this.btnGuardarPaciente.Name = "btnGuardarPaciente";
             this.btnGuardarPaciente.Size = new System.Drawing.Size(295, 65);
             this.btnGuardarPaciente.TabIndex = 194;
@@ -280,12 +280,12 @@
             // panelRight
             // 
             this.panelRight.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelRight.Controls.Add(this.label1);
             this.panelRight.Controls.Add(this.pictureBox2);
+            this.panelRight.Controls.Add(this.label1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelRight.Location = new System.Drawing.Point(0, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(295, 177);
+            this.panelRight.Size = new System.Drawing.Size(295, 195);
             this.panelRight.TabIndex = 193;
             this.panelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRight_Paint);
             // 
@@ -294,21 +294,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 139);
+            this.label1.Location = new System.Drawing.Point(16, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 25);
             this.label1.TabIndex = 189;
             this.label1.Text = "Doctor Paulo Vasquez Reyes";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(56, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(175, 152);
-            this.pictureBox2.TabIndex = 188;
-            this.pictureBox2.TabStop = false;
             // 
             // PanelCap
             // 
@@ -584,9 +574,20 @@
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Location = new System.Drawing.Point(430, 139);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(257, 27);
+            this.dtpFecha.Size = new System.Drawing.Size(330, 27);
             this.dtpFecha.TabIndex = 155;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(76, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(142, 113);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 190;
+            this.pictureBox2.TabStop = false;
             // 
             // Blanco
             // 
@@ -604,13 +605,13 @@
             this.panel2.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelCap.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -657,8 +658,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
