@@ -21,16 +21,17 @@ namespace prueba.Vista
     {
         private PacienteM pacienteActivo;
 
-        public Varios()
-        {
-            InitializeComponent();
-        }
+       
         private int idPaciente;
         public Varios(int id)
         {
             InitializeComponent();
             idPaciente = id;
             CargarDatos();
+        }
+        public Varios()
+        {
+            InitializeComponent();
         }
         private void CargarDatos()
         {
@@ -46,8 +47,6 @@ namespace prueba.Vista
                 VariosM examen = VariosLogica.Instancia.ObtenerExamenPorPaciente(idPaciente);
                 if (examen != null)
                 {
-                    // txtMuestra.Text = examen.Muestra;
-                    ///txtExamen.Text = examen.Examen;
                     txtDatos.Text = examen.Datos;
                     richTextBox1.Text = examen.Otros;
                     txtValoresReferencia.Text = examen.Valores;
@@ -60,9 +59,8 @@ namespace prueba.Vista
         {
 
             dtpFecha.Value = DateTime.Now;
-            // Obtener el último paciente registrado
-            //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
-            pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+         
+           // pacienteActivo = PacienteLogica.Instancia.ObtenerUltimoPaciente();
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels

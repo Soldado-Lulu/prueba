@@ -51,7 +51,7 @@ namespace prueba.Vista
                     textMonocitos.Text = examen.Monocitos;
                     textEosinofilos.Text = examen.Eosinofilos;
                     textBasofilos.Text = examen.Basofilos;
-                    textVES1.Text = examen.VES1;
+                    lblIK.Text = examen.VES1;
                     textVES2.Text = examen.VES2;
                     textIK.Text = examen.Ik;
                     textGrupoSanguineo.Text = examen.GrupoSanguineo;
@@ -87,6 +87,9 @@ namespace prueba.Vista
             idPaciente = id;
             CargarDatos();
             txtHematocritos.TextChanged += ActualizarResultado;
+            textBasofilos.TextChanged += FormulaIK;
+            textVCM.TextChanged += FormulaIK;
+
 
         }
         private const float VARIABLE = 110000;
@@ -107,7 +110,20 @@ namespace prueba.Vista
                 lblEritrocitos.Text = "";
             }
         }
-
+         
+        private void FormulaIK(object sender, EventArgs e)
+        {
+            if (float.TryParse(textBasofilos.Text, out float valor) &&
+       float.TryParse(textVCM.Text, out float valor2))
+            {
+                float resultado = ((valor2 / 2) + valor) / 2;
+                lblIK.Text = $"{resultado}";
+            }
+            else
+            {
+                lblIK.Text = "";
+            }
+        }
 
         private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
@@ -128,7 +144,7 @@ namespace prueba.Vista
                 Eosinofilos = textEosinofilos.Text,
                 Reticulocitos = txtReticulocitos.Text,
                 Basofilos = textBasofilos.Text,
-                VES1 = textVES1.Text,
+                VES1 = lblIK.Text,
                 VES2 = textVES2.Text,
                 Ik = textIK.Text,
                 GrupoSanguineo = textGrupoSanguineo.Text,
@@ -360,6 +376,11 @@ namespace prueba.Vista
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

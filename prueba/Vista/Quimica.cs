@@ -51,13 +51,13 @@ namespace prueba.Vista
                     txtBUN.Text = examen.BUN;
                     txtUrico.Text = examen.Urico;
                     txtColesterol.Text = examen.Colesterol;
-                    txtHDL.Text = examen.HDL;
-                    txtLDL.Text = examen.LDL;
-                    txtTrigliceridos.Text = examen.Triglicerido;
+               //     txtHDL.Text = examen.HDL;
+                    txtag.Text = examen.LDL;
+                  //  txtTrigliceridos.Text = examen.Triglicerido;
                     txtBilirrubina.Text = examen.Bilirrubina;
                     txtDirecta.Text = examen.Directa;
                     txtIndirecta.Text = examen.Indirecta;
-                    txtTotal.Text = examen.Total;
+                    
                     txtGOT.Text = examen.GOT;
                     txtGPT.Text = examen.GPT;
                     txtFosfatasaAlcalina.Text = examen.FosfatasaAlcalina;
@@ -71,10 +71,7 @@ namespace prueba.Vista
                     txtCKMB.Text = examen.CKMB;
                     txtCPK.Text = examen.CPK;
                     txtHemoglobina.Text = examen.Hemoglobina;
-                    txtSodio.Text = examen.Sodio;
-                    txtPotasio.Text = examen.Potasio;
-                    txtCloro.Text = examen.Cloro;
-                    txtCalcio.Text = examen.Calcio;
+      
                 }
             }
         }
@@ -96,13 +93,13 @@ namespace prueba.Vista
                     BUN = txtBUN.Text,
                     Urico =txtUrico.Text,
                     Colesterol = txtColesterol.Text,
-                    HDL = txtHDL.Text,
-                    LDL = txtLDL.Text,
-                    Triglicerido = txtTrigliceridos.Text,
+                    //HDL = txtHDL.Text,
+                    LDL = txtag.Text,
+                //    Triglicerido = txtTrigliceridos.Text,
                     Bilirrubina = txtBilirrubina.Text,
                     Directa = txtDirecta.Text,
                     Indirecta = txtIndirecta.Text,
-                    Total = txtTotal.Text,
+                    //Total = txtTotal.Text,
                     GOT = txtGOT.Text,
                     GPT = txtGPT.Text,
                     FosfatasaAlcalina = txtFosfatasaAlcalina.Text,
@@ -116,10 +113,9 @@ namespace prueba.Vista
                     CKMB = txtCKMB.Text,
                     CPK = txtCPK.Text,
                     Hemoglobina = txtHemoglobina.Text,
-                    Sodio = txtSodio.Text,
-                    Potasio = txtPotasio.Text,
-                    Cloro = txtCloro.Text,
-                    Calcio = txtCalcio.Text
+                    
+                  
+                   
                 };
             int idPaciente = pacienteActivo.IdPaciente;
             bool existe = QuimicaLogica.Instancia.ObtenerExamenPorPaciente(idPaciente) != null;
@@ -239,8 +235,7 @@ namespace prueba.Vista
         {
             dtpFecha.Value = DateTime.Now;
 
-            // Obtener el último paciente registrado
-            //PacienteM paciente = PacienteLogica.Instancia.ObtenerUltimoPaciente();
+           
             if (pacienteActivo != null) // Verificar si se encontró un paciente
             {
                 // Mostrar el panel y labels
@@ -744,15 +739,17 @@ namespace prueba.Vista
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
                 {
-                    txtLDL.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
+                    txtag.ForeColor = colorDialog.Color; // Cambia el color del texto en el TextBox
                 }
 
             }
         }
 
-        private void button23_Click(object sender, EventArgs e)
+     
+
+        private void button23_Click_1(object sender, EventArgs e)
         {
-               using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
+            using (ColorDialog colorDialog = new ColorDialog()) // Crea un selector de color
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK) // Si el usuario elige un color
                 {

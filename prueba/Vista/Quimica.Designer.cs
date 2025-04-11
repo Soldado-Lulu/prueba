@@ -48,15 +48,7 @@
             this.label74 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelCap = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtCalcio = new System.Windows.Forms.TextBox();
-            this.txtCloro = new System.Windows.Forms.TextBox();
-            this.txtPotasio = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button23 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
@@ -69,30 +61,20 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.txtFosfatasaAlcalina = new System.Windows.Forms.TextBox();
-            this.txtSodio = new System.Windows.Forms.TextBox();
-            this.txtTrigliceridos = new System.Windows.Forms.TextBox();
-            this.txtLDL = new System.Windows.Forms.TextBox();
-            this.txtHDL = new System.Windows.Forms.TextBox();
+            this.txtag = new System.Windows.Forms.TextBox();
             this.txtColesterol = new System.Windows.Forms.TextBox();
             this.txtCPK = new System.Windows.Forms.TextBox();
             this.txtFosfatasaAcidaProstatica = new System.Windows.Forms.TextBox();
             this.txtCKMB = new System.Windows.Forms.TextBox();
             this.txtGPT = new System.Windows.Forms.TextBox();
             this.txtFosfatasaAcida = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
             this.txtGOT = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.txtRelacion = new System.Windows.Forms.TextBox();
             this.txtIndirecta = new System.Windows.Forms.TextBox();
             this.txtglobulina = new System.Windows.Forms.TextBox();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtAlbumina = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.txtProteina = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -109,7 +91,6 @@
             this.label70 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -119,8 +100,9 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button23 = new System.Windows.Forms.Button();
+            this.txtFosfatasaAlcalina = new System.Windows.Forms.TextBox();
             this.txtAmilasa = new System.Windows.Forms.TextBox();
             this.txtBUN = new System.Windows.Forms.TextBox();
             this.txtCreatinina = new System.Windows.Forms.TextBox();
@@ -150,7 +132,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -162,6 +146,8 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label77 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblMedico = new System.Windows.Forms.Label();
             this.lblNombreCompleto = new System.Windows.Forms.Label();
@@ -172,15 +158,13 @@
             this.label72 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label77 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelCap.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -347,10 +331,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtCalcio);
-            this.panel2.Controls.Add(this.txtCloro);
             this.panel2.Controls.Add(this.btnNuevoPaciente);
-            this.panel2.Controls.Add(this.txtPotasio);
             this.panel2.Controls.Add(this.btnGuardarPaciente);
             this.panel2.Controls.Add(this.panelRight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -441,75 +422,9 @@
             this.PanelCap.Size = new System.Drawing.Size(988, 1139);
             this.PanelCap.TabIndex = 2;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label46);
-            this.panel4.Controls.Add(this.label63);
-            this.panel4.Controls.Add(this.txtTotal);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 841);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(988, 510);
-            this.panel4.TabIndex = 156;
-            // 
-            // txtCalcio
-            // 
-            this.txtCalcio.Enabled = false;
-            this.txtCalcio.Location = new System.Drawing.Point(-18, 994);
-            this.txtCalcio.Name = "txtCalcio";
-            this.txtCalcio.Size = new System.Drawing.Size(103, 22);
-            this.txtCalcio.TabIndex = 128;
-            // 
-            // txtCloro
-            // 
-            this.txtCloro.Enabled = false;
-            this.txtCloro.Location = new System.Drawing.Point(-17, 958);
-            this.txtCloro.Name = "txtCloro";
-            this.txtCloro.Size = new System.Drawing.Size(103, 22);
-            this.txtCloro.TabIndex = 127;
-            // 
-            // txtPotasio
-            // 
-            this.txtPotasio.Enabled = false;
-            this.txtPotasio.Location = new System.Drawing.Point(-17, 921);
-            this.txtPotasio.Name = "txtPotasio";
-            this.txtPotasio.Size = new System.Drawing.Size(103, 22);
-            this.txtPotasio.TabIndex = 126;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Enabled = false;
-            this.label46.Location = new System.Drawing.Point(1069, 143);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(44, 16);
-            this.label46.TabIndex = 47;
-            this.label46.Text = "Total: ";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Enabled = false;
-            this.label63.Location = new System.Drawing.Point(874, 118);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(0, 16);
-            this.label63.TabIndex = 53;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(1119, 143);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(106, 22);
-            this.txtTotal.TabIndex = 110;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.button23);
             this.panel5.Controls.Add(this.button22);
             this.panel5.Controls.Add(this.button21);
             this.panel5.Controls.Add(this.button20);
@@ -522,30 +437,20 @@
             this.panel5.Controls.Add(this.button13);
             this.panel5.Controls.Add(this.button12);
             this.panel5.Controls.Add(this.button11);
-            this.panel5.Controls.Add(this.txtFosfatasaAlcalina);
-            this.panel5.Controls.Add(this.txtSodio);
-            this.panel5.Controls.Add(this.txtTrigliceridos);
-            this.panel5.Controls.Add(this.txtLDL);
-            this.panel5.Controls.Add(this.txtHDL);
+            this.panel5.Controls.Add(this.txtag);
             this.panel5.Controls.Add(this.txtColesterol);
             this.panel5.Controls.Add(this.txtCPK);
             this.panel5.Controls.Add(this.txtFosfatasaAcidaProstatica);
             this.panel5.Controls.Add(this.txtCKMB);
             this.panel5.Controls.Add(this.txtGPT);
             this.panel5.Controls.Add(this.txtFosfatasaAcida);
-            this.panel5.Controls.Add(this.label73);
             this.panel5.Controls.Add(this.txtGOT);
-            this.panel5.Controls.Add(this.label27);
             this.panel5.Controls.Add(this.txtRelacion);
             this.panel5.Controls.Add(this.txtIndirecta);
             this.panel5.Controls.Add(this.txtglobulina);
-            this.panel5.Controls.Add(this.label69);
-            this.panel5.Controls.Add(this.label24);
-            this.panel5.Controls.Add(this.label75);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.txtAlbumina);
             this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.label82);
             this.panel5.Controls.Add(this.txtProteina);
             this.panel5.Controls.Add(this.label14);
@@ -562,7 +467,6 @@
             this.panel5.Controls.Add(this.label70);
             this.panel5.Controls.Add(this.label59);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.label44);
             this.panel5.Controls.Add(this.label40);
             this.panel5.Controls.Add(this.label42);
             this.panel5.Controls.Add(this.label50);
@@ -572,29 +476,18 @@
             this.panel5.Controls.Add(this.label38);
             this.panel5.Controls.Add(this.label34);
             this.panel5.Controls.Add(this.label47);
-            this.panel5.Controls.Add(this.label30);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(0, 435);
+            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Location = new System.Drawing.Point(0, 492);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(988, 406);
             this.panel5.TabIndex = 155;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // button23
-            // 
-            this.button23.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button23.Location = new System.Drawing.Point(877, 344);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(30, 23);
-            this.button23.TabIndex = 170;
-            this.button23.UseVisualStyleBackColor = false;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
-            // 
             // button22
             // 
             this.button22.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button22.Location = new System.Drawing.Point(898, 211);
+            this.button22.Location = new System.Drawing.Point(803, 180);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(30, 23);
             this.button22.TabIndex = 169;
@@ -604,7 +497,7 @@
             // button21
             // 
             this.button21.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button21.Location = new System.Drawing.Point(898, 133);
+            this.button21.Location = new System.Drawing.Point(803, 134);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(30, 23);
             this.button21.TabIndex = 168;
@@ -614,7 +507,7 @@
             // button20
             // 
             this.button20.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button20.Location = new System.Drawing.Point(898, 98);
+            this.button20.Location = new System.Drawing.Point(803, 99);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(30, 23);
             this.button20.TabIndex = 167;
@@ -624,7 +517,7 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button19.Location = new System.Drawing.Point(898, 60);
+            this.button19.Location = new System.Drawing.Point(803, 61);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(30, 23);
             this.button19.TabIndex = 166;
@@ -634,7 +527,7 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button18.Location = new System.Drawing.Point(898, 17);
+            this.button18.Location = new System.Drawing.Point(803, 18);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(30, 23);
             this.button18.TabIndex = 165;
@@ -644,7 +537,7 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button17.Location = new System.Drawing.Point(371, 264);
+            this.button17.Location = new System.Drawing.Point(343, 236);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(30, 23);
             this.button17.TabIndex = 164;
@@ -654,7 +547,7 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button16.Location = new System.Drawing.Point(372, 234);
+            this.button16.Location = new System.Drawing.Point(344, 206);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(30, 23);
             this.button16.TabIndex = 163;
@@ -664,7 +557,7 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button15.Location = new System.Drawing.Point(373, 202);
+            this.button15.Location = new System.Drawing.Point(345, 174);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(30, 23);
             this.button15.TabIndex = 162;
@@ -674,7 +567,7 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button14.Location = new System.Drawing.Point(393, 133);
+            this.button14.Location = new System.Drawing.Point(368, 137);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(30, 23);
             this.button14.TabIndex = 161;
@@ -684,7 +577,7 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button13.Location = new System.Drawing.Point(392, 100);
+            this.button13.Location = new System.Drawing.Point(367, 104);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(30, 23);
             this.button13.TabIndex = 160;
@@ -694,7 +587,7 @@
             // button12
             // 
             this.button12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button12.Location = new System.Drawing.Point(392, 66);
+            this.button12.Location = new System.Drawing.Point(367, 70);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(30, 23);
             this.button12.TabIndex = 159;
@@ -704,57 +597,25 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button11.Location = new System.Drawing.Point(393, 22);
+            this.button11.Location = new System.Drawing.Point(368, 26);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(30, 23);
             this.button11.TabIndex = 158;
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click_1);
             // 
-            // txtFosfatasaAlcalina
+            // txtag
             // 
-            this.txtFosfatasaAlcalina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFosfatasaAlcalina.Location = new System.Drawing.Point(535, 344);
-            this.txtFosfatasaAlcalina.Name = "txtFosfatasaAlcalina";
-            this.txtFosfatasaAlcalina.Size = new System.Drawing.Size(142, 28);
-            this.txtFosfatasaAlcalina.TabIndex = 157;
-            // 
-            // txtSodio
-            // 
-            this.txtSodio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSodio.Location = new System.Drawing.Point(535, 304);
-            this.txtSodio.Name = "txtSodio";
-            this.txtSodio.Size = new System.Drawing.Size(142, 28);
-            this.txtSodio.TabIndex = 156;
-            // 
-            // txtTrigliceridos
-            // 
-            this.txtTrigliceridos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrigliceridos.Location = new System.Drawing.Point(690, 264);
-            this.txtTrigliceridos.Name = "txtTrigliceridos";
-            this.txtTrigliceridos.Size = new System.Drawing.Size(142, 28);
-            this.txtTrigliceridos.TabIndex = 155;
-            // 
-            // txtLDL
-            // 
-            this.txtLDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLDL.Location = new System.Drawing.Point(607, 205);
-            this.txtLDL.Name = "txtLDL";
-            this.txtLDL.Size = new System.Drawing.Size(142, 28);
-            this.txtLDL.TabIndex = 154;
-            // 
-            // txtHDL
-            // 
-            this.txtHDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHDL.Location = new System.Drawing.Point(607, 168);
-            this.txtHDL.Name = "txtHDL";
-            this.txtHDL.Size = new System.Drawing.Size(142, 28);
-            this.txtHDL.TabIndex = 153;
+            this.txtag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtag.Location = new System.Drawing.Point(540, 182);
+            this.txtag.Name = "txtag";
+            this.txtag.Size = new System.Drawing.Size(142, 28);
+            this.txtag.TabIndex = 154;
             // 
             // txtColesterol
             // 
             this.txtColesterol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColesterol.Location = new System.Drawing.Point(607, 127);
+            this.txtColesterol.Location = new System.Drawing.Point(540, 136);
             this.txtColesterol.Name = "txtColesterol";
             this.txtColesterol.Size = new System.Drawing.Size(142, 28);
             this.txtColesterol.TabIndex = 152;
@@ -762,7 +623,7 @@
             // txtCPK
             // 
             this.txtCPK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPK.Location = new System.Drawing.Point(605, 93);
+            this.txtCPK.Location = new System.Drawing.Point(538, 102);
             this.txtCPK.Name = "txtCPK";
             this.txtCPK.Size = new System.Drawing.Size(142, 28);
             this.txtCPK.TabIndex = 151;
@@ -770,15 +631,15 @@
             // txtFosfatasaAcidaProstatica
             // 
             this.txtFosfatasaAcidaProstatica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFosfatasaAcidaProstatica.Location = new System.Drawing.Point(83, 231);
+            this.txtFosfatasaAcidaProstatica.Location = new System.Drawing.Point(92, 203);
             this.txtFosfatasaAcidaProstatica.Name = "txtFosfatasaAcidaProstatica";
-            this.txtFosfatasaAcidaProstatica.Size = new System.Drawing.Size(159, 28);
+            this.txtFosfatasaAcidaProstatica.Size = new System.Drawing.Size(137, 28);
             this.txtFosfatasaAcidaProstatica.TabIndex = 120;
             // 
             // txtCKMB
             // 
             this.txtCKMB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCKMB.Location = new System.Drawing.Point(605, 54);
+            this.txtCKMB.Location = new System.Drawing.Point(538, 63);
             this.txtCKMB.Name = "txtCKMB";
             this.txtCKMB.Size = new System.Drawing.Size(142, 28);
             this.txtCKMB.TabIndex = 150;
@@ -786,7 +647,7 @@
             // txtGPT
             // 
             this.txtGPT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGPT.Location = new System.Drawing.Point(605, 12);
+            this.txtGPT.Location = new System.Drawing.Point(538, 21);
             this.txtGPT.Name = "txtGPT";
             this.txtGPT.Size = new System.Drawing.Size(144, 28);
             this.txtGPT.TabIndex = 149;
@@ -794,41 +655,23 @@
             // txtFosfatasaAcida
             // 
             this.txtFosfatasaAcida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFosfatasaAcida.Location = new System.Drawing.Point(80, 197);
+            this.txtFosfatasaAcida.Location = new System.Drawing.Point(89, 169);
             this.txtFosfatasaAcida.Name = "txtFosfatasaAcida";
-            this.txtFosfatasaAcida.Size = new System.Drawing.Size(162, 28);
+            this.txtFosfatasaAcida.Size = new System.Drawing.Size(140, 28);
             this.txtFosfatasaAcida.TabIndex = 119;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(437, 304);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(42, 20);
-            this.label73.TabIndex = 47;
-            this.label73.Text = "LDL";
             // 
             // txtGOT
             // 
             this.txtGOT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGOT.Location = new System.Drawing.Point(83, 304);
+            this.txtGOT.Location = new System.Drawing.Point(92, 276);
             this.txtGOT.Name = "txtGOT";
-            this.txtGOT.Size = new System.Drawing.Size(159, 28);
+            this.txtGOT.Size = new System.Drawing.Size(137, 28);
             this.txtGOT.TabIndex = 148;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(437, 270);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(216, 20);
-            this.label27.TabIndex = 74;
-            this.label27.Text = "Fosfatasa Acida Prostática ";
             // 
             // txtRelacion
             // 
             this.txtRelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRelacion.Location = new System.Drawing.Point(106, 130);
+            this.txtRelacion.Location = new System.Drawing.Point(92, 131);
             this.txtRelacion.Name = "txtRelacion";
             this.txtRelacion.Size = new System.Drawing.Size(136, 28);
             this.txtRelacion.TabIndex = 118;
@@ -836,59 +679,33 @@
             // txtIndirecta
             // 
             this.txtIndirecta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIndirecta.Location = new System.Drawing.Point(83, 265);
+            this.txtIndirecta.Location = new System.Drawing.Point(92, 237);
             this.txtIndirecta.Name = "txtIndirecta";
-            this.txtIndirecta.Size = new System.Drawing.Size(162, 28);
+            this.txtIndirecta.Size = new System.Drawing.Size(140, 28);
             this.txtIndirecta.TabIndex = 147;
             // 
             // txtglobulina
             // 
             this.txtglobulina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtglobulina.Location = new System.Drawing.Point(106, 96);
+            this.txtglobulina.Location = new System.Drawing.Point(92, 97);
             this.txtglobulina.Name = "txtglobulina";
             this.txtglobulina.Size = new System.Drawing.Size(139, 28);
             this.txtglobulina.TabIndex = 117;
             // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(434, 344);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(86, 20);
-            this.label69.TabIndex = 50;
-            this.label69.Text = "VLDL - C ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(434, 236);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(177, 20);
-            this.label24.TabIndex = 74;
-            this.label24.Text = "Fosfatasa Acida Total ";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(686, 349);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(104, 20);
-            this.label75.TabIndex = 58;
-            this.label75.Text = "5 - 35 mg/dL";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(767, 212);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(694, 184);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 20);
+            this.label21.Size = new System.Drawing.Size(61, 18);
             this.label21.TabIndex = 84;
             this.label21.Text = "1,2 - 2,2";
             // 
             // txtAlbumina
             // 
             this.txtAlbumina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlbumina.Location = new System.Drawing.Point(106, 60);
+            this.txtAlbumina.Location = new System.Drawing.Point(92, 61);
             this.txtAlbumina.Name = "txtAlbumina";
             this.txtAlbumina.Size = new System.Drawing.Size(139, 28);
             this.txtAlbumina.TabIndex = 116;
@@ -896,34 +713,25 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(437, 210);
+            this.label19.Location = new System.Drawing.Point(409, 183);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(108, 20);
+            this.label19.Size = new System.Drawing.Size(95, 18);
             this.label19.TabIndex = 74;
             this.label19.Text = "Relación A/G";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(434, 173);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 20);
-            this.label20.TabIndex = 74;
-            this.label20.Text = "Globulina ";
             // 
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(4, 312);
+            this.label82.Location = new System.Drawing.Point(5, 283);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(48, 20);
+            this.label82.Size = new System.Drawing.Size(43, 18);
             this.label82.TabIndex = 38;
             this.label82.Text = "CPK ";
             // 
             // txtProteina
             // 
             this.txtProteina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProteina.Location = new System.Drawing.Point(106, 26);
+            this.txtProteina.Location = new System.Drawing.Point(92, 27);
             this.txtProteina.Name = "txtProteina";
             this.txtProteina.Size = new System.Drawing.Size(139, 28);
             this.txtProteina.TabIndex = 115;
@@ -933,170 +741,170 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(3, 31);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 20);
+            this.label14.Size = new System.Drawing.Size(73, 18);
             this.label14.TabIndex = 14;
             this.label14.Text = "Ac. Urico:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(251, 269);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(241, 240);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(102, 20);
+            this.label25.Size = new System.Drawing.Size(88, 18);
             this.label25.TabIndex = 44;
             this.label25.Text = "0,0 - 24 U/L ";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(767, 137);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(694, 141);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 20);
+            this.label13.Size = new System.Drawing.Size(93, 18);
             this.label13.TabIndex = 83;
             this.label13.Text = "3,5 - 4,8 g/dL";
             // 
             // label84
             // 
             this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(4, 265);
+            this.label84.Location = new System.Drawing.Point(5, 236);
             this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(74, 20);
+            this.label84.Size = new System.Drawing.Size(65, 18);
             this.label84.TabIndex = 35;
             this.label84.Text = "CK - MB";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(248, 20);
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(237, 20);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(150, 40);
+            this.label28.Size = new System.Drawing.Size(131, 36);
             this.label28.TabIndex = 33;
             this.label28.Text = "H : 3,4 - 7 mg/dL\r\nM : 2,4 - 5,7 mg/dL";
             // 
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(434, 137);
+            this.label64.Location = new System.Drawing.Point(409, 145);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(78, 20);
+            this.label64.Size = new System.Drawing.Size(68, 18);
             this.label64.TabIndex = 74;
             this.label64.Text = "Albumina";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(767, 97);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(694, 103);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 20);
+            this.label12.Size = new System.Drawing.Size(93, 18);
             this.label12.TabIndex = 82;
             this.label12.Text = "6,1 - 7,9 g/dL";
             // 
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(434, 98);
+            this.label66.Location = new System.Drawing.Point(409, 106);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(145, 20);
+            this.label66.Size = new System.Drawing.Size(128, 18);
             this.label66.TabIndex = 71;
             this.label66.Text = "Proteinas Totales ";
             // 
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(429, 62);
+            this.label68.Location = new System.Drawing.Point(404, 70);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(74, 20);
+            this.label68.Size = new System.Drawing.Size(64, 18);
             this.label68.TabIndex = 68;
             this.label68.Text = "Amilasa ";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(765, 61);
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(688, 65);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(114, 20);
+            this.label58.Size = new System.Drawing.Size(99, 18);
             this.label58.TabIndex = 81;
             this.label58.Text = "Hasta 120 UA";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(751, 23);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(688, 30);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 20);
+            this.label11.Size = new System.Drawing.Size(114, 18);
             this.label11.TabIndex = 66;
             this.label11.Text = "Adultos 68 - 240";
             // 
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(429, 20);
+            this.label70.Location = new System.Drawing.Point(404, 28);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(147, 20);
+            this.label70.Size = new System.Drawing.Size(128, 18);
             this.label70.TabIndex = 65;
             this.label70.Text = "Fosfatasa Alcalina";
             // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(755, 3);
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(685, 9);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(127, 20);
+            this.label59.Size = new System.Drawing.Size(112, 18);
             this.label59.TabIndex = 63;
             this.label59.Text = "Niños 100 - 400";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(250, 236);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(240, 207);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 20);
+            this.label8.Size = new System.Drawing.Size(89, 18);
             this.label8.TabIndex = 61;
             this.label8.Text = "Hasta 12 U/I";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(2, 168);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(136, 25);
-            this.label44.TabIndex = 50;
-            this.label44.Text = "Transaminasas";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(4, 236);
+            this.label40.Location = new System.Drawing.Point(5, 207);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(43, 20);
+            this.label40.Size = new System.Drawing.Size(39, 18);
             this.label40.TabIndex = 56;
             this.label40.Text = "GPT";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(2, 202);
+            this.label42.Location = new System.Drawing.Point(3, 173);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(45, 20);
+            this.label42.Size = new System.Drawing.Size(41, 18);
             this.label42.TabIndex = 53;
             this.label42.Text = "GOT";
             // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(250, 204);
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(240, 175);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(103, 20);
+            this.label50.Size = new System.Drawing.Size(89, 18);
             this.label50.TabIndex = 60;
             this.label50.Text = "Hasta 12 U/I";
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(248, 66);
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(237, 66);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(133, 20);
+            this.label48.Size = new System.Drawing.Size(116, 18);
             this.label48.TabIndex = 58;
             this.label48.Text = "Hasta 1,0 mg/dL";
             // 
@@ -1105,16 +913,17 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(3, 129);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(73, 20);
+            this.label36.Size = new System.Drawing.Size(63, 18);
             this.label36.TabIndex = 44;
             this.label36.Text = "Indirecta";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(248, 137);
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(237, 137);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(133, 20);
+            this.label39.Size = new System.Drawing.Size(116, 18);
             this.label39.TabIndex = 35;
             this.label39.Text = "Hasta 0,7 mg/dL";
             // 
@@ -1123,7 +932,7 @@
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(3, 101);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(64, 20);
+            this.label38.Size = new System.Drawing.Size(55, 18);
             this.label38.TabIndex = 41;
             this.label38.Text = "Directa";
             // 
@@ -1132,33 +941,25 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(2, 68);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(100, 20);
+            this.label34.Size = new System.Drawing.Size(85, 18);
             this.label34.TabIndex = 38;
             this.label34.Text = "Bilirrubina T";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(248, 102);
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(237, 102);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(133, 20);
+            this.label47.Size = new System.Drawing.Size(116, 18);
             this.label47.TabIndex = 57;
             this.label47.Text = "Hasta 0,2 mg/dL";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(216, 23);
-            this.label30.TabIndex = 35;
-            this.label30.Text = "FORMULA LEUCOCITARIA";
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.button23);
+            this.panel6.Controls.Add(this.txtFosfatasaAlcalina);
             this.panel6.Controls.Add(this.txtAmilasa);
             this.panel6.Controls.Add(this.txtBUN);
             this.panel6.Controls.Add(this.txtCreatinina);
@@ -1188,7 +989,9 @@
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.label56);
+            this.panel6.Controls.Add(this.label75);
             this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.label69);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label79);
             this.panel6.Controls.Add(this.label7);
@@ -1198,16 +1001,34 @@
             this.panel6.Controls.Add(this.label32);
             this.panel6.Controls.Add(this.label31);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(0, 249);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(988, 186);
+            this.panel6.Size = new System.Drawing.Size(988, 243);
             this.panel6.TabIndex = 154;
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button23.Location = new System.Drawing.Point(783, 192);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(30, 23);
+            this.button23.TabIndex = 171;
+            this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.button23_Click_1);
+            // 
+            // txtFosfatasaAlcalina
+            // 
+            this.txtFosfatasaAlcalina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFosfatasaAlcalina.Location = new System.Drawing.Point(529, 186);
+            this.txtFosfatasaAlcalina.Name = "txtFosfatasaAlcalina";
+            this.txtFosfatasaAlcalina.Size = new System.Drawing.Size(138, 28);
+            this.txtFosfatasaAlcalina.TabIndex = 148;
             // 
             // txtAmilasa
             // 
             this.txtAmilasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmilasa.Location = new System.Drawing.Point(607, 140);
+            this.txtAmilasa.Location = new System.Drawing.Point(529, 144);
             this.txtAmilasa.Name = "txtAmilasa";
             this.txtAmilasa.Size = new System.Drawing.Size(138, 28);
             this.txtAmilasa.TabIndex = 147;
@@ -1215,7 +1036,7 @@
             // txtBUN
             // 
             this.txtBUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBUN.Location = new System.Drawing.Point(135, 150);
+            this.txtBUN.Location = new System.Drawing.Point(114, 184);
             this.txtBUN.Name = "txtBUN";
             this.txtBUN.Size = new System.Drawing.Size(142, 28);
             this.txtBUN.TabIndex = 143;
@@ -1223,7 +1044,7 @@
             // txtCreatinina
             // 
             this.txtCreatinina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreatinina.Location = new System.Drawing.Point(133, 119);
+            this.txtCreatinina.Location = new System.Drawing.Point(112, 146);
             this.txtCreatinina.Name = "txtCreatinina";
             this.txtCreatinina.Size = new System.Drawing.Size(142, 28);
             this.txtCreatinina.TabIndex = 142;
@@ -1231,7 +1052,7 @@
             // txtUrea
             // 
             this.txtUrea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrea.Location = new System.Drawing.Point(133, 89);
+            this.txtUrea.Location = new System.Drawing.Point(110, 107);
             this.txtUrea.Name = "txtUrea";
             this.txtUrea.Size = new System.Drawing.Size(142, 28);
             this.txtUrea.TabIndex = 141;
@@ -1239,7 +1060,7 @@
             // txtHemoglobina
             // 
             this.txtHemoglobina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHemoglobina.Location = new System.Drawing.Point(133, 61);
+            this.txtHemoglobina.Location = new System.Drawing.Point(112, 71);
             this.txtHemoglobina.Name = "txtHemoglobina";
             this.txtHemoglobina.Size = new System.Drawing.Size(142, 28);
             this.txtHemoglobina.TabIndex = 140;
@@ -1247,7 +1068,7 @@
             // txtGlucosa
             // 
             this.txtGlucosa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGlucosa.Location = new System.Drawing.Point(133, 33);
+            this.txtGlucosa.Location = new System.Drawing.Point(112, 34);
             this.txtGlucosa.Name = "txtGlucosa";
             this.txtGlucosa.Size = new System.Drawing.Size(142, 28);
             this.txtGlucosa.TabIndex = 139;
@@ -1255,7 +1076,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button10.Location = new System.Drawing.Point(894, 147);
+            this.button10.Location = new System.Drawing.Point(783, 154);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(30, 23);
             this.button10.TabIndex = 132;
@@ -1265,7 +1086,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button9.Location = new System.Drawing.Point(894, 112);
+            this.button9.Location = new System.Drawing.Point(783, 121);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(30, 23);
             this.button9.TabIndex = 131;
@@ -1275,7 +1096,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button8.Location = new System.Drawing.Point(894, 74);
+            this.button8.Location = new System.Drawing.Point(783, 84);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(30, 23);
             this.button8.TabIndex = 130;
@@ -1285,7 +1106,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Location = new System.Drawing.Point(894, 34);
+            this.button7.Location = new System.Drawing.Point(783, 46);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(30, 23);
             this.button7.TabIndex = 129;
@@ -1295,7 +1116,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button6.Location = new System.Drawing.Point(413, 154);
+            this.button6.Location = new System.Drawing.Point(368, 183);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(30, 23);
             this.button6.TabIndex = 128;
@@ -1305,7 +1126,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(413, 125);
+            this.button5.Location = new System.Drawing.Point(368, 147);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(30, 23);
             this.button5.TabIndex = 127;
@@ -1315,7 +1136,7 @@
             // txtDirecta
             // 
             this.txtDirecta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirecta.Location = new System.Drawing.Point(607, 103);
+            this.txtDirecta.Location = new System.Drawing.Point(529, 107);
             this.txtDirecta.Name = "txtDirecta";
             this.txtDirecta.Size = new System.Drawing.Size(138, 28);
             this.txtDirecta.TabIndex = 146;
@@ -1323,7 +1144,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(413, 95);
+            this.button4.Location = new System.Drawing.Point(368, 108);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(30, 23);
             this.button4.TabIndex = 126;
@@ -1333,7 +1154,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(412, 64);
+            this.button3.Location = new System.Drawing.Point(368, 76);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(30, 23);
             this.button3.TabIndex = 125;
@@ -1343,7 +1164,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(412, 36);
+            this.button2.Location = new System.Drawing.Point(368, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 23);
             this.button2.TabIndex = 124;
@@ -1353,7 +1174,7 @@
             // txtBilirrubina
             // 
             this.txtBilirrubina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBilirrubina.Location = new System.Drawing.Point(607, 67);
+            this.txtBilirrubina.Location = new System.Drawing.Point(529, 71);
             this.txtBilirrubina.Name = "txtBilirrubina";
             this.txtBilirrubina.Size = new System.Drawing.Size(138, 28);
             this.txtBilirrubina.TabIndex = 145;
@@ -1371,25 +1192,26 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(463, 108);
+            this.label5.Location = new System.Drawing.Point(410, 110);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 20);
+            this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 20;
             this.label5.Text = "LDL";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(761, 113);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(675, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 20);
+            this.label6.Size = new System.Drawing.Size(106, 18);
             this.label6.TabIndex = 34;
             this.label6.Text = "50 - 140 mg/dL";
             // 
             // txtUrico
             // 
             this.txtUrico.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrico.Location = new System.Drawing.Point(607, 36);
+            this.txtUrico.Location = new System.Drawing.Point(529, 40);
             this.txtUrico.Name = "txtUrico";
             this.txtUrico.Size = new System.Drawing.Size(138, 28);
             this.txtUrico.TabIndex = 144;
@@ -1397,108 +1219,133 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(463, 69);
+            this.label1.Location = new System.Drawing.Point(410, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.Size = new System.Drawing.Size(38, 18);
             this.label1.TabIndex = 20;
             this.label1.Text = "HDL";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(765, 75);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(673, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 20);
+            this.label4.Size = new System.Drawing.Size(102, 18);
             this.label4.TabIndex = 34;
             this.label4.Text = "30 - 70  mg/dL";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(455, 41);
+            this.label16.Location = new System.Drawing.Point(410, 40);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(127, 20);
+            this.label16.Size = new System.Drawing.Size(113, 18);
             this.label16.TabIndex = 20;
             this.label16.Text = "Colesterol Total";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(282, 155);
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(261, 189);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(104, 20);
+            this.label26.Size = new System.Drawing.Size(90, 18);
             this.label26.TabIndex = 31;
             this.label26.Text = "6 - 22 mg/dL";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(751, 39);
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(673, 46);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(131, 20);
+            this.label29.Size = new System.Drawing.Size(114, 18);
             this.label29.TabIndex = 34;
             this.label29.Text = "150 - 200 mg/dL";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(281, 124);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(260, 151);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 20);
+            this.label9.Size = new System.Drawing.Size(106, 18);
             this.label9.TabIndex = 10;
             this.label9.Text = "0,6 - 1,3 mg/dL";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 155);
+            this.label15.Location = new System.Drawing.Point(5, 188);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 20);
+            this.label15.Size = new System.Drawing.Size(44, 18);
             this.label15.TabIndex = 18;
             this.label15.Text = "BUN ";
             // 
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(282, 66);
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(261, 76);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(89, 20);
+            this.label56.Size = new System.Drawing.Size(78, 18);
             this.label56.TabIndex = 43;
             this.label56.Text = "6,2 - 8,2 %";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(675, 194);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(90, 18);
+            this.label75.TabIndex = 58;
+            this.label75.Text = "5 - 35 mg/dL";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(282, 94);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(259, 112);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(113, 20);
+            this.label22.Size = new System.Drawing.Size(98, 18);
             this.label22.TabIndex = 27;
             this.label22.Text = "20 - 45 mg/dL";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(410, 152);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(72, 18);
+            this.label69.TabIndex = 50;
+            this.label69.Text = "VLDL - C ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 124);
+            this.label10.Location = new System.Drawing.Point(5, 150);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 20);
+            this.label10.Size = new System.Drawing.Size(78, 18);
             this.label10.TabIndex = 9;
             this.label10.Text = "Creatinina ";
             // 
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(5, 66);
+            this.label79.Location = new System.Drawing.Point(5, 75);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(119, 20);
+            this.label79.Size = new System.Drawing.Size(104, 18);
             this.label79.TabIndex = 41;
             this.label79.Text = "Hb Glicosilada";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 96);
+            this.label7.Location = new System.Drawing.Point(3, 113);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
+            this.label7.Size = new System.Drawing.Size(40, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "Urea";
             // 
@@ -1507,16 +1354,17 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(5, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.Size = new System.Drawing.Size(64, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Glucosa";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 36);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(260, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "75 - 115 mg/dL";
             // 
@@ -1533,25 +1381,25 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(765, 151);
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(675, 156);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(117, 20);
+            this.label32.Size = new System.Drawing.Size(102, 18);
             this.label32.TabIndex = 36;
             this.label32.Text = "30- 150 mg/dL";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(456, 145);
+            this.label31.Location = new System.Drawing.Point(410, 189);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(101, 20);
+            this.label31.Size = new System.Drawing.Size(88, 18);
             this.label31.TabIndex = 35;
             this.label31.Text = "Trigliceridos";
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.label18);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 219);
@@ -1589,6 +1437,29 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(988, 219);
             this.panel7.TabIndex = 152;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.Blue;
+            this.label77.Location = new System.Drawing.Point(35, 69);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(293, 66);
+            this.label77.TabIndex = 186;
+            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo\r\n   Cel.  62608447   Cel: 70374276\r\n          Co" +
+    "chabamba - Bolivia";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(414, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 185;
+            this.pictureBox1.TabStop = false;
             // 
             // lblEdad
             // 
@@ -1688,28 +1559,14 @@
             this.dtpFecha.TabIndex = 157;
             this.dtpFecha.Value = new System.DateTime(2025, 2, 16, 0, 0, 0, 0);
             // 
-            // pictureBox1
+            // panel4
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(414, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 113);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 185;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.ForeColor = System.Drawing.Color.Blue;
-            this.label77.Location = new System.Drawing.Point(35, 69);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(293, 66);
-            this.label77.TabIndex = 186;
-            this.label77.Text = "Av. Aroma No 383 esq. 25 de Mayo\r\n   Cel.  62608447   Cel: 70374276\r\n          Co" +
-    "chabamba - Bolivia";
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 898);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(988, 510);
+            this.panel4.TabIndex = 156;
             // 
             // Quimica
             // 
@@ -1725,14 +1582,11 @@
             this.Load += new System.EventHandler(this.Quimica_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelRight.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelCap.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1752,12 +1606,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel PanelCap;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtCalcio;
-        private System.Windows.Forms.TextBox txtCloro;
-        private System.Windows.Forms.TextBox txtPotasio;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label56;
@@ -1768,14 +1616,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtFosfatasaAcidaProstatica;
         private System.Windows.Forms.TextBox txtFosfatasaAcida;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtRelacion;
         private System.Windows.Forms.TextBox txtglobulina;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtAlbumina;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtProteina;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label64;
@@ -1787,12 +1632,9 @@
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label39;
@@ -1801,7 +1643,6 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label5;
@@ -1868,17 +1709,12 @@
         private System.Windows.Forms.TextBox txtUrico;
         private System.Windows.Forms.TextBox txtCPK;
         private System.Windows.Forms.TextBox txtCKMB;
-        private System.Windows.Forms.TextBox txtTrigliceridos;
-        private System.Windows.Forms.TextBox txtLDL;
-        private System.Windows.Forms.TextBox txtHDL;
+        private System.Windows.Forms.TextBox txtag;
         private System.Windows.Forms.TextBox txtColesterol;
-        private System.Windows.Forms.TextBox txtSodio;
-        private System.Windows.Forms.TextBox txtFosfatasaAlcalina;
         private System.Windows.Forms.TextBox txtAmilasa;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
@@ -1893,5 +1729,8 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.TextBox txtFosfatasaAlcalina;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Panel panel4;
     }
 }
